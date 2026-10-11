@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>复古报纸黑墨双联样张</title>
+<style>
+body{margin:0;background:#0a0908;color:#efe9d6;font-family:'Playfair Display','Noto Serif SC','Songti SC',serif}
+.w{max-width:620px;margin:0 auto;padding:52px 18px 28px}
+.mast{display:flex;justify-content:space-between;align-items:baseline;border-top:4px solid #efe9d6;border-bottom:4px solid #efe9d6;padding:9px 2px;margin-bottom:14px}
+.mast .l{font-family:'Playfair Display',serif;font-weight:900;font-size:14px;letter-spacing:.34em}
+.mast .r{font-family:'Courier New',monospace;font-size:10.5px;letter-spacing:.24em;color:#8a8577}
+.pan{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
+.pane{padding:16px 16px 18px;position:relative;box-shadow:8px 8px 0 rgba(0,0,0,.4)}
+.pane.dark{background:#0a0908;color:#efe9d6;border:1px solid #efe9d6}
+.pane.light{background:#efe9d6;color:#0a0908}
+.pane .kick{font-family:'Playfair Display',serif;font-weight:900;font-size:44px;line-height:.95;margin-bottom:8px;letter-spacing:.02em}
+.pane .kick.sm{font-size:34px;letter-spacing:.04em}
+.pane h3{font-size:11px;font-family:'Courier New',monospace;letter-spacing:.24em;margin:0 0 10px;opacity:.75}
+.pane p{font-size:12px;line-height:1.75;margin:0 0 8px;text-align:justify;column-count:2;column-gap:12px;column-rule:1px solid rgba(128,128,128,.4)}
+.pane p:first-of-type::first-letter{font-size:2.6em;float:left;line-height:.9;padding:3px 6px 0 0;font-weight:900}
+.pane ul{margin:0;padding:0;list-style:none;font-size:11px;column-count:2;column-gap:14px}
+.pane li{margin-bottom:4px;padding-left:10px;position:relative;line-height:1.55}
+.pane li::before{content:"";position:absolute;left:0;top:6px;width:5px;height:5px;background:#0a0908}
+.pane.light li::before{background:#0a0908}
+.pane.dark li::before{background:#efe9d6}
+.pane .stamp{position:absolute;top:12px;right:14px;font-family:'Playfair Display',serif;font-weight:900;font-size:16px;padding:3px 8px;border:2px solid currentColor;letter-spacing:.14em;transform:rotate(-4deg)}
+.mid{display:flex;align-items:center;gap:10px;margin:16px 0 12px}
+.mid .line{flex:1;height:1px;background:rgba(239,233,214,.25)}
+.mid span{font-family:'Courier New',monospace;font-size:10px;letter-spacing:.28em;color:#8a8577}
+.foot{margin-top:12px;display:flex;justify-content:space-between;font-family:'Courier New',monospace;font-size:10.5px;color:#8a8577;letter-spacing:.2em;border-top:2px double #efe9d6;padding-top:8px}
+.cr{text-align:center;font-size:10px;color:#5a574d;margin-top:12px;letter-spacing:.14em;font-family:'Courier New',monospace}
+</style>
+</head>
+<body>
+<div class="w">
+<div class="mast"><span class="l">BLACK INK · DOUBLE</span><span class="r">0-2 · 09/26</span></div>
+<div class="pan">
+<div class="pane dark">
+<span class="stamp">A</span>
+<h3>SECTION · 版面 · 一</h3>
+<div class="kick" id="kickA"></div>
+<p id="bodyA"></p>
+</div>
+<div class="pane light">
+<span class="stamp">B</span>
+<h3>SECTION · 版面 · 二</h3>
+<div class="kick sm" id="kickB"></div>
+<ul id="itemsB"></ul>
+</div>
+</div>
+<div class="mid"><span class="line"></span><span>· 双 · 联 ·</span><span class="line"></span></div>
+<div class="foot"><span>P.02 · INK-DOUBLE</span><span>INFORM! INFORM! INFORM!</span></div>
+<div class="cr">风格指令 · video-shot-demos · 复古报纸黑墨双联（风格卡 0-2）</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":620},"stateSchema":{"type":"object","properties":{"a":{"type":"object","properties":{"kick":{"type":"string"},"body":{"type":"string"}}},"b":{"type":"object","properties":{"kick":{"type":"string"},"items":{"type":"array","items":{"type":"string"}}}},"title":{"type":"string","description":"主标题（必填）"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "a": {
+    "kick": "墨。",
+    "body": "先立骨架，再填血肉。结构对了，文案自己会找到位置。"
+  },
+  "b": {
+    "kick": "光。",
+    "items": [
+      "对撞 · 黑白",
+      "双栏 · 并置",
+      "首字下沉",
+      "粗描边框"
+    ]
+  },
+  "titleA": "结构先行",
+  "titleB": "配色随后",
+  "bodyA": "把复杂留给自己，把清楚留给别人。",
+  "bodyB": "删掉的那一半，才是最难的一半。"
+}
+</script>
+<script>
+(function(){
+  var DEFAULTS={a:{kick:'墨。',body:'一段静默的墨。'},b:{kick:'光。',items:['一 · 光','二 · 影']}};
+  function str(v){
+    if(v==null) return '';
+    if(typeof v==='string') return v;
+    if(typeof v==='number'||typeof v==='boolean') return String(v);
+    if(Array.isArray(v)) return v.map(str).filter(Boolean).join(' ');
+    return '';
+  }
+  function put(id, v, allowHtml){
+    var el=document.getElementById(id);
+    if(!el) return;
+    var s=str(v);
+    if(!allowHtml || !/<[a-z]/i.test(s)) el.textContent=s;
+    else el.innerHTML=s;
+  }
+  function items(v, max){
+    if(!Array.isArray(v)) return [];
+    var a=[];
+    var cap=max||6;
+    for(var i=0;i<v.length && i<cap;i++){
+      var x=v[i];
+      if(x==null) continue;
+      var s;
+      if(typeof x==='string'||typeof x==='number'||typeof x==='boolean') s=str(x);
+      else if(typeof x==='object' && !Array.isArray(x)){
+        s=str(x.text!=null?x.text:(x.body!=null?x.body:(x.content!=null?x.content:(x.label!=null?x.label:(x.name!=null?x.name:x.tag!=null?x.tag:x)))));
+      } else continue;
+      if(s!=='') a.push(s);
+    }
+    return a;
+  }
+  var sEl=document.querySelector('script[data-card-state]');
+  var S=Object.assign({}, DEFAULTS, DEFAULTS.a?{}:{}, DEFAULTS.b?{}:{});
+  // deep default merge for a/b
+  function mergeDeep(a,b){
+    if(b && typeof b==='object' && !Array.isArray(b) && a && typeof a==='object' && !Array.isArray(a)){
+      var r=Object.assign({},a);
+      for(var k in b) r[k]=mergeDeep(a[k], b[k]);
+      return r;
+    }
+    return b==null?a:b;
+  }
+  S=Object.assign({}, DEFAULTS);
+  if(sEl){
+    try{
+      var u=JSON.parse(sEl.textContent);
+      if(u && typeof u==='object' && !Array.isArray(u)){
+        for(var k in u) S[k]=u[k];
+        if(u.a && typeof u.a==='object') S.a=Object.assign({}, DEFAULTS.a, u.a);
+        if(u.b && typeof u.b==='object') S.b=Object.assign({}, DEFAULTS.b, u.b);
+      }
+    }catch(e){}
+  }
+  put('kickA', S.title || S.titleA || S.a.kick);
+  put('bodyA', S.body || S.bodyA || S.a.body);
+  put('kickB', S.titleB || S.b.kick);
+  var ul=document.getElementById('itemsB');
+  if(ul){
+    var its=items(S.b.items, 8);
+    var html='';
+    for(var i=0;i<its.length;i++) html+='<li>'+its[i].replace(/([^\n])(\n+)/g,'$1<br>')+'</li>';
+    ul.innerHTML=html;
+  }
+})();
+</script>
+</body>
+</html>

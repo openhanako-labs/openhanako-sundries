@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>集换式卡牌卡册样张</title>
+<style>
+body{margin:0;background:#1a1626;color:#e8dcff;font-family:'Bungee','Arial Black','Noto Sans SC',sans-serif}
+.w{max-width:600px;margin:0 auto;padding:52px 18px 28px}
+.head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px;border-bottom:2px solid rgba(255,210,140,.4);padding-bottom:8px}
+.head h1{font-family:'Bungee','Arial Black',sans-serif;font-size:26px;margin:0;letter-spacing:.06em;color:#ffd58a}
+.head .zh{font-family:'ZCOOL KuaiLe','Microsoft YaHei',cursive;font-size:16px;color:#c9b58c;margin-left:10px;letter-spacing:.1em}
+.head .r{font-family:'Courier New',monospace;font-size:11px;color:#8a7aa8;letter-spacing:.2em}
+.binder{position:relative;background:linear-gradient(180deg,#3a2a4a 0%,#28193a 100%);border-radius:10px;padding:16px;box-shadow:0 12px 26px rgba(0,0,0,.55),inset 0 0 22px rgba(0,0,0,.55)}
+.binder::before{content:"";position:absolute;left:8px;top:8px;bottom:8px;width:6px;background:rgba(0,0,0,.35);border-radius:3px;box-shadow:inset -2px 0 4px rgba(0,0,0,.5)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.slot{position:relative;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:8px 8px 10px;min-height:96px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.slot .idx{position:absolute;top:4px;right:6px;font-family:'Courier New',monospace;font-size:9px;color:rgba(255,255,255,.35);letter-spacing:.1em}
+.slot .nm{font-family:'Bungee','Arial Black',sans-serif;font-size:12px;letter-spacing:.06em;color:#e8dcff;line-height:1.2;padding-top:2px}
+.slot .lb{font-family:'ZCOOL KuaiLe','Microsoft YaHei',cursive;font-size:11px;color:#a895c8;letter-spacing:.04em}
+.slot .glyph{align-self:center;color:rgba(255,213,138,.4)}
+.slot.g1{background:linear-gradient(160deg,#5c3418,#2a1708)}
+.slot.g2{background:linear-gradient(160deg,#183a4a,#08181f)}
+.slot.g3{background:linear-gradient(160deg,#4a1838,#180814)}
+.slot.g4{background:linear-gradient(160deg,#184a2a,#081812)}
+.slot.g5{background:linear-gradient(160deg,#4a3a18,#1a1408)}
+.slot.g6{background:linear-gradient(160deg,#182a4a,#080e18)}
+.slot.g7{background:linear-gradient(160deg,#4a1818,#180808)}
+.slot.g8{background:linear-gradient(160deg,#184a4a,#081818)}
+.slot.shiny{background:linear-gradient(140deg,#c9a44c,#8a6a2c 40%,#f4d890 60%,#8a6a2c 90%);border:1px solid #ffe0a0;box-shadow:0 0 20px rgba(255,213,140,.4),0 4px 10px rgba(0,0,0,.5);position:relative;overflow:hidden}
+.slot.shiny .nm{color:#3a2a08}
+.slot.shiny .lb{color:#5a4210}
+.slot.shiny .idx{color:rgba(58,42,8,.6)}
+.slot.shiny .glyph{color:rgba(58,42,8,.4)}
+.slot.shiny::after{content:"";position:absolute;top:-20%;left:-40%;width:60%;height:160%;background:linear-gradient(75deg,transparent 30%,rgba(255,255,255,.7) 45%,rgba(255,255,255,.9) 50%,rgba(255,255,255,.7) 55%,transparent 70%);transform:rotate(0deg);animation:sweep 3.6s linear infinite}
+@keyframes sweep{0%{transform:translateX(-40%) rotate(0deg)}100%{transform:translateX(320%) rotate(0deg)}}
+.count{display:flex;justify-content:space-between;margin-top:14px;font-family:'Courier New',monospace;font-size:10.5px;color:#8a7aa8;letter-spacing:.22em}
+.count b{color:#ffd58a;font-weight:700}
+.cr{text-align:center;font-size:10px;color:#5c4e70;margin-top:12px;letter-spacing:.14em}
+</style>
+</head>
+<body>
+<div class="w">
+<div class="head">
+<div><h1>BINDER</h1><span class="zh">· 种 子 卡 册 ·</span></div>
+<span class="r">4-5 · VOL.01</span>
+</div>
+<div class="binder">
+<div class="grid">
+<div class="slot g1"><span class="idx">01</span><div class="nm">SEED<br>起源</div><span class="lb">种子 01 · 起点</span></div>
+<div class="slot g2"><span class="idx">02</span><div class="nm">DRAFT<br>草稿</div><span class="lb">种子 02 · 草稿</span></div>
+<div class="slot g3"><span class="idx">03</span><div class="nm">EDIT<br>修订</div><span class="lb">种子 03 · 修订</span></div>
+<div class="slot shiny"><span class="idx">04</span><div class="nm">DATA<br>数据</div><span class="lb">★ 闪卡 04 · 数据之种</span></div>
+<div class="slot g5"><span class="idx">05</span><div class="nm">FACT<br>事实</div><span class="lb">种子 05 · 事实</span></div>
+<div class="slot g6"><span class="idx">06</span><div class="nm">CASE<br>案例</div><span class="lb">种子 06 · 案例</span></div>
+<div class="slot g7"><span class="idx">07</span><div class="nm">REFL<br>反思</div><span class="lb">种子 07 · 反思</span></div>
+<div class="slot g8"><span class="idx">08</span><div class="nm">SPARK<br>灵感</div><span class="lb">种子 08 · 灵感</span></div>
+<div class="slot g4"><span class="idx">09</span><div class="nm">SHIP<br>交付</div><span class="lb">种子 09 · 交付</span></div>
+</div>
+</div>
+<div class="count"><span>COLLECTED · <b>9 / 26</b></span><span>SHINY · 01</span></div>
+<div class="cr">风格指令 · video-shot-demos · 集换式卡牌卡册（风格卡 4-5）</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":600},"stateSchema":{"type":"object","properties":{"title":{"type":"string","description":"卡册英文标题"},"subtitle":{"type":"string","description":"中文副标题"},"volume":{"type":"string","description":"卷号"},"items":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string","description":"卡片英文"},"zh":{"type":"string","description":"中文"},"label":{"type":"string","description":"卡片描述"},"color":{"type":"string","description":"g1..g8"},"shiny":{"type":"string","description":"true 表示闪卡"}}},"description":"九宫格卡槽（固定 9）"},"collected":{"type":"string","description":"已收集"},"shiny_count":{"type":"string","description":"闪卡数"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "title": "BINDER",
+  "subtitle": "COLLECTION · 第一册",
+  "volume": "VOL. 01",
+  "items": [
+    {
+      "name": "SEED",
+      "zh": "起源",
+      "label": "种子 01 · 起点",
+      "color": "g1"
+    },
+    {
+      "name": "DRAFT",
+      "zh": "草稿",
+      "label": "种子 02 · 草稿",
+      "color": "g2"
+    },
+    {
+      "name": "EDIT",
+      "zh": "修订",
+      "label": "种子 03 · 修订",
+      "color": "g3"
+    },
+    {
+      "name": "DATA",
+      "zh": "数据",
+      "label": "COLLECTION · 第一册",
+      "shiny": true
+    },
+    {
+      "name": "FACT",
+      "zh": "事实",
+      "label": "种子 05 · 事实",
+      "color": "g5"
+    },
+    {
+      "name": "CASE",
+      "zh": "案例",
+      "label": "种子 06 · 案例",
+      "color": "g6"
+    },
+    {
+      "name": "REFL",
+      "zh": "反思",
+      "label": "种子 07 · 反思",
+      "color": "g7"
+    },
+    {
+      "name": "SPARK",
+      "zh": "灵感",
+      "label": "种子 08 · 灵感",
+      "color": "g8"
+    },
+    {
+      "name": "SHIP",
+      "zh": "交付",
+      "label": "种子 09 · 交付",
+      "color": "g4"
+    }
+  ],
+  "collected": "9 / 26",
+  "shiny_count": "01",
+  "body": "COLLECTION · 第一册"
+}
+</script>
+<script id="__card_render__">
+(function(){
+  function readState(){var d=null;try{var s=document.querySelector('script[data-card-state]');if(s)d=JSON.parse(s.textContent);}catch(e){}return d;
+  }
+  function s(v,d){if(v===undefined||v===null)return d;if(typeof v==="string"){v=v.trim();return v===''?d:v;}return String(v);}
+  function arr(v,n){if(!Array.isArray(v))return [];var o=[];for(var i=0;i<v.length&&o.length<n;i++){var x=v[i];if(x&&typeof x==="object"&&!Array.isArray(x))o.push(x);}return o;}
+  function e(v,d){var x=s(v,d);if(x===d)return d;return String(x).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+  var S=readState(); if(!S)return; try{
+    var DEFAULTS={title:'',body:''};
+    S=Object.assign({},DEFAULTS,S);if(S.body){if(S.title)S.title=S.title+'\n'+S.body;else S.title=S.body;}
+
+if(S.title){var e1=document.querySelector(".head h1");if(e1)e1.textContent=s(S.title,e1.textContent);}
+if(S.subtitle){var e2=document.querySelector(".head .zh");if(e2)e2.textContent=s(S.subtitle,e2.textContent);}
+if(S.volume){var e3=document.querySelector(".head .r");if(e3)e3.textContent=s(S.volume,e3.textContent);}
+var gcolors=["g1","g2","g3","","g5","g6","g7","g8","g4"];
+var it=arr(S.items||S.list||S.rows,9);
+var slots=document.querySelectorAll(".grid > .slot");
+for(var i=0;i<slots.length;i++){var x=it[i];if(!x)continue;var se=slots[i];var idx=String(i+1).padStart(2,"0");var en=s(x.name||x.text||"");var zh=s(x.zh||"");var lb=s(x.label||x.lb||"");var cls=x.color||gcolors[i]||"";se.className="slot "+cls+(x.shiny?" shiny":"");var seid=se.querySelector(".idx");if(seid)seid.textContent=idx;var seN=se.querySelector(".nm");if(seN)seN.innerHTML=e(en)+(zh?"<br>"+e(zh):"");var seL=se.querySelector(".lb");if(seL)seL.textContent=lb;}
+var b1=document.querySelectorAll(".count b");
+if(b1[0]&&S.collected)b1[0].textContent=s(S.collected,b1[0].textContent);
+if(b1[1]&&S.shiny_count)b1[1].textContent=s(S.shiny_count,b1[1].textContent);
+}catch(err){console.error("[card] render error:",err);} })();
+</script>
+</body>
+</html>

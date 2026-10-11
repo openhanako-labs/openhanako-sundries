@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>瑞士国际主义样张</title>
+<style>
+body{margin:0;background:#F5F5F5;font-family:'Inter','Helvetica Neue',Helvetica,'Noto Sans SC','Microsoft YaHei',sans-serif;color:#111}
+.s{max-width:680px;margin:0 auto;min-height:440px;background:#fff;padding:48px 28px 24px;position:relative;overflow:hidden;background-image:repeating-linear-gradient(0deg,#F1F1F1 0 1px,transparent 1px 34px),repeating-linear-gradient(90deg,#F1F1F1 0 1px,transparent 1px 34px)}
+.dots{position:absolute;inset:0;background-image:radial-gradient(#E6E6E6 1px,transparent 1.2px);background-size:17px 17px;pointer-events:none;opacity:.55}
+.meta{display:flex;justify-content:space-between;font-size:10px;letter-spacing:.22em;text-transform:uppercase;position:relative;color:#111}
+.red{width:104px;height:14px;background:#E30613;margin:26px 0 18px;position:relative}
+.h{font-size:clamp(46px,10vw,74px);font-weight:800;letter-spacing:-.03em;line-height:.96;position:relative}
+.en{font-size:12px;letter-spacing:.3em;font-weight:700;color:#E30613;margin-top:12px;position:relative;text-transform:uppercase}
+.rule{border:none;border-top:2px solid #111;margin:24px 0 14px;position:relative}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;position:relative}
+.lbl{font-size:9px;letter-spacing:.2em;color:#8A8A8A;text-transform:uppercase;margin-bottom:5px}
+.val{font-size:13px;font-weight:600;line-height:1.4}
+.num{position:absolute;right:22px;bottom:12px;font-size:110px;font-weight:800;color:#F0F0F0;line-height:1;z-index:0;letter-spacing:-.05em}
+.ft{position:absolute;left:28px;bottom:20px;font-size:10px;letter-spacing:.18em;color:#111;font-family:Consolas,monospace}
+</style>
+</head>
+<body>
+<div class="s">
+  <div class="dots"></div>
+  <div class="num">01</div>
+  <div class="meta"><span>ppt-tools / 风格 B</span><span>grid 34</span></div>
+  <div class="red"></div>
+  <div id="__L02_title__" class="h">瑞士<br>国际主义</div>
+  <div id="__L02_subtitle__" class="en">Swiss style — form follows grid</div>
+  <hr class="rule">
+  <div class="cols">
+    <div><div class="lbl">type</div><div class="val">全程无衬线</div></div>
+    <div><div class="lbl">contrast</div><div class="val">极致字号差</div></div>
+    <div><div class="lbl">ground</div><div class="val">细网格 + 点阵</div></div>
+  </div>
+  <div class="ft">01 / 06 — STYLE SAMPLE</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":680},"stateSchema":{"type":"object","properties":{"title":{"type":"string","description":"主标题"},"subtitle":{"type":"string","description":"英文副题"},"items":{"type":"array","items":{"type":"object","properties":{"label":{"type":"string","description":"字段标签"},"value":{"type":"string","description":"字段值"}}},"description":"3 列字段"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "title": "瑞士<br>国际主义",
+  "subtitle": "Swiss style — form follows grid",
+  "items": [
+    {
+      "label": "type",
+      "value": "全程无衬线"
+    },
+    {
+      "label": "contrast",
+      "value": "极致字号差"
+    },
+    {
+      "label": "ground",
+      "value": "细网格 + 点阵"
+    }
+  ],
+  "body": "Swiss style — form follows grid"
+}
+</script>
+
+
+
+<script id="__card_render__">
+(function(){
+  function readState(){var d=null;try{var s=document.querySelector('script[data-card-state]');if(s)d=JSON.parse(s.textContent);}catch(e){}return d;
+  }
+  function s(v,d){if(v===undefined||v===null)return d;if(typeof v==="string"){v=v.trim();return v===''?d:v;}return String(v);}
+  function arr(v,n){if(!Array.isArray(v))return [];var o=[];for(var i=0;i<v.length&&o.length<n;i++){var x=v[i];if(x&&typeof x==="object"&&!Array.isArray(x))o.push(x);}return o;}
+  function esc(v,d){var x=s(v,d);if(x===d)return d;return String(x).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+  var S=readState(); if(!S)return; try{
+    var tEl=document.querySelector("[id=__L02_title__]");
+    if(tEl&&S.title)tEl.innerHTML=esc(S.title,tEl.innerHTML);
+    var sEl=document.querySelector("[id=__L02_subtitle__]");
+    if(sEl)sEl.textContent=s(S.body||S.subtitle||'',sEl.textContent);
+    var it=arr(S.items||S.list||S.rows,3);
+    var cells=document.querySelectorAll(".cols > div");
+    for(var i=0;i<3;i++){var c=cells[i];var x=it[i];if(!c||!x)continue;var lbl=c.querySelector(".lbl");var val=c.querySelector(".val");if(lbl)lbl.textContent=s(x.label||x.name||"");if(val)val.textContent=s(x.value||x.text||"");}
+  }catch(err){console.error("[card] render error:",err);} })();
+</script>
+</body>
+</html>

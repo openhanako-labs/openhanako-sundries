@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>紫色渐变样张</title>
+<style>
+body{margin:0;background:#F7F4FB;color:#3B2A5E;font-family:'Segoe UI','Noto Sans SC',sans-serif}
+.c{max-width:600px;margin:0 auto;padding:56px 18px 26px;text-align:center}
+.orb{width:74px;height:74px;margin:0 auto 18px;border-radius:50%;background:linear-gradient(135deg,#6D28D9,#A78BFA);box-shadow:0 12px 28px rgba(109,40,217,.35)}
+.lb{font-size:10px;letter-spacing:.34em;color:#8B7BB8}
+.h{font-size:2rem;font-weight:800;margin:10px 0 6px;background:linear-gradient(90deg,#6D28D9,#A78BFA);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{font-size:13px;color:#7A6BA0;letter-spacing:.1em}
+.ramp{height:44px;border-radius:10px;margin:24px 0 14px;background:linear-gradient(90deg,#6D28D9,#8B5CF6,#A78BFA,#C4B5FD)}
+.hex{display:flex;justify-content:center;gap:14px;font-family:Consolas,monospace;font-size:11px;color:#8B7BB8}
+.cr{font-family:Consolas,monospace;font-size:10px;color:#A99CC9;text-align:center;margin-top:26px;letter-spacing:.12em}
+</style>
+</head>
+<body>
+<div class="c">
+  <div class="orb"></div>
+  <div class="lb">STYLE // PURPLE</div>
+  <div class="h" id="title"></div>
+  <div class="sub" id="subtitle"></div>
+  <div class="ramp"></div>
+  <div class="hex"><span>#6D28D9</span><span>#8B5CF6</span><span>#A78BFA</span><span>#C4B5FD</span></div>
+  <div class="cr">风格指令 · design-media · SVG 风格表 purple</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":600},"stateSchema":{"type":"object","properties":{"title":{"type":"string","description":"色卡主标题"},"subtitle":{"type":"string","description":"一句话风格说明"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "title": "紫色渐变",
+  "subtitle": "深紫 · 神秘但不压抑",
+  "body": "深紫 · 神秘但不压抑"
+}
+</script>
+<script>
+(function(){
+var D={title:'Sample Title',subtitle:'Sample subtitle'};
+function str(v){if(v==null)return'';if(typeof v==='string')return v;if(typeof v==='number'||typeof v==='boolean')return String(v);if(Array.isArray(v))return v.map(str).filter(Boolean).join(' ');return'';}
+function pick(o){if(!o||typeof o!=='object'||Array.isArray(o))return null;var a=arguments;for(var i=1;i<a.length;i++){var k=a[i];if(Object.prototype.hasOwnProperty.call(o,k)&&str(o[k])!=='')return o[k];}return null;}
+function put(id,v){var el=document.getElementById(id);if(el)el.textContent=str(v);}
+var sEl=document.querySelector('script[data-card-state]');
+var S=Object.assign({},D);
+if(sEl){try{var u=JSON.parse(sEl.textContent);if(u&&typeof u==='object'&&!Array.isArray(u))for(var k in u)S[k]=u[k];}catch(e){}}
+put('title',pick(S,'title','heading'));
+put('subtitle',pick(S,'body','subtitle','desc'));
+})();
+</script>
+</body>
+</html>

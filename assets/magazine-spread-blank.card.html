@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>杂志跨页样张</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#1e1c1a;color:#0a0a0a;font-family:'Playfair Display','Georgia','Noto Serif SC',serif;-webkit-font-smoothing:antialiased}
+  .w{max-width:640px;margin:0 auto;padding:48px 18px 26px}
+  .spread{background:#fbfaf6;border:1px solid #d8d5cd;box-shadow:8px 8px 0 rgba(0,0,0,.35);position:relative;padding:22px 0 20px}
+
+  /* 顶部页眉 */
+  .hdr{display:flex;justify-content:space-between;align-items:baseline;padding:0 22px 10px;border-bottom:1px solid #0a0a0a;font-size:10px;letter-spacing:4px;font-family:'Courier New',monospace}
+  .hdr b{letter-spacing:6px;font-weight:900}
+
+  .pages{display:grid;grid-template-columns:1fr 1fr;min-height:340px}
+  .pg{padding:14px 20px 12px;position:relative}
+  .pg.r{border-left:1px solid #0a0a0a}
+
+  /* 左页：大 hero */
+  .hero{height:186px;background:linear-gradient(135deg,#0a3d5c 0%,#1e6a8f 40%,#f4c95d 100%);position:relative;overflow:hidden;box-shadow:6px 6px 0 rgba(0,0,0,.22)}
+  .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 30% 70%,rgba(255,255,255,.25),transparent 55%)}
+  .hero .fig{position:absolute;left:14px;bottom:12px;color:#fff;font-family:'Courier New',monospace;font-size:9px;letter-spacing:2px;z-index:2;text-shadow:0 1px 2px rgba(0,0,0,.4)}
+  .hero .fig b{display:block;font-family:'Playfair Display',Georgia,serif;font-size:14px;letter-spacing:1px;font-weight:900;margin-top:2px}
+
+  /* 右页：跨页大标题 + 正文 */
+  .rtop{display:flex;justify-content:space-between;align-items:baseline;padding:0 0 6px;border-bottom:1px solid #0a0a0a;margin-bottom:8px}
+  .rtop .k{font-family:'Courier New',monospace;font-size:9px;letter-spacing:3px}
+  .rtop .n{font-family:'Playfair Display',Georgia,serif;font-size:28px;font-weight:900;line-height:1}
+
+  .r h1{margin:6px 0 4px;font-size:34px;font-weight:900;letter-spacing:-.5px;line-height:.98;color:#0a0a0a}
+  .r h1 .it{font-style:italic;color:#c9553b}
+  .r h2{margin:0 0 8px;font-size:10.5px;letter-spacing:3.5px;color:#c9553b;font-weight:700;font-family:'Courier New',monospace}
+  .r .lead{font-size:12.5px;line-height:1.65;color:#1a1a1a;text-align:justify;font-family:'Playfair Display','Noto Serif SC',Georgia,serif}
+  .r .lead::first-letter{font-family:'Playfair Display',Georgia,serif;font-size:44px;font-weight:900;float:left;line-height:.85;padding:4px 8px 0 0;color:#0a3d5c}
+
+  /* 底栏 */
+  .lft{margin-top:10px;display:flex;justify-content:space-between;align-items:flex-end;border-top:2px solid #0a0a0a;padding-top:8px}
+  .lft .p{font-family:'Courier New',monospace;font-size:9px;letter-spacing:2px}
+  .lft .p b{font-family:'Playfair Display',Georgia,serif;font-size:16px;font-weight:900;letter-spacing:0;display:block;line-height:1}
+  .lft .rule{flex:1;margin:0 12px;border-top:1px dotted #0a0a0a;height:0}
+  .lft .q{max-width:220px;font-family:'Playfair Display',Georgia,serif;font-size:10.5px;font-style:italic;color:#3a3a3a;line-height:1.4}
+  .lft .q b{font-style:normal;color:#c9553b;letter-spacing:2px;font-family:'Courier New',monospace;font-size:9px;display:block;margin-top:2px}
+
+  .cr{margin-top:14px;font-size:10px;letter-spacing:1.5px;color:#d8d5cd;font-family:'Courier New',monospace;text-align:left}
+</style>
+</head>
+<body>
+<div class="w">
+  <div class="spread">
+    <div class="hdr">
+      <span><b>风格</b> MAGAZINE · SPREAD</span>
+      <span id="hdrIssue"></span>
+      <span id="hdrDate"></span>
+    </div>
+    <div class="pages">
+      <div class="pg l">
+        <div class="hero">
+          <div class="fig"><span id="figTag"></span><b id="figTitle"></b></div>
+        </div>
+        <div class="lft">
+          <div class="p">ISSUE<b id="issueNum"></b><span id="issueDate"></span></div>
+          <div class="rule"></div>
+          <div class="q" id="pullQuote"></div>
+        </div>
+      </div>
+      <div class="pg r">
+        <div class="rtop"><span class="k" id="featKicker"></span><span class="n">—</span></div>
+        <h2 id="featSub"></h2>
+        <h1 id="featTitle"></h1>
+        <p class="lead" id="lead"></p>
+      </div>
+    </div>
+  </div>
+  <div class="cr">风格指令 · video-shot-demos · 杂志跨页（风格卡 3-1）</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":640},"stateSchema":{"type":"object","properties":{"issue":{"type":"string"},"dateRange":{"type":"string"},"figTag":{"type":"string"},"figTitle":{"type":"string"},"issueNum":{"type":"string"},"issueDate":{"type":"string"},"pullQuote":{"type":"string"},"featureKicker":{"type":"string"},"featureSub":{"type":"string"},"headline":{"type":"string","description":"可含 <br> 与 <span class='it'>"},"lead":{"type":"string"},"title":{"type":"string","description":"主标题（必填）"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "issue": "ISSUE 03",
+  "dateRange": "P.016—017",
+  "figTag": "FIG.01",
+  "figTitle": "转折的时刻",
+  "issueNum": "03",
+  "issueDate": "SEP·2026",
+  "pullQuote": "删掉的那一半，才是最难的一半。",
+  "featureKicker": "专题",
+  "featureSub": "关于删减",
+  "headline": "把版面还给内容",
+  "lead": "十二张样张，三种删法。",
+  "title": "把版面还给内容",
+  "body": "十二张样张，三种删法。"
+}
+</script>
+<script>
+(function(){
+  var DEFAULTS={issue:'ISSUE 01',dateRange:'P.001—002',figTag:'FIG.01',figTitle:'Title',issueNum:'01',issueDate:'MON·2026',pullQuote:'「引文',featureKicker:'FEATURE · 01',featureSub:'FEATURE · Sub',headline:'标题',lead:'正文段落。'};
+  function str(v){
+    if(v==null) return '';
+    if(typeof v==='string') return v;
+    if(typeof v==='number'||typeof v==='boolean') return String(v);
+    if(Array.isArray(v)) return v.map(str).filter(Boolean).join(' ');
+    return '';
+  }
+  function put(id, v, allowHtml){
+    var el=document.getElementById(id);
+    if(!el) return;
+    var s=str(v);
+    if(!allowHtml || !/<[a-z]/i.test(s)) el.textContent=s;
+    else el.innerHTML=s;
+  }
+  var sEl=document.querySelector('script[data-card-state]');
+  var S=Object.assign({}, DEFAULTS);
+  if(sEl){
+    try{
+      var u=JSON.parse(sEl.textContent);
+      if(u && typeof u==='object' && !Array.isArray(u)){
+        for(var k in u) S[k]=u[k];
+      }
+    }catch(e){}
+  }
+  put('hdrIssue', S.issue);
+  put('hdrDate', S.dateRange);
+  put('figTag', S.figTag);
+  put('figTitle', S.figTitle);
+  put('issueNum', S.issueNum);
+  put('issueDate', S.issueDate);
+  put('pullQuote', S.pullQuote);
+  put('featKicker', S.featureKicker);
+  put('featSub', S.featureSub);
+  put('featTitle', (S.title||S.headline||''), true);
+  put('lead', (S.body||S.lead||''));
+})();
+</script>
+</body>
+</html>

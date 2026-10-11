@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>学霸笔记本样张</title>
+<style>
+body{margin:0;background:#E4DAC2;font-family:'Kalam','Patrick Hand','Kaiti SC','KaiTi','STKaiti',cursive;color:#3B3427}
+.pg{max-width:560px;margin:0 auto;padding:52px 14px 24px;position:relative}
+.paper{position:relative;background:#FBF6E3;border-radius:8px;padding:20px 22px 24px 60px;box-shadow:0 10px 26px rgba(90,70,40,.28);background-image:repeating-linear-gradient(0deg,transparent 0 27px,#DFD5B8 27px 28px);background-position:0 12px}
+.holes{position:absolute;left:14px;top:14px;bottom:14px;width:30px;display:flex;flex-direction:column;justify-content:space-around;align-items:center}
+.hole{width:17px;height:17px;border-radius:50%;background:#E4DAC2;box-shadow:inset 0 2px 3px rgba(80,60,30,.45),0 1px 0 rgba(255,255,255,.7)}
+.tape{position:absolute;top:-12px;right:34px;width:96px;height:26px;background:rgba(244,232,178,.85);transform:rotate(5deg);box-shadow:0 2px 5px rgba(90,70,40,.25)}
+.ring{position:absolute;right:-14px;bottom:34px;width:62px;height:62px;border-radius:50%;border:7px solid rgba(150,95,50,.22)}
+.h1{font-size:1.5rem;margin:2px 0 14px;display:inline-block;background:linear-gradient(transparent 58%,#FFE98A 58%)}
+.ln{display:flex;gap:9px;align-items:flex-start;font-size:1.02rem;line-height:27px;margin-bottom:4px;opacity:0;animation:write .45s ease forwards}
+.ln:nth-child(1){animation-delay:.12s}
+.ln:nth-child(2){animation-delay:.12s}
+.ln:nth-child(3){animation-delay:.3s}
+.ln:nth-child(4){animation-delay:.48s}
+@keyframes write{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.ic{flex:0 0 auto;width:17px;height:17px;margin-top:5px}
+.red{color:#C0392B}.blue{color:#2D6CB6}.green{color:#2F8F4E}
+.k{color:#2D6CB6}.warn{color:#C0392B}
+.cr{font-size:.72rem;color:#9C917A;text-align:center;margin-top:14px;font-family:inherit}
+</style>
+</head>
+<body>
+<div class="pg">
+  <div class="paper">
+    <div class="holes"><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div><div class="hole"></div></div>
+    <div class="tape"></div>
+    <div class="ring"></div>
+    <div class="h1" id="h1"></div>
+    <div id="list"></div>
+  </div>
+  <div class="cr">风格指令 · scholar-notes · Style A 学霸笔记本</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":560},"stateSchema":{"type":"object","properties":{"title":{"type":"string"},"items":{"type":"array","items":{"type":"object","properties":{"text":{"type":"string","description":"可含 <span class='k'>/<span class='warn'> 内联强调"},"kind":{"type":"string","description":"图标类型 green/blue/red/warn"}}},"description":"上限 4"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "title": "风格样张 · 手写页",
+  "items": [
+    {
+      "kind": "green",
+      "text": "方法：先立骨架，再填血肉。\n\n重点：不要跳过「为什么」。\n\n易错：只罗列现象，不谈结构。"
+    },
+    {
+      "kind": "blue",
+      "text": "方法：先立骨架，再填血肉。\n\n重点：不要跳过「为什么」。\n\n易错：只罗列现象，不谈结构。"
+    },
+    {
+      "kind": "red",
+      "text": "方法：先立骨架，再填血肉。\n\n重点：不要跳过「为什么」。\n\n易错：只罗列现象，不谈结构。"
+    },
+    {
+      "kind": "warn",
+      "text": "方法：先立骨架，再填血肉。\n\n重点：不要跳过「为什么」。\n\n易错：只罗列现象，不谈结构。"
+    }
+  ],
+  "body": "方法：先立骨架，再填血肉。\n\n重点：不要跳过「为什么」。\n\n易错：只罗列现象，不谈结构。"
+}
+</script>
+<script>
+(function(){
+  var ICONS={
+    green:{stroke:'#2F8F4E',title:'要点',path:'<path d="M4 12l5 5L20 6"/>'},
+    blue:{stroke:'#2D6CB6',title:'术语',path:'<path d="M6 3h9l3 3v15H6z"/><path d="M9 9h6M9 13h6M9 17h4"/>'},
+    red:{stroke:'#C0392B',title:'警告',path:'<path d="M12 3l9 17H3z"/><path d="M12 10v4M12 17v.5"/>'},
+    warn:{stroke:'#8A7A55',title:'装饰',path:'<path d="M4 14c3-6 7-6 10 0s6 6 6 0"/>'}
+  };
+  var DEFAULTS={title:'标题',items:[{kind:'green',text:'要点'},{kind:'blue',text:'术语'}]};
+  function str(v){
+    if(v==null) return '';
+    if(typeof v==='string') return v;
+    if(typeof v==='number'||typeof v==='boolean') return String(v);
+    if(Array.isArray(v)) return v.map(str).filter(Boolean).join(' ');
+    return '';
+  }
+  function put(id, v, allowHtml){
+    var el=document.getElementById(id);
+    if(!el) return;
+    var s=str(v);
+    if(!allowHtml || !/<[a-z]/i.test(s)) el.textContent=s;
+    else el.innerHTML=s;
+  }
+  function items(v, max){
+    if(!Array.isArray(v)) return [];
+    var a=[];
+    var cap=max||6;
+    for(var i=0;i<v.length && i<cap;i++){
+      var x=v[i];
+      if(x==null) continue;
+      var o={};
+      if(typeof x==='string'||typeof x==='number'||typeof x==='boolean'){
+        o.text=str(x); o.kind='green';
+      } else if(typeof x==='object' && !Array.isArray(x)){
+        o.text=str(x.text!=null?x.text:(x.body!=null?x.body:(x.content!=null?x.content:'')));
+        o.kind=str(x.kind!=null?x.kind:(x.type!=null?x.type:'green'));
+      } else continue;
+      if(o.text!=='') a.push(o);
+    }
+    return a;
+  }
+  var sEl=document.querySelector('script[data-card-state]');
+  var S=Object.assign({}, DEFAULTS);
+  if(sEl){
+    try{
+      var u=JSON.parse(sEl.textContent);
+      if(u && typeof u==='object' && !Array.isArray(u)){
+        for(var k in u) S[k]=u[k];
+      }
+    }catch(e){}
+  }
+  put('h1', S.title);
+  var listEl=document.getElementById('list');
+  if(listEl){
+    var its=items(S.items, 4);
+    var html='';
+    for(var i=0;i<its.length;i++){
+      var it=its[i];
+      var ic=ICONS[it.kind]||ICONS.green;
+      html+='<div class="ln"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="'+ic.stroke+'" stroke-width="1.8" role="img"><title>'+ic.title+'</title>'+ic.path+'</svg>'+(it.text)+'</div>';
+    }
+    listEl.innerHTML=html;
+  }
+  var _esc=function(x){return String(x).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');};
+  var _bb=document.querySelector('.paper');
+  if(_bb){
+    var _raw=S.body,_ps=[];
+    if(Array.isArray(_raw))_ps=_raw.map(String).filter(Boolean);
+    else if(typeof _raw==='string')_ps=_raw.split(/\n\s*\n/).map(function(t){return t.trim();}).filter(Boolean);
+    if(_ps.length){
+      var _d=document.createElement('div');
+      _d.style.cssText='font-size:14px;line-height:1.8;color:#3B3427;margin-top:12px;padding-top:10px;border-top:1px dashed rgba(59,52,39,.22)';
+      _d.innerHTML=_ps.map(function(t){return '<p style="margin:0 0 6px">'+_esc(t)+'</p>';}).join('');
+      _bb.appendChild(_d);
+    }
+  }
+})();
+</script>
+</body>
+</html>

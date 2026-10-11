@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>电子杂志样张</title>
+<style>
+body{margin:0;background:#F4F1EA;color:#1C1C1A}
+.m{max-width:680px;margin:0 auto;padding:48px 26px 26px;position:relative;overflow:hidden;min-height:420px;font-family:'Segoe UI','Noto Sans SC',sans-serif}
+.fl{position:absolute;border-radius:50%;filter:blur(64px);pointer-events:none}
+.f1{width:300px;height:300px;background:#E8B84B;opacity:.42;top:-70px;right:-50px}
+.f2{width:260px;height:260px;background:#6FA5A0;opacity:.38;bottom:-60px;left:-40px}
+.eyebrow{position:relative;font-family:Consolas,'JetBrains Mono',monospace;font-size:11px;letter-spacing:.26em;color:#7A736A}
+.h{position:relative;font-family:'Playfair Display','Noto Serif SC','Songti SC',serif;font-size:clamp(38px,8vw,56px);font-weight:600;line-height:1.2;margin:22px 0 6px;color:#1C1C1A}
+.sub{position:relative;font-family:'Playfair Display','Noto Serif SC',serif;font-style:italic;font-size:15px;color:#6E665C;margin-bottom:20px}
+.rl{position:relative;border:none;border-top:1px solid #C9C2B4;margin:0 0 18px}
+.p{position:relative;font-size:14.5px;line-height:1.85;color:#33302B;max-width:34em}
+.p::first-letter{font-family:'Playfair Display','Songti SC',serif;font-size:3.2em;float:left;line-height:.85;padding:4px 10px 0 0;color:#1C1C1A}
+.meta{position:relative;display:flex;justify-content:space-between;margin-top:26px;font-family:Consolas,monospace;font-size:11px;color:#8B837A;letter-spacing:.08em}
+.cr{position:absolute;left:26px;bottom:16px;font-family:Consolas,monospace;font-size:10px;color:#A69E92;letter-spacing:.1em}
+</style>
+</head>
+<body>
+<div class="m">
+  <div class="fl f1"></div>
+  <div class="fl f2"></div>
+  <div class="eyebrow" id="eyebrow"></div>
+  <div class="h" id="h"></div>
+  <div class="sub" id="sub"></div>
+  <hr class="rl">
+  <p class="p" id="p"></p>
+  <div class="meta"><span>p.01</span><span>guizang / ppt-tools 风格 A</span></div>
+  <div class="cr">风格指令 · ppt-tools · 电子杂志 × 电子墨水</div>
+</div>
+<script type="application/json" data-card-manifest>
+{"spec":"1.0","display":{"preferredWidthPx":680},"stateSchema":{"type":"object","properties":{"eyebrow":{"type":"string"},"title":{"type":"string"},"subtitle":{"type":"string"},"body":{"type":"string"}}}}
+</script>
+<script type="application/json" data-card-state>
+{
+  "eyebrow": "FEATURE 04",
+  "title": "墨水与杂志",
+  "subtitle": "排版是一种取舍",
+  "body": "排版是一种取舍"
+}
+</script>
+<script>
+(function(){
+  var DEFAULTS={eyebrow:'ISSUE',title:'标题',subtitle:'副题',body:'正文段落。'};
+  function str(v){
+    if(v==null) return '';
+    if(typeof v==='string') return v;
+    if(typeof v==='number'||typeof v==='boolean') return String(v);
+    if(Array.isArray(v)) return v.map(str).filter(Boolean).join(' ');
+    return '';
+  }
+  function put(id, v, allowHtml){
+    var el=document.getElementById(id);
+    if(!el) return;
+    var s=str(v);
+    if(!allowHtml || !/<[a-z]/i.test(s)) el.textContent=s;
+    else el.innerHTML=s;
+  }
+  var sEl=document.querySelector('script[data-card-state]');
+  var S=Object.assign({}, DEFAULTS);
+  if(sEl){
+    try{
+      var u=JSON.parse(sEl.textContent);
+      if(u && typeof u==='object' && !Array.isArray(u)){
+        for(var k in u) S[k]=u[k];
+      }
+    }catch(e){}
+  }
+  put('eyebrow', S.eyebrow);
+  put('h', S.title);
+  put('sub', S.subtitle);
+  put('p', S.body);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>课堂笔记本手账样张</title>
+<style>
+body{margin:0;background:#ece6d3;color:#2a2318;font-family:'Patrick Hand','Ma Shan Zheng','Kaiti SC','KaiTi',cursive}
+.w{max-width:580px;margin:0 auto;padding:52px 18px 28px}
+.page{position:relative;background:#fbf5e4;border:1px solid #d5c9a8;border-radius:2px;padding:26px 22px 26px 26px;box-shadow:0 12px 24px rgba(0,0,0,.18);overflow:hidden;min-height:340px}
+.lines{position:absolute;left:150px;right:22px;top:52px;bottom:26px;background-image:repeating-linear-gradient(180deg,transparent 0 23px,rgba(90,140,180,.28) 23px 24px);pointer-events:none}
+.margin{position:absolute;left:138px;top:52px;bottom:26px;width:1px;background:rgba(200,80,80,.5)}
+.hole{position:absolute;left:22px;width:12px;height:12px;background:#d5c9a8;border-radius:50%;box-shadow:inset 0 1px 2px rgba(0,0,0,.3)}
+.hole.h1{top:60px}
+.hole.h2{top:50%}
+.hole.h3{bottom:60px}
+.tape{position:absolute;top:-8px;left:200px;width:110px;height:22px;background:repeating-linear-gradient(45deg,rgba(200,150,90,.5),rgba(200,150,90,.5) 6px,rgba(220,180,140,.5) 6px,rgba(220,180,140,.5) 12px);transform:rotate(-3deg);border:1px solid rgba(120,80,20,.14)}
+.hdr{position:absolute;top:12px;left:150px;right:22px;display:flex;justify-content:space-between;align-items:baseline;z-index:2}
+.hdr .t{font-family:'Patrick Hand','KaiTi',cursive;font-size:22px;font-weight:700;color:#2a2318}
+.hdr .d{font-family:'Courier New',monospace;font-size:11px;color:#7a6a4a;letter-spacing:.14em}
+.score{position:absolute;top:64px;right:32px;width:76px;height:76px;background:#d8613a;color:#fff;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Patrick Hand',cursive;box-shadow:0 4px 10px rgba(0,0,0,.3);transform:rotate(8deg);z-index:3}
+.score .n{font-size:38px;line-height:1;font-weight:900}
+.score .u{font-size:9.5px;letter-spacing:.14em;margin-top:2px}
+.annot{position:absolute;left:26px;top:52px;bottom:26px;width:108px;font-family:'Ma Shan Zheng','KaiTi',cursive;color:#b53929;font-size:14px;line-height:1.85;letter-spacing:.02em;z-index:2}
+.annot .ar{font-size:20px;display:block;text-align:center;margin-bottom:4px}
+.annot b{display:block;color:#b53929;font-weight:400;margin-top:8px;font-size:15px}
+.main{position:absolute;left:150px;right:22px;top:52px;bottom:26px;font-family:'Patrick Hand','KaiTi',cursive;font-size:16px;line-height:24px;color:#2a2318;z-index:2}
+.main .l1{color:#2a2318}
+.main u{text-decoration:underline;text-decoration-color:#b53929;text-decoration-thickness:2px;text-underline-offset:3px}
+.main .red{color:#b53929;font-family:'Ma Shan Zheng',cursive}
+.main .kw{background:linear-gradient(180deg,transparent 65%,rgba(255,220,120,.6) 65%)}
+.cr{text-align:center;font-size:10px;color:#7a6a4a;margin-top:12px;letter-spacing:.12em}
+</style>
+</head>
+<body>
+<div class="w">
+<div class="page">
+<span class="hole h1"></span><span class="hole h2"></span><span class="hole h3"></span>
+<span class="tape"></span>
+<div class="lines"></div>
+<div class="margin"></div>
+<div class="hdr"><span class="t" id="title"></span><span class="d" id="date"></span></div>
+<div class="score"><span class="n" id="grade"></span><span class="u">SCORE</span></div>
+<div class="annot" id="annot"></div>
+<div class="main" id="main"></div>
+</div>
+<div class="cr">风格指令 · video-shot-demos · 课堂笔记本手账（风格卡 1-1）</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":580},"stateSchema":{"type":"object","properties":{"title":{"type":"string"},"date":{"type":"string"},"grade":{"type":"string"},"annots":{"type":"array","items":{"type":"object","properties":{"title":{"type":"string","description":"加粗标签，如「方法：」；可空以承载箭头符号"},"lines":{"type":"array","items":{"type":"string"}}}}},"steps":{"type":"array","items":{"type":"object","properties":{"text":{"type":"string","description":"可含 <span class='kw'> 高亮"},"num":{"type":"string","description":"圆圈数字 ①②③④，空则按位置自动"}}},"description":"主区步骤，上限 4"},"hints":{"type":"array","items":{"type":"string"}},"teacher":{"type":"string"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "title": "课堂笔记本 · 十月",
+  "date": "10 / 04",
+  "grade": "A-",
+  "annots": [
+    {
+      "title": "",
+      "lines": [
+        "↑"
+      ]
+    },
+    {
+      "title": "方法：",
+      "lines": [
+        "先立框架",
+        "再填内容"
+      ]
+    },
+    {
+      "title": "重点：",
+      "lines": [
+        "不要跳过",
+        "「为什么」"
+      ]
+    },
+    {
+      "title": "易错：",
+      "lines": [
+        "只列现象",
+        "不谈结构"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "num": "①",
+      "text": "方法：先立骨架，再填血肉。\n\n重点：不要跳过「为什么」。\n\n易错：只罗列现象，不谈结构。"
+    },
+    {
+      "num": "②",
+      "text": "方法：先立骨架，再填血肉。\n\n重点：不要跳过「为什么」。\n\n易错：只罗列现象，不谈结构。"
+    },
+    {
+      "num": "③",
+      "text": "方法：先立骨架，再填血肉。\n\n重点：不要跳过「为什么」。\n\n易错：只罗列现象，不谈结构。"
+    },
+    {
+      "num": "④",
+      "text": "方法：先立骨架，再填血肉。\n\n重点：不要跳过「为什么」。\n\n易错：只罗列现象，不谈结构。"
+    }
+  ],
+  "hints": [
+    "方法：先立骨架，再填血肉。\n\n重点：不要跳过「为什么」。\n\n易错：只罗列现象，不谈结构。",
+    "方法：先立骨架，再填血肉。\n\n重点：不要跳过「为什么」。\n\n易错：只罗列现象，不谈结构。"
+  ],
+  "body": "方法：先立骨架，再填血肉。\n\n重点：不要跳过「为什么」。\n\n易错：只罗列现象，不谈结构。"
+}
+</script>
+<script>
+(function(){
+  var DEFAULTS={title:'标题',date:'2026-01-01',grade:'A',annots:[{title:'',lines:['↑']},{title:'方法：',lines:['方法一','方法二']}],steps:[{num:'①',text:'步骤一'},{num:'②',text:'步骤二'}],hints:['提示一','提示二'],teacher:''};
+  function str(v){
+    if(v==null) return '';
+    if(typeof v==='string') return v;
+    if(typeof v==='number'||typeof v==='boolean') return String(v);
+    if(Array.isArray(v)) return v.map(str).filter(Boolean).join(' ');
+    return '';
+  }
+  function put(id, v, allowHtml){
+    var el=document.getElementById(id);
+    if(!el) return;
+    var s=str(v);
+    if(!allowHtml || !/<[a-z]/i.test(s)) el.textContent=s;
+    else el.innerHTML=s;
+  }
+  function items(v, max){
+    if(!Array.isArray(v)) return [];
+    var a=[];
+    var cap=max||6;
+    for(var i=0;i<v.length && i<cap;i++){
+      var x=v[i];
+      if(x==null) continue;
+      var o={};
+      if(typeof x==='string'||typeof x==='number'||typeof x==='boolean'){
+        o.text=str(x);
+      } else if(typeof x==='object' && !Array.isArray(x)){
+        o.text=str(x.text!=null?x.text:(x.body!=null?x.body:(x.content!=null?x.content:'')));
+        o.num=str(x.num!=null?x.num:(x.n!=null?x.n:''));
+      } else continue;
+      if(o.text!=='') a.push(o);
+    }
+    return a;
+  }
+  var sEl=document.querySelector('script[data-card-state]');
+  var S=Object.assign({}, DEFAULTS);
+  if(sEl){
+    try{
+      var u=JSON.parse(sEl.textContent);
+      if(u && typeof u==='object' && !Array.isArray(u)){
+        for(var k in u) S[k]=u[k];
+      }
+    }catch(e){}
+  }
+  put('title', S.title);
+  put('date', S.date);
+  put('grade', S.grade);
+  // annots → 左侧批注（每项 = 一个 block：title 可选（渲染为加粗标签），lines 逐行渲染）
+  var annEl=document.getElementById('annot');
+  if(annEl){
+    var anns=Array.isArray(S.annots)?S.annots:[];
+    var html='';
+    for(var i=0;i<anns.length && i<6;i++){
+      var a=anns[i];
+      if(!a) continue;
+      if(a.title){
+        if(html) html+='\n';
+        html+='<b>'+str(a.title)+'</b>';
+      }
+      var lines=Array.isArray(a.lines)?a.lines:[];
+      for(var j=0;j<lines.length;j++){
+        var ln=str(lines[j]);
+        if(ln!=='') html+=('\n'+ln);
+      }
+    }
+    annEl.innerHTML=html;
+  }
+  // steps → 主区
+  var mainEl=document.getElementById('main');
+  if(mainEl){
+    var steps=items(S.steps, 4);
+    var html='';
+    for(var i=0;i<steps.length;i++){
+      var st=steps[i];
+      var prefix=st.num||((['①','②','③','④','⑤','⑥','⑦','⑧'])[i]||'');
+      html+='<div class="l1">'+prefix+' '+st.text+'</div>';
+    }
+    var hints=Array.isArray(S.hints)?S.hints:[];
+    for(var i=0;i<hints.length;i++){
+      var h=str(hints[i]);
+      if(h!=='') html+='<div class="l1" style="margin-top:8px;color:#5a4632;font-size:14px">'+h+'</div>';
+    }
+    mainEl.innerHTML=html;
+  }
+  // body → 追加到主区顶部
+  var paras=(function(b){if(Array.isArray(b))return b.map(String).filter(Boolean);if(typeof b==='string')return b.split(/\n\s*\n/).map(function(t){return t.trim();}).filter(Boolean);return [];})(S.body);
+  var escF=function(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');};
+  if(paras.length){
+    var wrap=document.createElement('div');
+    wrap.style.cssText='margin-bottom:10px;font-size:14px;line-height:24px;color:#5a4632';
+    var ph='';
+    for(var pi=0;pi<paras.length;pi++){ph+='<div>'+escF(paras[pi])+'</div>';} 
+    wrap.innerHTML=ph;
+    if(mainEl) mainEl.insertBefore(wrap,mainEl.firstChild);
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>森林绿渐变样张</title>
+<style>
+body{margin:0;background:#F1F7F1;color:#1E3A24;font-family:'Segoe UI','Noto Sans SC',sans-serif}
+.c{max-width:600px;margin:0 auto;padding:56px 18px 26px}
+.leaf{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.leaf i{width:46px;height:46px;border-radius:50% 8px 50% 8px;background:linear-gradient(135deg,#166534,#4ADE80)}
+.lb{font-size:10px;letter-spacing:.3em;color:#5A8A63}
+.h{font-size:1.9rem;font-weight:800;margin:4px 0 4px;color:#166534}
+.sub{font-size:13px;color:#5A8A63;letter-spacing:.08em}
+.bars{margin-top:24px;display:flex;flex-direction:column;gap:11px}
+.bar{display:flex;align-items:center;gap:12px;font-family:Consolas,monospace;font-size:11.5px;color:#3E6B49}
+.bar i{height:16px;border-radius:4px}
+.panel{margin-top:22px;background:#fff;border:1px solid #D5E8D8;border-radius:8px;padding:16px 18px;font-size:13.5px;line-height:1.8;color:#2F5A3A}
+.cr{font-family:Consolas,monospace;font-size:10px;color:#8FB89A;text-align:center;margin-top:20px;letter-spacing:.12em}
+</style>
+</head>
+<body>
+<div class="c">
+  <div class="leaf"><i></i><div><div class="lb">STYLE // GREEN</div><div class="h" id="title"></div></div></div>
+  <div class="sub" id="subtitle"></div>
+  <div id="cbod" style="display:none;font-size:13px;line-height:1.7;color:#2F5A3A;margin-top:12px;background:#fff;border:1px solid #D5E8D8;border-radius:6px;padding:10px 14px"></div>
+  <div class="bars">
+    <div class="bar"><i style="width:120px;background:#14532D"></i><span>#14532D 深林</span></div>
+    <div class="bar"><i style="width:96px;background:#166534"></i><span>#166534 林间</span></div>
+    <div class="bar"><i style="width:72px;background:#4ADE80"></i><span>#4ADE80 新叶</span></div>
+    <div class="bar"><i style="width:48px;background:#BBF7D0"></i><span>#BBF7D0 雾</span></div>
+  </div>
+  <div class="panel" id="note">绿阶压着白底走：深色做字，新叶做形，雾色垫底——三段绿就是全部层次。</div>
+  <div class="cr">风格指令 · design-media · SVG 风格表 green</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":600},"stateSchema":{"type":"object","properties":{"title":{"type":"string","description":"色卡主标题"},"subtitle":{"type":"string","description":"一句话风格说明"},"note":{"type":"string","description":"绿色层次说明"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "title": "森林绿渐变",
+  "subtitle": "FOREST SCALE · 四阶绿",
+  "note": "深林、林间、新叶、雾——四季其实是四种距离。",
+  "body": "深林、林间、新叶、雾——四季其实是四种距离。"
+}
+</script>
+<script>
+(function(){
+var D={title:'Sample Title',subtitle:'Sample subtitle',note:'Sample note.'};
+function str(v){if(v==null)return'';if(typeof v==='string')return v;if(typeof v==='number'||typeof v==='boolean')return String(v);if(Array.isArray(v))return v.map(str).filter(Boolean).join(' ');return'';}
+function pick(o){if(!o||typeof o!=='object'||Array.isArray(o))return null;var a=arguments;for(var i=1;i<a.length;i++){var k=a[i];if(Object.prototype.hasOwnProperty.call(o,k)&&str(o[k])!=='')return o[k];}return null;}
+function put(id,v){var el=document.getElementById(id);if(el)el.textContent=str(v);}
+function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+var sEl=document.querySelector('script[data-card-state]');
+var S=Object.assign({},D);
+if(sEl){try{var u=JSON.parse(sEl.textContent);if(u&&typeof u==='object'&&!Array.isArray(u))for(var k in u)S[k]=u[k];}catch(e){}}
+put('title',pick(S,'title','heading'));
+put('subtitle',pick(S,'subtitle','desc'));
+put('note',pick(S,'note','caption'));
+var paras=(function(b){if(Array.isArray(b))return b.map(String).filter(Boolean);if(typeof b==='string')return b.split(/\n\s*\n/).map(function(t){return t.trim();}).filter(Boolean);return [];})(S.body);
+var bb=document.getElementById('cbod');
+if(bb){if(paras.length){bb.innerHTML=paras.map(function(t){return '<p style="margin:0 0 .4em">'+esc(t)+'</p>';}).join('');bb.style.display='';}else{bb.style.display='none';bb.innerHTML='';}}
+})();
+</script>
+</body>
+</html>

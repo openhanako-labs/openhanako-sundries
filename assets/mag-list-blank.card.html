@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>复古杂志榜单样张</title>
+<style>
+body{margin:0;background:#F1EBD8;font-family:'Noto Serif SC','Songti SC',serif;color:#10163A}
+.w{max-width:520px;margin:0 auto;padding:52px 22px 24px}
+.mag{background:#F7F2E0;border:2.5px solid #10163A;box-shadow:8px 8px 0 rgba(16,22,58,.22);padding:0;position:relative;overflow:hidden}
+.mast{background:#10163A;color:#F7F2E0;padding:16px 22px 14px;display:flex;justify-content:space-between;align-items:flex-end;border-bottom:6px double #F7F2E0}
+.mast .l h1{font-family:'Bebas Neue','Oswald','Arial Black',sans-serif;font-size:56px;letter-spacing:.06em;margin:0;line-height:.9;font-weight:400}
+.mast .l h1 em{font-style:italic;font-family:'Noto Serif SC',serif;font-weight:700}
+.mast .l .k{font-family:'Courier New',monospace;font-size:10px;letter-spacing:.42em;color:#C9A24B;margin-top:2px}
+.mast .r{text-align:right;font-family:'Courier New',monospace;font-size:10px;letter-spacing:.24em;line-height:1.7}
+.mast .r .num{font-family:'Bebas Neue','Oswald','Arial Black',sans-serif;font-size:32px;letter-spacing:.08em;line-height:1;color:#F7F2E0;margin-top:2px}
+.headline{padding:16px 22px 10px;border-bottom:1.5px solid #10163A;display:grid;grid-template-columns:1fr auto;gap:14px;align-items:end}
+.headline .lead{font-size:15px;line-height:1.55;margin:0;color:#10163A;font-weight:700}
+.headline .lead em{font-style:italic;color:#B03024}
+.headline .side{font-family:'Courier New',monospace;font-size:9.5px;letter-spacing:.24em;color:#8A7A55;text-align:right}
+.list{padding:6px 22px 4px}
+.rk{display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:14px;padding:9px 0;border-bottom:1px solid rgba(16,22,58,.16);font-variant-numeric:tabular-nums}
+.rk:last-child{border-bottom:none}
+.rk .n{font-family:'Bebas Neue','Oswald','Arial Black',sans-serif;font-size:44px;line-height:1;color:#B03024;letter-spacing:.02em}
+.rk.p1 .n{font-size:64px;color:#10163A}
+.rk .n .p{font-size:14px;color:#8A7A55;letter-spacing:.1em;font-family:'Courier New',monospace;display:inline-block;vertical-align:top;margin-left:-2px}
+.rk .name{font-size:15px;font-weight:700;letter-spacing:.04em;line-height:1.3;color:#10163A}
+.rk .name small{display:block;font-size:10.5px;color:#8A7A55;font-family:'Courier New',monospace;letter-spacing:.18em;font-weight:400;margin-top:1px}
+.rk .score{font-family:'Bebas Neue','Oswald','Arial Black',sans-serif;font-size:24px;color:#10163A;letter-spacing:.04em}
+.rk.p1 .score{color:#B03024}
+.foot{padding:8px 22px 10px;display:flex;justify-content:space-between;font-family:'Courier New',monospace;font-size:9.5px;letter-spacing:.24em;color:#10163A;border-top:1.5px solid #10163A;margin-top:2px;background:#F7F2E0}
+.cr{font-family:'Courier New',monospace;font-size:10px;color:#8A7A55;text-align:center;margin-top:14px;letter-spacing:.12em}
+</style>
+</head>
+<body>
+<div class="w">
+  <div class="mag">
+    <div class="mast">
+      <div class="l">
+        <h1>STYLE <em>榜</em></h1>
+        <div class="k">VOL. 41 · ISSUE 06</div>
+      </div>
+      <div class="r">
+        RANKING<br>
+        <span id="season"></span><br>
+        <span class="num" id="issue"></span>
+      </div>
+    </div>
+    <div class="headline">
+      <p class="lead" id="headline"></p>
+      <div class="side" id="side"></div>
+    </div>
+    <div class="list" id="list"></div>
+    <div class="foot"><span>P.01 / TOP RANKING</span><span>EDITORIAL · STYLE QUARTERLY</span></div>
+  </div>
+  <div class="cr">风格指令 · video-shot-demos · 复古杂志榜单（风格卡 15）</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":520},"stateSchema":{"type":"object","properties":{"season":{"type":"string"},"issue":{"type":"string"},"headline":{"type":"string","description":"可含 <em></em>"},"side":{"type":"string"},"items":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string"},"caption":{"type":"string"},"value":{"type":"number"}}},"description":"榜单条目，上限 5"},"title":{"type":"string","description":"主标题（必填）"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "season": "2026 · 秋",
+  "issue": "N°013",
+  "headline": "本季值得一看的十二张，按上线时间倒序。",
+  "side": "本季值得一看的十二张，按上线时间倒序。",
+  "items": [
+    {
+      "name": "孟菲斯竞技场",
+      "caption": "样张",
+      "value": 98
+    },
+    {
+      "name": "孟菲斯 · 竞技",
+      "caption": "样张",
+      "value": 92
+    },
+    {
+      "name": "暖色报纸",
+      "caption": "样张",
+      "value": 88
+    },
+    {
+      "name": "等高线地图",
+      "caption": "样张",
+      "value": 84
+    },
+    {
+      "name": "复古杂志榜",
+      "caption": "样张",
+      "value": 80
+    }
+  ],
+  "title": "样张",
+  "body": "本季值得一看的十二张，按上线时间倒序。"
+}
+</script>
+<script>
+(function(){
+  var DEFAULTS={season:'2026 · 秋',issue:'N°000',headline:'本季榜单',side:'TOP 5<br>OF THE SEASON',items:[{name:'Item 1',caption:'EN TAG',value:100},{name:'Item 2',caption:'EN TAG',value:80}]};
+  function str(v){
+    if(v==null) return '';
+    if(typeof v==='string') return v;
+    if(typeof v==='number'||typeof v==='boolean') return String(v);
+    if(Array.isArray(v)) return v.map(str).filter(Boolean).join(' ');
+    return '';
+  }
+  function num(v){
+    if(typeof v==='number' && isFinite(v)) return v;
+    if(typeof v==='string' && v.trim()!==''){var n=parseFloat(v);if(isFinite(n)) return n;}
+    return 0;
+  }
+  function pad2(n){return (n<10?'0':'')+n;}
+  function put(id, v, allowHtml){
+    var el=document.getElementById(id);
+    if(!el) return;
+    var s=str(v);
+    if(!allowHtml || !/<[a-z]/i.test(s)) el.textContent=s;
+    else el.innerHTML=s;
+  }
+  function items(v, max){
+    if(!Array.isArray(v)) return [];
+    var a=[];
+    var cap=max||6;
+    for(var i=0;i<v.length && i<cap;i++){
+      var x=v[i];
+      if(x==null) continue;
+      var o={};
+      if(typeof x==='string'||typeof x==='number'||typeof x==='boolean'){
+        o.name=str(x);
+      } else if(typeof x==='object' && !Array.isArray(x)){
+        o.name=str(x.name!=null?x.name:(x.title!=null?x.title:(x.label!=null?x.label:(x.text!=null?x.text:''))));
+        o.caption=str(x.caption!=null?x.caption:(x.tag!=null?x.tag:(x.subtitle!=null?x.subtitle:'')));
+        var vv=x.value!=null?x.value:(x.score!=null?x.score:x.count);
+        o.value=num(vv);
+      } else continue;
+      if(o.name!=='') a.push(o);
+    }
+    return a;
+  }
+  var sEl=document.querySelector('script[data-card-state]');
+  var S=Object.assign({}, DEFAULTS);
+  if(sEl){
+    try{
+      var u=JSON.parse(sEl.textContent);
+      if(u && typeof u==='object' && !Array.isArray(u)){
+        for(var k in u) S[k]=u[k];
+      }
+    }catch(e){}
+  }
+  put('season', S.season);
+  put('issue', S.issue);
+  put('headline', (S.title?(S.title.indexOf('<')===-1?'<b>'+str(S.title)+'</b>':str(S.title)):(S.headline||'')), true);
+  put('side', S.body||S.side||'');
+  var lst=document.getElementById('list');
+  if(lst){
+    var its=items(S.items, 5);
+    var html='';
+    for(var i=0;i<its.length;i++){
+      var it=its[i];
+      var p1=(i===0)?' p1':'';
+      html+='<div class="rk'+p1+'"><span class="n">'+pad2(i+1)+'</span><span class="name">'+(it.name.replace(/([^\n])(\n+)/g,'$1<br>'))+'<small>'+(it.caption||'')+'</small></span><span class="score">'+it.value+'</span></div>';
+    }
+    lst.innerHTML=html;
+  }
+  if(S.body){var bb=document.createElement('div');bb.style.cssText='padding:6px 22px 10px;border-top:1px solid rgba(16,22,58,.16);font-size:13px;line-height:1.7;color:#10163A';var ps=[];if(Array.isArray(S.body)){ps=S.body.map(function(x){return String(x).trim();}).filter(Boolean);}else{ps=String(S.body).split(/\n\s*\n/).map(function(x){return x.trim();}).filter(Boolean);}bb.innerHTML=ps.map(function(t){return '<p style="margin:0 0 6px">'+String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</p>';}).join('');var mag=document.querySelector('.mag');var foot=mag.querySelector('.foot');if(foot)mag.insertBefore(bb,foot);else mag.appendChild(bb);}
+})();
+</script>
+</body>
+</html>

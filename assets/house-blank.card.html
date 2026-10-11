@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今日数据</title>
+</head>
+<body>
+<h2 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">今日数据与一条批注</h2>
+<div style="max-width:720px;margin:0 auto;padding:12px 16px">
+  <h1 data-role="title" style="font-family:var(--font-serif);font-size:1.35rem;font-weight:500;color:var(--text);text-align:center;margin:0.4rem 0 0.9rem">今日数据</h1>
+  <div style="display:flex;flex-wrap:wrap;gap:12px 20px;margin-bottom:1rem">
+    <div style="min-width:72px" data-idx="0">
+      <div data-role="m-label" style="font-size:0.75rem;line-height:1.3;color:var(--text-muted)">采集条目</div>
+      <div data-role="m-text" style="font-size:1.6rem;font-weight:600;line-height:1.15;color:var(--accent);font-variant-numeric:tabular-nums">128</div>
+    </div>
+    <div style="min-width:72px" data-idx="1">
+      <div data-role="m-label" style="font-size:0.75rem;line-height:1.3;color:var(--text-muted)">回指干净率</div>
+      <div data-role="m-text" style="font-size:1.6rem;font-weight:600;line-height:1.15;color:#4A6B4A;font-variant-numeric:tabular-nums">96%</div>
+    </div>
+    <div style="min-width:72px" data-idx="2">
+      <div data-role="m-label" style="font-size:0.75rem;line-height:1.3;color:var(--text-muted)">待复核</div>
+      <div data-role="m-text" style="font-size:1.6rem;font-weight:600;line-height:1.15;color:var(--accent);font-variant-numeric:tabular-nums">5</div>
+    </div>
+  </div>
+  <blockquote data-role="quote" style="border-left:2px solid var(--accent);padding:4px 0 4px 12px;margin:0 0 0.9rem;border-radius:0;color:var(--text-muted);font-style:italic;font-family:var(--font-serif);font-size:0.9rem;line-height:1.65">纸是从对话里升起的一张页——留白、距离、停顿，都在这张纸上。</blockquote>
+  <div style="margin-bottom:0.8rem">
+    <span data-role="note" style="display:inline-flex;align-items:center;gap:4px;padding:2px 8px;font-size:0.75rem;font-weight:500;line-height:1.3;border-radius:4px;background:rgba(83,125,150,0.08);color:#3F6179">house style · §4–§6</span>
+  </div>
+  <div data-role="caption" style="font-size:0.75rem;line-height:1.3;color:var(--text-muted);text-align:center">风格指令 · hana-magic-cards · 家风参考</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":720},"stateSchema":{"type":"object","properties":{"title":{"type":"string","description":"主标题"},"items":{"type":"array","maxItems":6,"items":{"type":"object","properties":{"label":{"type":"string","description":"指标名"},"text":{"type":"string","description":"指标值"}}},"description":"指标行"},"quote":{"type":"string","description":"引文"},"note":{"type":"string","description":"小徽章文本"},"caption":{"type":"string","description":"底部标注"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "title": "今日数据",
+  "items": [
+    {
+      "label": "采集条目",
+      "text": "128"
+    },
+    {
+      "label": "回指干净率",
+      "text": "96%"
+    },
+    {
+      "label": "待复核",
+      "text": "5"
+    }
+  ],
+  "quote": "把复杂留给自己，把清楚留给别人。",
+  "note": "家风不是训诫，是习惯。",
+  "caption": "三条准则，长期主义",
+  "body": "把复杂留给自己，把清楚留给别人。"
+}
+</script>
+<script id="__card_render__">
+(function(){
+  function readState(){var d=null;try{var s=document.querySelector('script[data-card-state]');if(s)d=JSON.parse(s.textContent);}catch(e){}return d;}
+  function str(v,d){if(v===undefined||v===null)return d;if(typeof v==="string"){v=v.trim();return v===''?d:v;}return String(v);}
+  function arr(v,n){if(!Array.isArray(v))return [];var o=[];for(var i=0;i<v.length&&o.length<n;i++){var x=v[i];if(x&&typeof x==="object"&&!Array.isArray(x))o.push(x);}return o;}
+  function set(el,v,d){var t=str(v,d);if(el)el.textContent=t;}
+  var S=readState(); if(!S)return; try{
+    var DEFAULTS={title:'',body:''};
+    S=Object.assign({},DEFAULTS,S);
+    var bodyText='';
+    if(S.body){bodyText=(typeof S.body==='string')?S.body:String(S.body);}
+    set(document.querySelector('[data-role="title"]'),S.title||S.heading,'数据');
+    var it=arr(S.items||S.list||S.rows,6);
+    var cells=document.querySelectorAll('[data-idx]');
+    for(var i=0;i<cells.length;i++){var x=it[i];if(!x)continue;set(cells[i].querySelector('[data-role="m-label"]'),x.label||x.name||x.tag,'');set(cells[i].querySelector('[data-role="m-text"]'),x.text||x.body||x.content||x.value,'');}
+    set(document.querySelector('[data-role="quote"]'),S.quote||'','');
+    set(document.querySelector('[data-role="note"]'),S.note||'','');
+    set(document.querySelector('[data-role="caption"]'),bodyText||S.caption||'','');
+  }catch(err){console.error('[card] render error:',err);}
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>简约灰阶样张</title>
+<style>
+body{margin:0;background:#F5F5F5;color:#1A1A1A;font-family:'Segoe UI','Noto Sans SC',sans-serif}
+.c{max-width:600px;margin:0 auto;padding:56px 20px 26px}
+.lb{font-size:10px;letter-spacing:.3em;color:#7A7A7A}
+.h{font-size:1.9rem;font-weight:800;margin:8px 0 6px;color:#1A1A1A}
+.sub{font-size:13px;color:#6A6A6A;letter-spacing:.06em}
+.ramp{margin-top:26px;display:flex;flex-direction:column;gap:10px}
+.bar{display:flex;align-items:center;gap:14px;font-family:Consolas,monospace;font-size:11.5px;color:#4A4A4A}
+.bar i{height:22px;border-radius:4px;flex:0 0 auto}
+.tag{margin-top:22px;display:inline-block;background:#1A1A1A;color:#fff;padding:6px 14px;font-size:11px;letter-spacing:.16em;border-radius:2px}
+.cr{font-family:Consolas,monospace;font-size:10px;color:#9A9A9A;text-align:center;margin-top:24px;letter-spacing:.12em}
+</style>
+</head>
+<body>
+<div class="c">
+  <div class="lb">STYLE // GRAY</div>
+  <div class="h" id="title"></div>
+  <div class="sub" id="subtitle"></div>
+  <div id="cbod" style="display:none;font-size:13px;line-height:1.7;color:#3A3A3A;margin-top:12px"></div>
+  <div class="ramp">
+    <div class="bar"><i style="width:180px;background:#1A1A1A"></i><span>#1A1A1A 深灰</span></div>
+    <div class="bar"><i style="width:140px;background:#4A4A4A"></i><span>#4A4A4A 中灰</span></div>
+    <div class="bar"><i style="width:100px;background:#8A8A8A"></i><span>#8A8A8A 浅灰</span></div>
+    <div class="bar"><i style="width:60px;background:#D0D0D0"></i><span>#D0D0D0 淡灰</span></div>
+  </div>
+  <div class="tag">MONOCHROME</div>
+  <div class="cr">风格指令 · design-media · SVG 风格表 gray</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":600},"stateSchema":{"type":"object","properties":{"title":{"type":"string","description":"色卡主标题"},"subtitle":{"type":"string","description":"一句话风格说明"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "title": "简约灰阶",
+  "subtitle": "纯灰四阶 · 零彩度",
+  "body": "四级灰阶：180 / 140 / 100 / 60。够用了。"
+}
+</script>
+<script>
+(function(){
+var D={title:'Sample Title',subtitle:'Sample subtitle'};
+function str(v){if(v==null)return'';if(typeof v==='string')return v;if(typeof v==='number'||typeof v==='boolean')return String(v);if(Array.isArray(v))return v.map(str).filter(Boolean).join(' ');return'';}
+function pick(o){if(!o||typeof o!=='object'||Array.isArray(o))return null;var a=arguments;for(var i=1;i<a.length;i++){var k=a[i];if(Object.prototype.hasOwnProperty.call(o,k)&&str(o[k])!=='')return o[k];}return null;}
+function put(id,v){var el=document.getElementById(id);if(el)el.textContent=str(v);}
+function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+var sEl=document.querySelector('script[data-card-state]');
+var S=Object.assign({},D);
+if(sEl){try{var u=JSON.parse(sEl.textContent);if(u&&typeof u==='object'&&!Array.isArray(u))for(var k in u)S[k]=u[k];}catch(e){}}
+put('title',pick(S,'title','heading'));
+put('subtitle',pick(S,'subtitle','desc'));
+var paras=(function(b){if(Array.isArray(b))return b.map(String).filter(Boolean);if(typeof b==='string')return b.split(/\n\s*\n/).map(function(t){return t.trim();}).filter(Boolean);return [];})(S.body);
+var bb=document.getElementById('cbod');
+if(bb){if(paras.length){bb.innerHTML=paras.map(function(t){return '<p style="margin:0 0 .4em">'+esc(t)+'</p>';}).join('');bb.style.display='';}else{bb.style.display='none';bb.innerHTML='';}}
+})();
+</script>
+</body>
+</html>

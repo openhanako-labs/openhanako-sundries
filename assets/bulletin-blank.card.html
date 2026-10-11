@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>风格样张公报</title>
+<style>
+body{margin:0;background:#E8E6E1;color:#1A1A1A;font-family:'FangSong','仿宋','STFangsong','Noto Serif SC',serif}
+.w{max-width:640px;margin:0 auto;padding:52px 16px 26px}
+.doc{background:#FFFFFF;padding:38px 44px 34px;box-shadow:0 12px 32px rgba(0,0,0,.14);position:relative}
+.mast{text-align:center;font-family:'SimSun','宋体','Noto Serif SC',serif;font-size:2rem;font-weight:700;color:#C01B22;letter-spacing:.14em}
+.no{text-align:center;font-size:15px;color:#C01B22;margin-top:8px;letter-spacing:.08em}
+.starline{position:relative;margin:16px 0 6px;height:14px}
+.starline::before{content:"";position:absolute;left:0;right:0;top:6px;height:3.5px;background:#C01B22}
+.star{position:absolute;left:50%;top:-3px;transform:translateX(-50%);width:22px;height:22px;background:#FFFFFF;display:flex;align-items:center;justify-content:center}
+.star svg{display:block}
+.thin{border:none;border-top:1px solid #C01B22;margin:6px 0 0}
+.to{font-size:17px;margin-top:24px;letter-spacing:.06em}
+.bd{font-size:17px;line-height:2.05;margin-top:12px;text-align:justify;text-indent:2em}
+.sign{margin-top:26px;text-align:right;font-size:16.5px;line-height:1.9;position:relative;padding-bottom:10px}
+.seal{position:absolute;right:26px;bottom:-14px;width:96px;height:96px;transform:rotate(-12deg);opacity:.88}
+.cr{text-align:center;font-size:10px;color:#9A968E;margin-top:20px;letter-spacing:.12em;font-family:'Segoe UI',sans-serif}
+</style>
+</head>
+<body>
+<div class="w">
+  <div class="doc">
+    <div class="mast" id="mast"></div>
+    <div class="no" id="no"></div>
+    <div class="starline">
+      <span class="star"><svg width="16" height="16" viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 16.5,13.5 18.5,21 12,16.5 5.5,21 7.5,13.5 2,9 9,9" fill="#C01B22"/></svg></span>
+    </div>
+    <hr class="thin">
+    <div class="to" id="to"></div>
+    <div class="bd" id="body"></div>
+    <div class="sign">
+      <span id="sign"></span>
+      <svg class="seal" viewBox="0 0 100 100" role="img" title="审核印章">
+        <circle cx="50" cy="50" r="45" fill="none" stroke="#C01B22" stroke-width="4"/>
+        <polygon points="50,26 55.5,41.5 72,41.5 58.5,51 63.5,67 50,57.5 36.5,67 41.5,51 28,41.5 44.5,41.5" fill="#C01B22"/>
+        <text x="50" y="80" text-anchor="middle" font-size="11.5" fill="#C01B22" font-family="SimSun, serif" letter-spacing="1">审核专用章</text>
+      </svg>
+    </div>
+  </div>
+  <div class="cr">风格指令 · video-shot-demos · 市政公报（风格卡 3-6）</div>
+</div>
+<script type="application/json" data-card-manifest>
+{"spec":"1.0","display":{"preferredWidthPx":640},"stateSchema":{"type":"object","properties":{"title":{"type":"string"},"number":{"type":"string"},"to":{"type":"string"},"body":{"type":"string","description":"正文，\n 分段"},"signer":{"type":"string"},"date":{"type":"string"}}}}
+</script>
+<script type="application/json" data-card-state>
+{
+  "title": "风格样张公报",
+  "number": "NO.041",
+  "to": "各风格模板：",
+  "body": "本周新增十二张风格样张，均已通过结构检查。",
+  "signer": "风格评审委员会",
+  "date": "2026.10.04"
+}
+</script>
+<script>
+(function(){
+  var DEFAULTS={title:'公报',number:'字〔2026〕第 00 号',to:'各模板：',body:'正文段落。',signer:'委员会',date:'二〇二六年一月一日'};
+  function str(v){
+    if(v==null) return '';
+    if(typeof v==='string') return v;
+    if(typeof v==='number'||typeof v==='boolean') return String(v);
+    if(Array.isArray(v)) return v.map(str).filter(Boolean).join(' ');
+    return '';
+  }
+  function put(id, v, allowHtml){
+    var el=document.getElementById(id);
+    if(!el) return;
+    var s=str(v);
+    if(!allowHtml || !/<[a-z]/i.test(s)) el.textContent=s;
+    else el.innerHTML=s;
+  }
+  var sEl=document.querySelector('script[data-card-state]');
+  var S=Object.assign({}, DEFAULTS);
+  if(sEl){
+    try{
+      var u=JSON.parse(sEl.textContent);
+      if(u && typeof u==='object' && !Array.isArray(u)){
+        for(var k in u) S[k]=u[k];
+      }
+    }catch(e){}
+  }
+  put('mast', S.title);
+  put('no', S.number);
+  put('to', S.to);
+  put('body', S.body);
+  put('sign', str(S.signer) + '\n' + str(S.date));
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>深蓝商务样张</title>
+<style>
+body{margin:0;background:#F4F7FB;color:#1B2B45;font-family:'Segoe UI','Noto Sans SC',sans-serif}
+.c{max-width:600px;margin:0 auto;padding:56px 18px 26px}
+.hd{background:linear-gradient(90deg,#1B3A6B,#2E5FA3);border-radius:8px;padding:22px 24px;color:#fff}
+.hd .lb{font-size:10px;letter-spacing:.3em;opacity:.75}
+.hd h1{font-size:1.9rem;margin:8px 0 4px;font-weight:800;letter-spacing:.02em}
+.hd p{font-size:12.5px;opacity:.8;margin:0;letter-spacing:.08em}
+.body{margin-top:16px;background:#fff;border:1px solid #D9E2EF;border-radius:8px;padding:18px 20px}
+.row{display:flex;justify-content:space-between;padding:9px 2px;border-bottom:1px solid #E8EEF6;font-size:13px}
+.row:last-child{border-bottom:none}
+.row b{font-family:Consolas,monospace;color:#2E5FA3}
+.sw{display:flex;gap:9px;margin-top:14px}
+.sw i{width:40px;height:26px;border-radius:4px;border:1px solid rgba(27,58,107,.2)}
+.cr{font-family:Consolas,monospace;font-size:10px;color:#8CA0BF;text-align:center;margin-top:20px;letter-spacing:.12em}
+</style>
+</head>
+<body>
+<div class="c">
+  <div class="hd">
+    <div class="lb">STYLE // BLUE</div>
+    <h1 id="title"></h1>
+    <p id="subtitle"></p>
+  </div>
+  <div class="body">
+    <div id="cbod" style="display:none;font-size:13px;line-height:1.7;color:#1B2B45;margin-bottom:12px"></div>
+    <div class="row"><span>gradient</span><b>#1B3A6B → #2E5FA3</b></div>
+    <div class="row"><span>ground</span><b>#F4F7FB</b></div>
+    <div class="row"><span>line</span><b>#D9E2EF</b></div>
+    <div class="sw"><i style="background:#1B3A6B"></i><i style="background:#2E5FA3"></i><i style="background:#5B8DEF"></i><i style="background:#D9E2EF"></i></div>
+  </div>
+  <div class="cr">风格指令 · design-media · SVG 风格表 blue</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":600},"stateSchema":{"type":"object","properties":{"title":{"type":"string","description":"色卡主标题"},"subtitle":{"type":"string","description":"一句话风格说明"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "title": "深蓝商务渐变",
+  "subtitle": "商务蓝 · 渐变头部 + 数据面板",
+  "body": "商务蓝 · 渐变头部 + 数据面板"
+}
+</script>
+<script>
+(function(){
+var D={title:'Sample Title',subtitle:'Sample subtitle'};
+function str(v){if(v==null)return'';if(typeof v==='string')return v;if(typeof v==='number'||typeof v==='boolean')return String(v);if(Array.isArray(v))return v.map(str).filter(Boolean).join(' ');return'';}
+function pick(o){if(!o||typeof o!=='object'||Array.isArray(o))return null;var a=arguments;for(var i=1;i<a.length;i++){var k=a[i];if(Object.prototype.hasOwnProperty.call(o,k)&&str(o[k])!=='')return o[k];}return null;}
+function put(id,v){var el=document.getElementById(id);if(el)el.textContent=str(v);}
+function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+var sEl=document.querySelector('script[data-card-state]');
+var S=Object.assign({},D);
+if(sEl){try{var u=JSON.parse(sEl.textContent);if(u&&typeof u==='object'&&!Array.isArray(u))for(var k in u)S[k]=u[k];}catch(e){}}
+put('title',pick(S,'title','heading'));
+put('subtitle',pick(S,'subtitle','desc'));
+var paras=(function(b){if(Array.isArray(b))return b.map(String).filter(Boolean);if(typeof b==='string')return b.split(/\n\s*\n/).map(function(t){return t.trim();}).filter(Boolean);return [];})(S.body);
+var bb=document.getElementById('cbod');
+if(bb){if(paras.length){bb.innerHTML=paras.map(function(t){return '<p style="margin:0 0 .4em">'+esc(t)+'</p>';}).join('');bb.style.display='';}else{bb.style.display='none';bb.innerHTML='';}}
+})();
+</script>
+</body>
+</html>

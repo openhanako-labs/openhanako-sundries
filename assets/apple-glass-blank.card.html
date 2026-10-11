@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>暗色玻璃样张</title>
+<style>
+body{margin:0;background:#030508;color:#F2F2F7;font-family:'Inter','SF Pro Display','Segoe UI','Noto Sans SC',sans-serif}
+.w{max-width:600px;margin:0 auto;padding:52px 16px 24px}
+.g{background:rgba(255,255,255,.07);backdrop-filter:blur(30px) saturate(150%);-webkit-backdrop-filter:blur(30px) saturate(150%);border:.5px solid rgba(255,255,255,.14);border-radius:22px;padding:22px}
+.hd{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.dot{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#030508}
+.t{font-size:1.15rem;font-weight:600;letter-spacing:.01em}
+.sub{font-size:.78rem;color:#8E8E93;margin-bottom:16px;font-family:Consolas,monospace}
+.mark{background-image:linear-gradient(90deg,rgba(255,214,10,.42) 0 100%);background-repeat:no-repeat;background-size:0 100%;animation:hl 1.5s .5s forwards cubic-bezier(0.25,0.8,0.25,1);border-radius:3px;padding:1px 3px;margin:0 -3px}
+@keyframes hl{to{background-size:100% 100%}}
+.p{font-size:.92rem;line-height:1.8;color:#D9D9DE;margin:14px 0 18px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:Consolas,monospace;font-size:11px;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.08);border:.5px solid rgba(255,255,255,.14);color:#E5E5EA}
+.b{margin-top:18px;width:100%;border:none;border-radius:14px;background:#0A84FF;color:#fff;font:inherit;font-size:.95rem;font-weight:600;padding:13px 0;cursor:pointer;transition:transform .3s cubic-bezier(0.25,0.8,0.25,1),filter .3s}
+.b:hover{transform:scale(1.02);filter:brightness(1.12)}
+.b:focus-visible{outline:2px solid #0A84FF;outline-offset:2px}
+.ft{display:flex;justify-content:space-between;margin-top:14px;font-family:Consolas,monospace;font-size:11px;color:#6E6E73}
+.cr{font-size:10px;color:#48484A;text-align:center;margin-top:14px;letter-spacing:.1em}
+</style>
+</head>
+<body>
+<div class="w">
+  <div class="g">
+    <div class="hd">
+      <div class="dot" style="background:#30D158">✓</div>
+      <div class="t" data-role="title">暗色玻璃 · Apple 系</div>
+    </div>
+    <div class="sub" data-role="subtitle">card-theater visual spec</div>
+    <div class="p">玻璃拟态 <span class="mark">blur(30px) saturate(150%)</span>，选中高亮走荧光笔划线动画，缓动统一 cubic-bezier(0.25, 0.8, 0.25, 1)。</div>
+    <div class="chips">
+      <span class="chip" data-role="chip-0" style="color:#0A84FF">#0A84FF blue</span>
+      <span class="chip" data-role="chip-1" style="color:#30D158">#30D158 green</span>
+      <span class="chip" data-role="chip-2" style="color:#FFD60A">#FFD60A yellow</span>
+      <span class="chip" data-role="chip-3" style="color:#BF5AF2">#BF5AF2 purple</span>
+    </div>
+    <button type="button" class="b" data-action="select">选中卡片</button>
+    <div class="ft"><span>Inter + JetBrains Mono</span><span>#030508</span></div>
+  </div>
+  <div class="cr" data-role="caption">风格指令 · card-theater · 暗色科技风视觉规范</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":600},"stateSchema":{"type":"object","properties":{"title":{"type":"string","description":"主标题"},"subtitle":{"type":"string","description":"副题"},"items":{"type":"array","maxItems":6,"items":{"type":"object","properties":{"text":{"type":"string","description":"芯片文本"}}},"description":"颜色芯片"},"caption":{"type":"string","description":"底部标注"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "title": "暗色玻璃 · Apple 系",
+  "subtitle": "GLASSMORPHISM SPEC",
+  "items": [
+    {
+      "text": "GLASSMORPHISM SPEC"
+    },
+    {
+      "text": "GLASSMORPHISM SPEC"
+    },
+    {
+      "text": "GLASSMORPHISM SPEC"
+    },
+    {
+      "text": "GLASSMORPHISM SPEC"
+    }
+  ],
+  "caption": "视觉规范 · 卡片剧场",
+  "body": "GLASSMORPHISM SPEC"
+}
+</script>
+<script id="__card_render__">
+(function(){
+  function readState(){var d=null;try{var s=document.querySelector('script[data-card-state]');if(s)d=JSON.parse(s.textContent);}catch(err){}return d;}
+  function str(v,d){if(v===undefined||v===null)return d;if(typeof v==="string"){v=v.trim();return v===''?d:v;}return String(v);}
+  function arr(v,n){if(!Array.isArray(v))return [];var o=[];for(var i=0;i<v.length&&o.length<n;i++){var x=v[i];if(x&&typeof x==="object"&&!Array.isArray(x))o.push(x);}return o;}
+  function set(el,v,d){var t=str(v,d);if(el)el.textContent=t;}
+  var S=readState(); if(!S)return; try{
+    var DEFAULTS={title:'',body:''};
+    S=Object.assign({},DEFAULTS,S);
+    if(S.body&&!S.subtitle){S.subtitle=S.body;}
+    set(document.querySelector('[data-role="title"]'),S.title||S.heading,'Title');
+    set(document.querySelector('[data-role="subtitle"]'),S.subtitle||S.sub,'');
+    var it=arr(S.items||S.list||S.rows,6);
+    for(var i=0;i<4;i++){var x=it[i];set(document.querySelector('[data-role="chip-'+i+'"]'),x?(x.text||x.body||x.content||''):'');}
+    set(document.querySelector('[data-role="caption"]'),S.caption||S.body||'','');
+  }catch(err){console.error('[card] render error:',err);}
+})();
+</script>
+</body>
+</html>

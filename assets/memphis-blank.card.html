@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>孟菲斯竞技场样张</title>
+<style>
+body{margin:0;background:#FDF7EA;color:#111;font-family:'Archivo Black','Arial Black','Noto Sans SC','Microsoft YaHei',sans-serif;font-weight:900}
+.w{max-width:540px;margin:0 auto;padding:52px 20px 24px}
+.arena{position:relative;background:#FFF9EE;padding:24px 22px 24px;box-shadow:10px 10px 0 rgba(0,0,0,.16);overflow:hidden}
+.g{position:absolute;pointer-events:none}
+.g1{top:-20px;left:-20px;width:130px;height:130px;background:radial-gradient(circle at 30% 30%,#FF3D9A 0%,#FF3D9A 40%,transparent 41%);border-radius:50%}
+.g2{top:36px;right:14px;width:0;height:0;border-left:36px solid transparent;border-right:36px solid transparent;border-bottom:60px solid #00C4B4}
+.g3{bottom:60px;left:14px;width:80px;height:80px;background:radial-gradient(circle,#FFC000 4px,transparent 4.5px) 0 0/14px 14px}
+.g4{bottom:-30px;right:-24px;width:120px;height:120px;background:repeating-linear-gradient(45deg,#0E31C7 0 6px,#FFF9EE 6px 12px)}
+.g5{top:170px;left:50%;transform:translateX(-50%);width:14px;height:60px;background:#111}
+.g6{top:194px;left:calc(50% + 18px);width:60px;height:12px;background:#111}
+.g7{top:210px;left:calc(50% + 42px);width:14px;height:44px;background:#111}
+.topbar{display:flex;align-items:baseline;gap:14px;margin-bottom:8px;position:relative;z-index:2}
+.kicker{font-family:'Courier New',monospace;font-size:11px;letter-spacing:.34em;color:#FF3D9A}
+.topbar span:last-child{color:#111;font-size:11px;letter-spacing:.28em;font-family:'Courier New',monospace;font-weight:900}
+h1{font-size:64px;line-height:.95;letter-spacing:.02em;margin:6px 0 4px;color:#111;position:relative;z-index:2}
+h1 .accent{color:#FFC000;text-shadow:5px 5px 0 #0E31C7}
+.sub{font-size:13px;letter-spacing:.28em;color:#0E31C7;margin:0 0 22px;font-family:'Courier New',monospace;position:relative;z-index:2}
+.lb{position:relative;z-index:2;background:#111;color:#FFF9EE;padding:14px 18px 12px}
+.lb-title{display:flex;align-items:center;gap:10px;font-family:'Courier New',monospace;font-size:10px;letter-spacing:.36em;color:#FFC000;margin-bottom:8px}
+.lb-title .dot{width:8px;height:8px;background:#FF3D9A;border-radius:50%}
+.row{display:grid;grid-template-columns:38px 1fr auto;align-items:center;gap:12px;padding:6px 0;border-bottom:1.5px dashed rgba(255,249,238,.28);font-variant-numeric:tabular-nums}
+.row:last-child{border-bottom:none}
+.rk{font-size:22px;letter-spacing:.02em;color:#FFC000}
+.nm{font-size:14px;font-weight:900;letter-spacing:.05em;color:#FFF9EE}
+.sc{font-size:13px;color:#00C4B4;font-family:'Courier New',monospace}
+.row.p1{background:linear-gradient(90deg,rgba(255,61,154,.28),transparent);padding-left:8px;margin-left:-8px;border-radius:0}
+.row.p1 .rk{color:#FF3D9A;font-size:26px}
+.row.p1 .nm{color:#FFF}
+.ft{display:flex;justify-content:space-between;margin-top:16px;font-family:'Courier New',monospace;font-size:10px;letter-spacing:.28em;color:#111;position:relative;z-index:2}
+.cr{font-family:'Courier New',monospace;font-size:10px;color:#9A88A6;text-align:center;margin-top:14px;letter-spacing:.12em}
+</style>
+</head>
+<body>
+<div class="w">
+  <div class="arena">
+    <div class="g g1"></div>
+    <div class="g g2"></div>
+    <div class="g g3"></div>
+    <div class="g g4"></div>
+    <div class="topbar">
+      <span class="kicker">STYLE ARENA · 0-3</span>
+      <span>FINAL ROUND</span>
+    </div>
+    <h1>竞技场<br><span class="accent">6强</span> 排位</h1>
+    <p class="sub">MEMPHIS · POP COLLAGE · NO RESTRICTION</p>
+    <div class="lb">
+      <div class="lb-title"><span class="dot"></span>LEADERBOARD · 排位</div>
+      <div class="row p1"><span class="rk">01</span><span class="nm">月曦夜</span><span class="sc">2450</span></div>
+      <div class="row"><span class="rk">02</span><span class="nm">Ophelia</span><span class="sc">2388</span></div>
+      <div class="row"><span class="rk">03</span><span class="nm">Kairos</span><span class="sc">2290</span></div>
+      <div class="row"><span class="rk">04</span><span class="nm">Nova</span><span class="sc">2160</span></div>
+      <div class="row"><span class="rk">05</span><span class="nm">Vera</span><span class="sc">2050</span></div>
+      <div class="row"><span class="rk">06</span><span class="nm">Echo</span><span class="sc">1980</span></div>
+    </div>
+    <div class="ft"><span>P.01</span><span>ROUND 03 / 03</span></div>
+  </div>
+  <div class="cr">风格指令 · video-shot-demos · 孟菲斯竞技场（风格卡 12）</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":540},"stateSchema":{"type":"object","properties":{"kicker":{"type":"string","description":"顶栏 kicker"},"round":{"type":"string","description":"顶栏轮次"},"title":{"type":"string","description":"标题（HTML）"},"subtitle":{"type":"string","description":"副题"},"board_label":{"type":"string","description":"看板标题"},"items":{"type":"array","items":{"type":"object","properties":{"rank":{"type":"string","description":"排名"},"name":{"type":"string","description":"姓名"},"score":{"type":"string","description":"分数"}}},"description":"排位榜（≤6）"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "kicker": "MEMPHIS · 1985",
+  "round": "ROUND 03",
+  "title": "孟菲斯",
+  "subtitle": "几何、撞色、毫无道理",
+  "board_label": "BOARD",
+  "items": [
+    {
+      "rank": "01",
+      "name": "月曦夜",
+      "score": "2450"
+    },
+    {
+      "rank": "02",
+      "name": "Ophelia",
+      "score": "2388"
+    },
+    {
+      "rank": "03",
+      "name": "Kairos",
+      "score": "2290"
+    },
+    {
+      "rank": "04",
+      "name": "Nova",
+      "score": "2160"
+    },
+    {
+      "rank": "05",
+      "name": "Vera",
+      "score": "2050"
+    },
+    {
+      "rank": "06",
+      "name": "Echo",
+      "score": "1980"
+    }
+  ],
+  "body": "几何、撞色、毫无道理"
+}
+</script>
+<script id="__card_render__">
+(function(){
+  function readState(){var d=null;try{var s=document.querySelector('script[data-card-state]');if(s)d=JSON.parse(s.textContent);}catch(e){}return d;
+  }
+  function s(v,d){if(v===undefined||v===null)return d;if(typeof v==="string"){v=v.trim();return v===''?d:v;}return String(v);}
+  function arr(v,n){if(!Array.isArray(v))return [];var o=[];for(var i=0;i<v.length&&o.length<n;i++){var x=v[i];if(x&&typeof x==="object"&&!Array.isArray(x))o.push(x);}return o;}
+  function e(v,d){var x=s(v,d);if(x===d)return d;return String(x).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+  var S=readState(); if(!S)return; try{
+    var DEFAULTS={title:'',body:''};
+    S=Object.assign({},DEFAULTS,S);if(S.body){if(S.title)S.title=S.title+'\n'+S.body;else S.title=S.body;}
+
+if(S.kicker){var e1=document.querySelector(".kicker");if(e1)e1.textContent=s(S.kicker,e1.textContent);}
+if(S.round){var e2=document.querySelectorAll(".topbar span");if(e2[1])e2[1].textContent=s(S.round,e2[1].textContent);}
+if(S.title){var e3=document.querySelector("h1");if(e3)e3.innerHTML=e(S.title,e3.innerHTML);}
+if(S.subtitle){var e4=document.querySelector(".sub");if(e4)e4.textContent=s(S.subtitle,e4.textContent);}
+if(S.board_label){var e5=document.querySelector(".lb-title");if(e5){var nodes=[].slice.call(e5.childNodes).filter(function(n){return n.nodeType===3;});if(nodes[0])nodes[0].nodeValue=S.board_label;}}
+var it=arr(S.items||S.list||S.rows,6);
+var rows=document.querySelectorAll(".lb > .row");
+for(var ri=0;ri<rows.length;ri++){var x=it[ri];var r=rows[ri];if(!r||!x)continue;var rk=r.querySelector(".rk");var nm=r.querySelector(".nm");var sc=r.querySelector(".sc");if(rk)rk.textContent=s(x.rank||x.rk||"");if(nm)nm.textContent=s(x.name||x.nm||"");if(sc)sc.textContent=s(x.score||"");if(ri===0){r.classList.add("p1");}else{r.classList.remove("p1");}}
+}catch(err){console.error("[card] render error:",err);} })();
+</script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>审讯室证据聚光样张</title>
+<style>
+body{margin:0;background:#0a0908;color:#d9c7a5;font-family:'Special Elite','Courier Prime','Courier New','Noto Serif SC',monospace}
+.w{max-width:580px;margin:0 auto;padding:52px 18px 28px}
+.stage{position:relative;background:radial-gradient(ellipse 62% 58% at 50% 50%,#4a3a20 0%,#2b2014 34%,#0e0a06 70%,#050403 100%);border-radius:8px;padding:32px 24px 30px;box-shadow:0 20px 44px rgba(0,0,0,.7),inset 0 0 60px rgba(0,0,0,.7);overflow:hidden;min-height:340px}
+.beam{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 26% 60% at 50% 40%,rgba(255,230,170,.42) 0%,rgba(255,230,170,.14) 40%,transparent 70%)}
+.vignette{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.6) 100%)}
+.head{position:relative;text-align:center;margin-bottom:8px;z-index:2}
+.head .num{font-family:'Special Elite','Courier New',monospace;font-size:11px;letter-spacing:.42em;color:#8a7550}
+.head h1{font-size:30px;font-family:'Special Elite','Courier New',monospace;font-weight:700;margin:4px 0 4px;letter-spacing:.16em;color:#f4e5b8;text-shadow:0 0 22px rgba(255,230,170,.4)}
+.head .zh{font-family:'Noto Serif SC',serif;font-size:15px;letter-spacing:.44em;color:#c9a44c;margin-bottom:10px}
+.table{position:relative;margin:22px auto 6px;width:280px;height:110px;background:linear-gradient(180deg,#3a2c18 0%,#24190c 60%,#160e05 100%);border:2px solid #4a3820;border-radius:6px;box-shadow:0 12px 22px rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center}
+.item{position:relative;background:rgba(244,229,184,.14);border:1.5px dashed rgba(244,229,184,.65);padding:10px 16px;border-radius:4px;transform:rotate(-3deg);z-index:2}
+.item .lb{font-family:'Special Elite','Courier New',monospace;font-size:10px;letter-spacing:.32em;color:#f4e5b8;margin-bottom:4px}
+.item b{display:block;font-family:'Special Elite','Courier New',monospace;font-size:18px;letter-spacing:.14em;color:#f4e5b8}
+.item .desc{font-family:'Noto Serif SC',serif;font-size:12px;margin-top:4px;color:#c9a44c;letter-spacing:.04em}
+.tag-num{position:absolute;top:-14px;right:-14px;width:44px;height:44px;background:#c9a44c;color:#241a08;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Special Elite','Courier New',monospace;font-size:9.5px;letter-spacing:.14em;font-weight:700;transform:rotate(10deg);box-shadow:0 3px 8px rgba(0,0,0,.5);line-height:1.05;text-align:center;z-index:3}
+.tag-num .big{font-size:14px}
+.hint{position:relative;text-align:center;margin-top:20px;font-size:12.5px;line-height:1.85;color:#c9a44c;z-index:2}
+.hint .red{color:#d25230}
+.foot{position:relative;display:flex;justify-content:space-between;margin-top:12px;font-family:'Courier New',monospace;font-size:10.5px;color:#6b5a3c;letter-spacing:.22em;z-index:2}
+.cr{text-align:center;font-size:10px;color:#5c4e34;margin-top:12px;letter-spacing:.14em}
+</style>
+</head>
+<body>
+<div class="w">
+<div class="stage">
+<div class="beam"></div>
+<div class="vignette"></div>
+<div class="head">
+<div class="num" id="evNum"></div>
+<h1 id="title"></h1>
+<div class="zh" id="subtitle"></div>
+</div>
+<div class="table">
+<div class="item">
+<div class="tag-num"><span class="big">№</span><span id="evTag"></span></div>
+<div class="lb" id="evLabel"></div>
+<b id="evValue"></b>
+<div class="desc" id="evDesc"></div>
+</div>
+</div>
+<div class="hint" id="hint"></div>
+<div class="foot"><span id="footL"></span><span id="footR"></span></div>
+</div>
+<div class="cr">风格指令 · video-shot-demos · 审讯室证据聚光（风格卡 2-4）</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":580},"stateSchema":{"type":"object","properties":{"evNum":{"type":"string","description":"顶部编号（EVIDENCE · 0-4）"},"title":{"type":"string","description":"英文大字标题"},"subtitle":{"type":"string","description":"中文标题"},"evTag":{"type":"string","description":"证物角标号码"},"evLabel":{"type":"string","description":"证物标签"},"evValue":{"type":"string","description":"证物名称（大字）"},"evDesc":{"type":"string","description":"证物描述"},"hint":{"type":"string","description":"下方提示，\\n 分行"},"footLeft":{"type":"string","description":"底部左侧"},"footRight":{"type":"string","description":"底部右侧"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "evNum": "结论",
+  "title": "SPOT LIGHT",
+  "subtitle": "证 物 · 台",
+  "evTag": "007",
+  "evLabel": "ITEM · 证物",
+  "evValue": "结论",
+  "evDesc": "结论",
+  "hint": "证据 04 指向一件事：验收必须看可见文本，不看有没有报错。",
+  "footLeft": "CASE 2-4",
+  "footRight": "结论",
+  "body": "证据 04 指向一件事：验收必须看可见文本，不看有没有报错。"
+}
+</script>
+<script>
+(function(){
+var D={evNum:'EVIDENCE · 0-0',title:'SPOT LIGHT',subtitle:'证物 · 台',evTag:'000',evLabel:'ITEM · 证物',evValue:'SAMPLE.DOC',evDesc:'— 描述 —',hint:'Line one.\nLine two.',footLeft:'CASE 0-0',footRight:'DO NOT TOUCH'};
+function str(v){if(v==null)return'';if(typeof v==='string')return v;if(typeof v==='number'||typeof v==='boolean')return String(v);if(Array.isArray(v))return v.map(str).filter(Boolean).join(' ');return'';}
+function pick(o,keys){if(!o||typeof o!=='object'||Array.isArray(o))return null;for(var i=0;i<keys.length;i++){var k=keys[i];if(Object.prototype.hasOwnProperty.call(o,k)&&str(o[k])!=='')return o[k];}return null;}
+function put(id,v){var el=document.getElementById(id);if(el)el.textContent=str(v);}
+var sEl=document.querySelector('script[data-card-state]');
+var S=Object.assign({},D);
+if(sEl){try{var u=JSON.parse(sEl.textContent);if(u&&typeof u==='object'&&!Array.isArray(u))for(var k in u)S[k]=u[k];}catch(e){}}
+put('evNum',pick(S,['evNum','evidenceNum','num']));
+put('title',pick(S,['title','heading']));
+put('subtitle',pick(S,['body','subtitle','desc']));
+put('evTag',pick(S,['evTag','tag','tagNum']));
+put('evLabel',pick(S,['evLabel','label']));
+put('evValue',pick(S,['evValue','value']));
+put('evDesc',pick(S,['evDesc','desc2','caption']));
+put('hint',pick(S,['hint','note','quote']));
+put('footL',pick(S,['footLeft','footL','left']));
+put('footR',pick(S,['footRight','footR','right']));
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>拟真录屏样张 · 无响应</title>
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:#0f1013;color:#dfe4ea;font-family:'Noto Sans SC','Microsoft YaHei','PingFang SC',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  .w{max-width:620px;margin:0 auto;padding:48px 16px 24px}
+  .frame{background:#17191d;border-radius:10px;padding:14px;box-shadow:8px 8px 0 rgba(0,0,0,.55);position:relative}
+
+  /* 桌面顶栏 */
+  .osbar{display:flex;align-items:center;gap:12px;height:28px;padding:0 12px;background:linear-gradient(180deg,#20232a,#181a20);border-radius:8px 8px 0 0;border:1px solid #2a2e36;border-bottom:none}
+  .osbar .icons{display:flex;gap:14px;color:#dfe4ea;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:1px}
+  .osbar .apple{font-family:Arial,sans-serif;font-size:15px;line-height:1;color:#dfe4ea}
+  .osbar .mid{flex:1;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;color:#8a92a0}
+  .osbar .clock{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:1px;color:#dfe4ea}
+  .osbar .clock i{font-style:normal;color:#8a92a0;margin-right:5px;font-size:10px}
+
+  /* 浏览器窗口 */
+  .browser{background:#fff;border:1px solid #2a2e36;border-radius:0 0 8px 8px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.4);filter:saturate(.55) contrast(.98);position:relative}
+  .browser::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,25,29,.14),rgba(23,25,29,.08));pointer-events:none;z-index:20}
+  .tabs{display:flex;background:#dee2e6;padding:6px 8px 0;gap:2px;position:relative;z-index:21}
+  .tab{background:#dee2e6;padding:6px 12px 7px;font-size:11.5px;color:#4a5058;border-radius:8px 8px 0 0;border:1px solid transparent;border-bottom:none;display:flex;align-items:center;gap:6px;max-width:220px}
+  .tab.active{background:#fff;color:#2a2f38;border-color:#b8bec6;border-bottom:1px solid #fff;margin-bottom:-1px}
+  .tab.hang{background:#f5f5f7;color:#7a8290}
+  .tab .dots{width:8px;height:8px;border-radius:50%;background:#4d6bfe;flex:0 0 auto}
+  .tab.hang .dots{background:#c4c9d0}
+  .tab .x{margin-left:auto;font-family:'IBM Plex Mono',monospace;color:#8a92a0}
+  .tab .badge{background:#e8553b;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:9px;padding:1px 5px;border-radius:8px;letter-spacing:1px;font-weight:700}
+
+  .toolbar{display:flex;align-items:center;gap:6px;background:#fff;padding:6px 10px;border-bottom:1px solid #d0d5dc;position:relative;z-index:21}
+  .nav{display:flex;gap:2px;color:#4a5058}
+  .nav button{background:transparent;border:none;color:#4a5058;padding:5px 7px;font-family:inherit;cursor:pointer;border-radius:4px}
+  .urlbar{flex:1;display:flex;align-items:center;background:#f0f2f5;border:1px solid #d0d5dc;border-radius:16px;padding:4px 12px;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#4a5058}
+  .urlbar .lock{color:#4a5058;font-size:10px}
+  .urlbar .u{flex:1}
+  .urlbar .u b{color:#17191d;font-weight:600}
+  .urlbar .u .host{color:#4a5058}
+  .urlbar .u .path{color:#17191d;font-weight:600}
+  .refresh{background:#ffe6cc;color:#c9553b;padding:3px 8px;border-radius:12px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:1.5px;font-weight:700;flex:0 0 auto}
+
+  /* 应用界面（内部） */
+  .app{position:relative;padding:20px 22px 22px;min-height:290px;background:linear-gradient(180deg,#fff,#f7f9fc)}
+  .app .hd{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
+  .app .hd .t{font-size:22px;font-weight:800;color:#17191d;letter-spacing:.5px}
+  .app .hd .t small{display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:500;color:#8a92a0;letter-spacing:1.5px;margin-top:3px}
+  .app .hd .st{background:#fff3e0;color:#c9553b;padding:4px 10px;border-radius:12px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;font-weight:700;border:1px solid #ffd4a8}
+
+  .card-in{background:#fff;border:1px solid #e4e8ee;border-radius:8px;padding:14px 16px;box-shadow:0 2px 8px rgba(20,25,40,.06);margin-bottom:10px}
+  .card-in .k{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;color:#8a92a0;margin-bottom:4px}
+  .card-in .v{font-size:14px;color:#17191d;font-weight:600;line-height:1.5}
+  .card-in .v em{font-style:normal;color:#4d6bfe;font-weight:700}
+  .card-in.frozen{background:#f0f2f5;color:#7a8290}
+  .card-in.frozen .v{color:#7a8290}
+  .card-in.frozen .v em{color:#8a92a0}
+
+  /* 停摆的转圈 */
+  .spin-wrap{position:absolute;right:22px;top:60px;display:flex;flex-direction:column;align-items:center;gap:4px}
+  .spin{width:22px;height:22px;border:2px solid #d0d5dc;border-top-color:#4d6bfe;border-radius:50%;animation:none;transform:rotate(0deg);opacity:.85}
+  .spin-wrap small{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1.5px;color:#8a92a0}
+
+  /* 无响应遮罩：轻灰纱 */
+  .hangveil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(200,205,214,.06),rgba(160,165,180,.09));pointer-events:none;z-index:15}
+  .hangstamp{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%) rotate(-6deg);background:rgba(23,25,29,.86);color:#fff;padding:8px 16px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:3px;border:1.5px solid rgba(255,255,255,.18);box-shadow:0 8px 20px rgba(0,0,0,.4);z-index:22}
+  .hangstamp b{display:block;font-family:'Noto Sans SC','Microsoft YaHei',sans-serif;font-size:16px;font-weight:800;letter-spacing:6px;color:#ffb84a;margin-bottom:2px}
+
+  /* 底部元数据 */
+  .meta{margin-top:14px;display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:#1e2028;border:1px solid #2a2e36;border-radius:8px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:1.5px;color:#8a92a0}
+  .meta b{color:#ffb84a}
+  .meta .tc{color:#dfe4ea}
+
+  .cr{margin-top:12px;font-size:10px;letter-spacing:1.5px;color:#5a6070;font-family:'IBM Plex Mono',monospace;text-align:left}
+</style>
+</head>
+<body>
+<div class="w">
+  <div class="frame">
+    <!-- OS 桌面顶栏 -->
+    <div class="osbar">
+      <div class="icons">
+        <span class="apple"></span>
+        <span>任务中心</span>
+        <span>文件</span>
+      </div>
+      <div class="mid" id="mid"></div>
+      <div class="clock"><i id="date"></i><span id="clock"></span></div>
+    </div>
+    <!-- 浏览器窗口 -->
+    <div class="browser">
+      <div class="tabs">
+        <div class="tab active"><span class="dots"></span><span id="tab0"></span><span class="badge">!</span><span class="x">×</span></div>
+        <div class="tab hang"><span class="dots"></span><span id="tab1"></span><span class="x">×</span></div>
+      </div>
+      <div class="toolbar">
+        <div class="nav">
+          <button data-action="back"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <button data-action="fwd"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+          <button data-action="refresh"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 11-3-6.7M21 3v6h-6"/></svg></button>
+        </div>
+        <div class="urlbar">
+          <span class="lock"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg></span>
+          <span class="u"><span class="host">https://</span><span class="path" id="url"></span></span>
+          <span class="refresh">卡 住</span>
+        </div>
+      </div>
+      <div class="app">
+        <div class="hangveil"></div>
+        <div class="hd">
+          <div class="t"><span id="title"></span><small id="subtitle"></small></div>
+          <div class="st" id="status"></div>
+        </div>
+        <div id="cbod" style="display:none;font-family:'Noto Sans SC','Microsoft YaHei',sans-serif;font-size:13px;line-height:1.6;color:#3a4048;background:#f7f9fc;border:1px solid #d0d5dc;border-radius:6px;padding:10px 12px;margin-bottom:12px"></div>
+        <div class="card-in" id="f0">
+          <div class="k" id="fk0"></div>
+          <div class="v" id="fv0"></div>
+        </div>
+        <div class="card-in" id="f1">
+          <div class="k" id="fk1"></div>
+          <div class="v" id="fv1"></div>
+        </div>
+        <div class="card-in frozen" id="f2">
+          <div class="k" id="fk2"></div>
+          <div class="v" id="fv2"></div>
+        </div>
+        <div class="spin-wrap">
+          <div class="spin"></div>
+          <small id="spinTime"></small>
+        </div>
+        <div class="hangstamp">
+          <b>无 响 应</b>
+          <span id="stampText"></span>
+        </div>
+      </div>
+    </div>
+    <div class="meta">
+      <span><b>REC</b> 桌面 #17191d · 窗 #ffffff</span>
+      <span class="tc" id="tc"></span>
+      <span>冻结：动画停摆 + 去色灰纱</span>
+    </div>
+  </div>
+  <div class="cr">风格指令 · video-shot-demos · 拟真录屏 · 情景复现（风格卡 3-1b）</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":620},"stateSchema":{"type":"object","properties":{"date":{"type":"string","description":"顶栏日期段（如 SEP 26）"},"clock":{"type":"string","description":"顶栏时钟"},"mid":{"type":"string","description":"桌面中间进程条"},"tabs":{"type":"array","description":"两个标签页标题：[active, hang]","maxItems":2},"url":{"type":"string","description":"地址栏路径"},"title":{"type":"string","description":"应用标题"},"subtitle":{"type":"string","description":"标题下小字"},"status":{"type":"string","description":"右上角状态徽章"},"fields":{"type":"array","description":"最多 3 个表单字段：[{label, value}]；value 用 <em> 高亮","maxItems":3},"spinTime":{"type":"string","description":"停摆转圈下方时间"},"stampText":{"type":"string","description":"无响应戳副文"},"tc":{"type":"string","description":"底部 TC 码"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "date": "SEP 26",
+  "clock": "12:08",
+  "mid": "系统已冻结",
+  "tabs": [
+    "这行错误其实早就写在那里了",
+    "这行错误其实早就写在那里了"
+  ],
+  "url": "0xEFAULT · MEMORY",
+  "title": "Q3 提 交 报 表",
+  "subtitle": "这行错误其实早就写在那里了",
+  "status": "PROCESS HALTED",
+  "fields": [
+    {
+      "label": "这行错误其实早就写在那里了",
+      "value": "这行错误其实早就写在那里了"
+    },
+    {
+      "label": "这行错误其实早就写在那里了",
+      "value": "这行错误其实早就写在那里了"
+    },
+    {
+      "label": "这行错误其实早就写在那里了",
+      "value": "这行错误其实早就写在那里了"
+    }
+  ],
+  "spinTime": "04:17",
+  "stampText": "按住任意键重启",
+  "tc": "请稍候 5 秒",
+  "body": "这行错误其实早就写在那里了"
+}
+</script>
+<script>
+(function(){
+var D={date:'MMM DD',clock:'HH:MM',mid:'Sample process line',tabs:['Tab one','Tab two'],'url':'example.com/path','title':'Sample Title','subtitle':'FORM · SAMPLE-0000','status':'SUBMITTING…','fields':[{label:'01 · FIELD',value:'Sample value.'},{label:'02 · FIELD',value:'Sample value.'},{label:'03 · FIELD',value:'Sample value.'}],'spinTime':'00:00','stampText':'NOT RESPONDING · 0m 0s','tc':'TC 00:00:00:00'};
+function str(v){if(v==null)return'';if(typeof v==='string')return v;if(typeof v==='number'||typeof v==='boolean')return String(v);if(Array.isArray(v))return v.map(str).filter(Boolean).join(' ');return'';}
+function pick(o,keys){if(!o||typeof o!=='object'||Array.isArray(o))return null;for(var i=0;i<keys.length;i++){var k=keys[i];if(Object.prototype.hasOwnProperty.call(o,k)&&str(o[k])!=='')return o[k];}return null;}
+function put(id,v,html){var el=document.getElementById(id);if(!el)return;var s=str(v);if(html==null)html=/<[a-z]/i.test(s);if(html)el.innerHTML=s;else el.textContent=s;}
+function items(v,max){if(!Array.isArray(v))return null;var out=[];for(var i=0;i<v.length&&out.length<max;i++){var it=v[i];if(typeof it==='string'){out.push({value:it});continue;}if(!it||typeof it!=='object'||Array.isArray(it))continue;var lb=pick(it,['label','name','tag','key']),vl=pick(it,['value','text','body','content']);if(!str(lb)&&!str(vl))continue;out.push({label:lb,value:vl});}return out;}
+var sEl=document.querySelector('script[data-card-state]');
+var S=Object.assign({},D);
+if(sEl){try{var u=JSON.parse(sEl.textContent);if(u&&typeof u==='object'&&!Array.isArray(u))for(var k in u)S[k]=u[k];}catch(e){}}
+var T=items(pick(S,['tabs','pages']),2)||D.tabs;
+var F=items(pick(S,['fields','items','rows']),3)||D.fields;
+put('date',pick(S,['date','day']));
+put('clock',pick(S,['clock','time']));
+put('mid',pick(S,['mid','process','note']));
+put('tab0',T[0]?T[0].value:'');
+put('tab1',T[1]?T[1].value:'');
+put('url',pick(S,['url','path']));
+put('title',pick(S,['title','heading']));
+put('subtitle',pick(S,['subtitle','desc']));
+put('status',pick(S,['status','badge','state']));
+put('spinTime',pick(S,['spinTime','spin']));
+put('stampText',pick(S,['stampText','stamp','note2']));
+put('tc',pick(S,['tc','code']));
+for(var i=0;i<3;i++){
+  put('fk'+i,F[i]?F[i].label:'');
+  put('fv'+i,F[i]?F[i].value:'');
+  var box=document.getElementById('f'+i);
+  if(box)box.style.display=F[i]?'':'none';
+}
+var escF=function(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');};
+var paras=(function(b){if(Array.isArray(b))return b.map(String).filter(Boolean);if(typeof b==='string')return b.split(/\n\s*\n/).map(function(t){return t.trim();}).filter(Boolean);return [];})(S.body);
+var bb=document.getElementById('cbod');
+if(bb){if(paras.length){bb.innerHTML=paras.map(function(t){return '<p style="margin:0 0 .4em">'+escF(t)+'</p>';}).join('');bb.style.display='';}else{bb.style.display='none';bb.innerHTML='';}}
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>赛博红橙样张</title>
+<style>
+body{margin:0;background:#0A0406;color:#FFB4A8;font-family:'Segoe UI','Noto Sans SC',sans-serif}
+.c{max-width:600px;margin:0 auto;padding:52px 16px 24px;position:relative}
+.scan{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0 4px,rgba(255,59,48,.05) 4px 5px)}
+.fr{position:relative;border:1px solid rgba(255,59,48,.55);border-radius:6px;padding:22px 22px 24px;background:rgba(255,59,48,.04);box-shadow:0 0 28px rgba(255,59,48,.22),inset 0 0 34px rgba(255,59,48,.07)}
+.lb{font-family:Consolas,monospace;font-size:11px;letter-spacing:.3em;color:#FF3B30;text-shadow:0 0 8px rgba(255,59,48,.8)}
+.h{font-size:clamp(34px,8vw,52px);font-weight:900;letter-spacing:.04em;margin:14px 0 4px;color:#FF3B30;text-shadow:0 0 16px rgba(255,59,48,.85),0 0 44px rgba(255,59,48,.4)}
+.h2{font-size:clamp(20px,4vw,28px);font-weight:800;color:#FF9F0A;text-shadow:0 0 14px rgba(255,159,10,.8);letter-spacing:.1em}
+.rows{margin-top:18px;display:flex;flex-direction:column;gap:9px}
+.r{display:flex;justify-content:space-between;font-family:Consolas,monospace;font-size:12.5px;border:1px solid rgba(255,159,10,.35);border-radius:4px;padding:9px 13px;background:rgba(255,159,10,.06)}
+.r b{color:#FF9F0A;font-weight:600;text-shadow:0 0 9px rgba(255,159,10,.7)}
+.btn{margin-top:18px;font-family:Consolas,monospace;font-size:13px;letter-spacing:.2em;color:#FF3B30;background:transparent;border:1px solid #FF3B30;border-radius:4px;padding:11px 26px;cursor:pointer;box-shadow:0 0 14px rgba(255,59,48,.45);transition:.2s}
+.btn:hover{background:rgba(255,59,48,.16);box-shadow:0 0 26px rgba(255,59,48,.8)}
+.btn:focus-visible{outline:2px solid #FF9F0A;outline-offset:2px}
+.cr{font-family:Consolas,monospace;font-size:10px;color:rgba(255,180,168,.5);text-align:center;margin-top:14px;letter-spacing:.14em}
+</style>
+</head>
+<body>
+<div class="c">
+  <div class="scan"></div>
+  <div class="fr">
+    <div class="lb" data-role="note">THEME // CYBER-RED</div>
+    <div class="h" data-role="title">赛博红橙</div>
+    <div class="h2" data-role="subtitle">黑底 · 发光 · 扫描线</div>
+    <div class="rows">
+      <div class="r" data-idx="0"><span>base</span><b>#0A0406</b></div>
+      <div class="r" data-idx="1"><span>red glow</span><b>#FF3B30</b></div>
+      <div class="r" data-idx="2"><span>orange glow</span><b>#FF9F0A</b></div>
+    </div>
+    <button type="button" class="btn" data-action="engage">ENGAGE</button>
+  </div>
+  <div class="cr" data-role="caption">风格指令 · ppt-animation · 赛博朋克红橙主题</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":600},"stateSchema":{"type":"object","properties":{"title":{"type":"string","description":"主标题"},"subtitle":{"type":"string","description":"副题"},"note":{"type":"string","description":"主题标签"},"items":{"type":"array","maxItems":6,"items":{"type":"object","properties":{"label":{"type":"string","description":"行标签"},"text":{"type":"string","description":"行值"}}},"description":"色值行"},"caption":{"type":"string","description":"底部标注"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "note": "信号已接入，等待握手。",
+  "title": "赛博红橙",
+  "subtitle": "CRIMSON CHANNEL · 09",
+  "items": [
+    {
+      "label": "base",
+      "text": "#0A0406"
+    },
+    {
+      "label": "red glow",
+      "text": "#FF3B30"
+    },
+    {
+      "label": "信号已接入，等待握手。",
+      "text": "#FF9F0A"
+    }
+  ],
+  "caption": "NODE 07 · 状态在线",
+  "body": "信号已接入，等待握手。"
+}
+</script>
+<script id="__card_render__">
+(function(){
+  function readState(){var d=null;try{var s=document.querySelector('script[data-card-state]');if(s)d=JSON.parse(s.textContent);}catch(e){}return d;}
+  function str(v,d){if(v===undefined||v===null)return d;if(typeof v==="string"){v=v.trim();return v===''?d:v;}return String(v);}
+  function arr(v,n){if(!Array.isArray(v))return [];var o=[];for(var i=0;i<v.length&&o.length<n;i++){var x=v[i];if(x&&typeof x==="object"&&!Array.isArray(x))o.push(x);}return o;}
+  function set(el,v,d){var t=str(v,d);if(el)el.textContent=t;}
+  var S=readState(); if(!S)return; try{
+    var DEFAULTS={title:'',body:''};
+    S=Object.assign({},DEFAULTS,S);
+    var bodyText='';
+    if(S.body){
+      bodyText=(typeof S.body==='string')?S.body:String(S.body);
+    }
+    set(document.querySelector('[data-role="note"]'),S.note,'');
+    set(document.querySelector('[data-role="title"]'),S.title||S.heading,'Title');
+    var subEl=document.querySelector('[data-role="subtitle"]');
+    var bodyToSubtitle=subEl&&bodyText&&!S.subtitle;
+    if(subEl)subEl.textContent=bodyToSubtitle?bodyText:(S.subtitle||S.sub||'');
+    var it=arr(S.items||S.list||S.rows,6);
+    var rows=document.querySelectorAll('.r[data-idx]');
+    for(var i=0;i<rows.length;i++){var x=it[i];if(!x)continue;set(rows[i].querySelector('span'),x.label||x.name||x.tag,'');set(rows[i].querySelector('b'),x.text||x.body||x.content||x.value,'');}
+    set(document.querySelector('[data-role="caption"]'),bodyText?bodyText:(S.caption||''),'');
+  }catch(err){console.error('[card] render error:',err);}
+})();
+</script>
+</body>
+</html>

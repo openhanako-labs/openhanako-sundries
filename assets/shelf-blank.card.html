@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>软件货架样张</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#f4efe6;color:#2a2320;font-family:'Baloo 2','PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  .w{max-width:540px;margin:0 auto;padding:48px 16px 26px}
+  .card{background:#fbf7ef;border:2px solid #4a3d2a;border-radius:14px;padding:18px 18px 20px;box-shadow:8px 8px 0 rgba(0,0,0,.15);position:relative}
+
+  .hdr{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:10px;border-bottom:3px solid #4a3d2a;margin-bottom:16px}
+  .hdr .en{font-size:10.5px;letter-spacing:4px;font-weight:800;color:#c9553b}
+  .hdr h1{margin:0;font-size:24px;font-weight:900;letter-spacing:1px;color:#2a2320}
+  .hdr .no{font-family:'IBM Plex Mono','Courier New',monospace;font-size:10.5px;letter-spacing:2px;color:#4a3d2a}
+
+  .shelf{background:#8b6f4a;border:3px solid #4a3d2a;border-radius:8px;padding:8px 8px 0;box-shadow:inset 0 3px 0 rgba(0,0,0,.2),0 6px 0 #6a5438;margin-bottom:14px;position:relative}
+  .shelf::after{content:"";position:absolute;left:8px;right:8px;bottom:0;height:8px;background:linear-gradient(180deg,#5a4a30,#3a2d1a);border-top:1px solid #2a2118;border-radius:0 0 6px 6px}
+  .shelf .lbl{position:absolute;left:14px;top:-13px;background:#c9553b;color:#fff;padding:2px 10px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:3px;font-weight:900;border-radius:3px;box-shadow:2px 2px 0 rgba(0,0,0,.25)}
+  .boxes{display:flex;gap:8px;padding:12px 6px 12px}
+  .box{flex:1;height:100px;background:linear-gradient(180deg,#fff 0%,#f4f0e6 100%);border:2px solid #4a3d2a;border-radius:6px;padding:8px 6px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:3px 3px 0 rgba(0,0,0,.2);position:relative;cursor:pointer;transition:transform .15s}
+  .box:hover{transform:translateY(-2px)}
+  .box .cap{width:36px;height:36px;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Baloo 2','Arial Black',sans-serif;font-size:18px;font-weight:900;box-shadow:2px 2px 0 rgba(0,0,0,.2)}
+  .box .cap.a{background:#c9553b}
+  .box .cap.b{background:#3d6a8f}
+  .box .cap.c{background:#6a8f3d}
+  .box .cap.d{background:#8f3d6a}
+  .box .cap.e{background:#c9a23b}
+  .box .nm{font-size:11px;font-weight:800;color:#2a2320;line-height:1.1}
+  .box .nm small{display:block;font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:1.5px;color:#8a7a5a;font-weight:600;margin-top:2px}
+  .box .tag{position:absolute;top:6px;right:6px;font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:1px;color:#8a7a5a;font-weight:700}
+
+  .footer{display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:2px dashed #b8a680;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:2px;color:#4a3d2a}
+  .footer .stat{display:flex;gap:12px}
+  .footer .stat span b{font-family:'Baloo 2','Arial Black',sans-serif;font-size:14px;color:#c9553b;margin-right:2px}
+  .btn{background:#4a3d2a;color:#fbf7ef;border:none;padding:8px 16px;border-radius:20px;font-family:inherit;font-size:11px;letter-spacing:3px;font-weight:800;cursor:pointer;box-shadow:3px 3px 0 rgba(0,0,0,.2)}
+  .btn:hover{background:#c9553b}
+
+  .cr{margin-top:14px;font-size:10px;letter-spacing:1.5px;color:#5a4a3a;font-family:'IBM Plex Mono',monospace;text-align:left}
+</style>
+</head>
+<body>
+<div class="w">
+  <div class="card">
+    <div class="hdr">
+      <div>
+        <div class="en">SOFT WARE SHELF</div>
+        <h1>软件货架</h1>
+      </div>
+      <div class="no">SKU · 03-2</div>
+    </div>
+    <div class="shelf">
+      <div class="lbl">SHELF 01 · 主力位</div>
+      <div id="__L04_boxes__" class="boxes">
+        <div class="box" data-action="box"><div class="tag">A1</div><div class="cap a">A</div><div class="nm">主应用<small>MAIN · v3.2</small></div></div>
+        <div class="box" data-action="box"><div class="tag">B2</div><div class="cap b">B</div><div class="nm">协作<small>COLLAB · v1.8</small></div></div>
+        <div class="box" data-action="box"><div class="tag">C3</div><div class="cap c">C</div><div class="nm">数据<small>DATA · v2.0</small></div></div>
+        <div class="box" data-action="box"><div class="tag">D4</div><div class="cap d">D</div><div class="nm">工具<small>UTIL · v0.9</small></div></div>
+        <div class="box" data-action="box"><div class="tag">E5</div><div class="cap e">E</div><div class="nm">备份<small>BACKUP</small></div></div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="stat"><span><b>05</b>SKU</span><span><b>01</b>层</span><span><b>24</b>件库存</span></div>
+      <button class="btn" data-action="restock" type="button">上 架 →</button>
+    </div>
+  </div>
+  <div class="cr">风格指令 · video-shot-demos · 软件货架（风格卡 3-2）</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":540},"stateSchema":{"type":"object","properties":{"title":{"type":"string","description":"货架标题"},"sku":{"type":"string","description":"SKU 编号"},"shelf_label":{"type":"string","description":"货架标签"},"items":{"type":"array","items":{"type":"object","properties":{"tag":{"type":"string","description":"编号"},"name":{"type":"string","description":"应用名"},"sub":{"type":"string","description":"英文副题 / 版本"}}},"description":"货架 SKU（固定 5 槽）"},"stats":{"type":"array","items":{"type":"object","properties":{"value":{"type":"string","description":"数字"},"name":{"type":"string","description":"字段名"}}},"description":"页脚统计"},"btn":{"type":"string","description":"按钮文字"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "title": "软件货架",
+  "sku": "SKU · 03-2",
+  "shelf_label": "第三排 · 设计",
+  "items": [
+    {
+      "tag": "A1",
+      "name": "主应用",
+      "sub": "这一格放的是还没决定用途的东西。"
+    },
+    {
+      "tag": "B2",
+      "name": "协作",
+      "sub": "这一格放的是还没决定用途的东西。"
+    },
+    {
+      "tag": "C3",
+      "name": "数据",
+      "sub": "这一格放的是还没决定用途的东西。"
+    },
+    {
+      "tag": "D4",
+      "name": "工具",
+      "sub": "这一格放的是还没决定用途的东西。"
+    },
+    {
+      "tag": "E5",
+      "name": "备份",
+      "sub": "BACKUP"
+    }
+  ],
+  "stats": [
+    {
+      "value": "05",
+      "name": "SKU"
+    },
+    {
+      "value": "01",
+      "name": "层"
+    },
+    {
+      "value": "24",
+      "name": "件库存"
+    }
+  ],
+  "btn": "上 架 →",
+  "body": "这一格放的是还没决定用途的东西。"
+}
+</script>
+
+
+
+<script id="__card_render__">
+(function(){
+  function readState(){var d=null;try{var s=document.querySelector('script[data-card-state]');if(s)d=JSON.parse(s.textContent);}catch(e){}return d;
+  }
+  function s(v,d){if(v===undefined||v===null)return d;if(typeof v==="string"){v=v.trim();return v===''?d:v;}return String(v);}
+  function arr(v,n){if(!Array.isArray(v))return [];var o=[];for(var i=0;i<v.length&&o.length<n;i++){var x=v[i];if(x&&typeof x==="object"&&!Array.isArray(x))o.push(x);}return o;}
+  function e(v,d){var x=s(v,d);if(x===d)return d;return String(x).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+  var S=readState(); if(!S)return; try{
+    var DEFAULTS={title:'',body:''};
+    S=Object.assign({},DEFAULTS,S);if(S.body){if(S.title)S.title=S.title+'\n'+S.body;else S.title=S.body;}
+
+if(S.title){var e1=document.querySelector(".hdr h1");if(e1)e1.textContent=s(S.title,e1.textContent);}
+if(S.sku){var e2=document.querySelector(".hdr .no");if(e2)e2.textContent=s(S.sku,e2.textContent);}
+if(S.shelf_label){var e3=document.querySelector(".shelf .lbl");if(e3)e3.textContent=s(S.shelf_label,e3.textContent);}
+var it=arr(S.items||S.list||S.rows,5);
+var boxEls=document.querySelectorAll("#__L04_boxes__ > .box");
+for(var i=0;i<5;i++){var be=boxEls[i];var x=it[i];if(!be||!x)continue;
+  var tg=be.querySelector(".tag");if(tg)tg.textContent=s(x.tag||"");
+  var cap=be.querySelector(".cap");if(cap)cap.textContent=s((x.name||x.nm||"").substring(0,1),"");
+  var nm=be.querySelector(".nm");if(nm){nm.textContent=s(x.name||x.nm||"");if(x.sub){var sm=nm.querySelector("small");if(sm)sm.textContent=s(x.sub,"");}}
+}
+var st=arr(S.stats||[],3);
+var stEls=document.querySelectorAll(".footer .stat span");
+for(var si=0;si<3;si++){var se=stEls[si];var sx=st[si];if(!se||!sx)continue;var sv=se.querySelector("b");if(sv)sv.textContent=s(sx.value||sx.n||"");var nodes=[].slice.call(se.childNodes).filter(function(n){return n.nodeType===3;});if(nodes[0])nodes[0].nodeValue=s(sx.name||"","");}
+if(S.btn){var bb=document.querySelector(".btn");if(bb)bb.textContent=s(S.btn,bb.textContent);}
+}catch(err){console.error("[card] render error:",err);} })();
+</script>
+</body>
+</html>

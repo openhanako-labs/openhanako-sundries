@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>胶片蒙太奇样张</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#0f0e0c;color:#e8e4d8;font-family:'Bebas Neue','Oswald','Impact','Arial Black','Noto Sans SC',sans-serif;-webkit-font-smoothing:antialiased}
+  .w{max-width:520px;margin:0 auto;padding:48px 16px 24px}
+  .card{background:#17140f;padding:16px 0;position:relative;box-shadow:8px 8px 0 rgba(0,0,0,.55)}
+
+  /* 胶片上下齿孔边条 */
+  .perf{height:20px;background:#0a0906;position:relative;display:flex;justify-content:space-around;align-items:center;padding:0 6px}
+  .perf::before{content:"";position:absolute;left:0;right:0;top:0;bottom:0;background:
+    repeating-linear-gradient(90deg,transparent 0 6px,#0a0906 6px 24px),
+    linear-gradient(180deg,#15130c 0%,#0a0906 50%,#15130c 100%);border-top:1px solid #2a251a;border-bottom:1px solid #2a251a}
+  .perf i{width:12px;height:12px;background:#2a251a;border-radius:2px;position:relative;z-index:1;box-shadow:inset 0 0 0 1px #050402}
+
+  .frames{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:6px;background:#0a0906;position:relative}
+  .frame{position:relative;aspect-ratio:4/3;background:#8a8a82;overflow:hidden;box-shadow:inset 0 0 0 1px #0a0906}
+  .frame.f1{background:linear-gradient(180deg,#5a5850 0%,#2a2822 60%,#1a1810 100%)}
+  .frame.f2{background:linear-gradient(160deg,#6a665c 0%,#3a352c 55%,#1e1a12 100%)}
+  .frame.f3{background:linear-gradient(180deg,#7a7266 0%,#4a4038 50%,#1e1a12 100%)}
+  .frame::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(ellipse at 30% 30%,rgba(255,255,255,.12),transparent 55%),
+    radial-gradient(ellipse at 70% 70%,rgba(0,0,0,.4),transparent 60%)}
+  /* 划痕 */
+  .frame::after{content:"";position:absolute;inset:0;background:
+    linear-gradient(87deg,transparent 40%,rgba(255,255,255,.08) 40%,rgba(255,255,255,.08) 40.2%,transparent 40.4%),
+    linear-gradient(89deg,transparent 72%,rgba(255,255,255,.06) 72%,rgba(255,255,255,.06) 72.3%,transparent 72.6%),
+    linear-gradient(88deg,transparent 15%,rgba(0,0,0,.4) 15%,rgba(0,0,0,.4) 15.1%,transparent 15.3%)}
+  /* 显影动画 */
+  .frame .dev{position:absolute;inset:0;background:rgba(20,18,14,.85);animation:dev 4s ease-in-out infinite alternate}
+  .frame.f2 .dev{animation-delay:.7s}
+  .frame.f3 .dev{animation-delay:1.4s}
+  @keyframes dev{0%{opacity:.85}100%{opacity:0}}
+  .frame .no{position:absolute;top:6px;left:6px;font-family:'Bebas Neue','Arial Black',sans-serif;font-size:22px;color:#f4efe4;letter-spacing:2px;text-shadow:0 2px 4px rgba(0,0,0,.7);opacity:.85;z-index:2}
+  .frame .tc{position:absolute;bottom:5px;left:6px;font-family:'IBM Plex Mono','Courier New',monospace;font-size:9px;letter-spacing:1.5px;color:rgba(244,239,228,.7);z-index:2}
+  .frame .lbl{position:absolute;bottom:5px;right:6px;font-family:'Bebas Neue','Arial Black',sans-serif;font-size:11px;letter-spacing:2px;color:rgba(244,239,228,.75);z-index:2}
+
+  .hdr{padding:16px 18px 6px;background:#0f0e0c}
+  .hdr .en{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:6px;color:#c9a24a}
+  .hdr h1{margin:2px 0 4px;font-family:'Bebas Neue','Arial Black','Impact',sans-serif;font-size:44px;letter-spacing:4px;line-height:.95;color:#f4efe4;text-shadow:0 3px 0 rgba(0,0,0,.4)}
+  .hdr .sub{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:3px;color:rgba(244,239,228,.55)}
+
+  .body{padding:14px 18px 14px;background:#0f0e0c;border-top:1px solid #2a251a;margin-top:6px}
+  .body p{margin:0 0 8px;font-family:'IBM Plex Mono','Courier New',monospace;font-size:11.5px;line-height:1.75;color:#c9c0a8;letter-spacing:.5px}
+  .body b{color:#f4efe4;background:rgba(201,162,74,.22);padding:0 4px;font-weight:700}
+  .body .k{display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding-top:8px;border-top:1px dashed #3a3424;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:2.5px;color:#8a8070}
+
+  .cr{margin-top:12px;padding:0 18px;font-size:10px;letter-spacing:1.5px;color:#5a5448;font-family:'IBM Plex Mono',monospace;text-align:left}
+</style>
+</head>
+<body>
+<div class="w">
+  <div class="card">
+    <div class="perf">
+      <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+    </div>
+    <div class="hdr">
+      <div class="en">MONTAGE · FILM · 4-1</div>
+      <h1>胶片蒙太奇</h1>
+      <div class="sub">REC · 24FPS · 35MM · GRADE B</div>
+    </div>
+    <div class="frames">
+      <div class="frame f1"><div class="dev"></div><div class="no">01</div><div class="tc">00:00:12:04</div><div class="lbl">OPEN</div></div>
+      <div class="frame f2"><div class="dev"></div><div class="no">02</div><div class="tc">00:04:37:18</div><div class="lbl">MID</div></div>
+      <div class="frame f3"><div class="dev"></div><div class="no">03</div><div class="tc">00:11:52:00</div><div class="lbl">END</div></div>
+    </div>
+    <div class="perf">
+      <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+    </div>
+    <div class="body">
+      <p>三帧灰阶——开头、中段、结尾——<b>不是顺序</b>，是显影。齿孔咬住帧，划痕是时间的证据。</p>
+      <div class="k"><span>FPS 24</span><span>FRAME 0482</span><span>REEL 01</span></div>
+    </div>
+  </div>
+  <div class="cr">风格指令 · video-shot-demos · 胶片蒙太奇（风格卡 4-1）</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":520},"stateSchema":{"type":"object","properties":{"title":{"type":"string","description":"标题"},"sub":{"type":"string","description":"副题"},"frames":{"type":"array","items":{"type":"object","properties":{"no":{"type":"string","description":"帧号"},"tc":{"type":"string","description":"时码"},"label":{"type":"string","description":"帧标签"}}},"description":"胶片帧（固定 3）"},"body":{"type":"string","description":"正文（HTML）"},"keys":{"type":"array","items":{"type":"string","description":"底部字段"},"description":"底部字段（3）"}}}}</script>
+<script type="application/json" data-card-state>
+{
+  "title": "胶片蒙太奇",
+  "sub": "STYLE NIGHT · 16MM",
+  "frames": [
+    {
+      "no": "01",
+      "tc": "一格一格地，把风格洗出来。",
+      "label": "OPEN"
+    },
+    {
+      "no": "02",
+      "tc": "一格一格地，把风格洗出来。",
+      "label": "MID"
+    },
+    {
+      "no": "03",
+      "tc": "一格一格地，把风格洗出来。",
+      "label": "END"
+    }
+  ],
+  "body": "一格一格地，把风格洗出来。",
+  "keys": [
+    "FPS 24",
+    "FRAME 0482",
+    "REEL 01"
+  ]
+}
+</script>
+<script id="__card_render__">
+(function(){
+  function readState(){var d=null;try{var s=document.querySelector('script[data-card-state]');if(s)d=JSON.parse(s.textContent);}catch(e){}return d;
+  }
+  function s(v,d){if(v===undefined||v===null)return d;if(typeof v==="string"){v=v.trim();return v===''?d:v;}return String(v);}
+  function arr(v,n){if(!Array.isArray(v))return [];var o=[];for(var i=0;i<v.length&&o.length<n;i++){var x=v[i];if(x&&typeof x==="object"&&!Array.isArray(x))o.push(x);}return o;}
+  function e(v,d){var x=s(v,d);if(x===d)return d;return String(x).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+  var S=readState(); if(!S)return; try{
+    var DEFAULTS={title:'',body:''};
+    S=Object.assign({},DEFAULTS,S);
+if(S.title){var e1=document.querySelector(".hdr h1");if(e1)e1.textContent=s(S.title,e1.textContent);}
+if(S.sub){var e2=document.querySelector(".hdr .sub");if(e2)e2.textContent=s(S.sub,e2.textContent);}
+var fr=arr(S.frames||S.items||[],3);
+var frames=document.querySelectorAll(".frames > .frame");
+for(var i=0;i<frames.length;i++){var x=fr[i];if(!x)continue;var fe=frames[i];var n=fe.querySelector(".no");var tc=fe.querySelector(".tc");var lb=fe.querySelector(".lbl");if(n)n.textContent=s(x.no||"");if(tc)tc.textContent=s(x.tc||"");if(lb)lb.textContent=s(x.label||"");}
+if(S.body){var e3=document.querySelector(".body p");if(e3)e3.innerHTML=e(S.body,e3.innerHTML);}
+var ks=arr(S.keys||[],3);
+var ksEls=document.querySelectorAll(".body .k > span");
+for(var i=0;i<ksEls.length;i++){var x=ks[i];if(x!==undefined)ksEls[i].textContent=s(x,ksEls[i].textContent);}
+}catch(err){console.error("[card] render error:",err);} })();
+</script>
+</body>
+</html>

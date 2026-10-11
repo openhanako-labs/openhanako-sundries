@@ -1,0 +1,233 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>考卷批改样张</title>
+<style>
+body{margin:0;background:#EFE8D6;font-family:'Zhi Mang Xing','KaiTi','STKaiti','Kaiti SC',serif;color:#1A1A1A}
+.w{max-width:540px;margin:0 auto;padding:52px 20px 24px}
+.paper{position:relative;background:#FFF9E8;background-image:repeating-linear-gradient(180deg,transparent 0 32px,#B8A578 32px 33px);padding:22px 30px 20px;box-shadow:0 8px 20px rgba(0,0,0,.2);border:1px solid #E5D9B6}
+.paper::before{content:"";position:absolute;top:0;left:64px;bottom:0;width:1.5px;background:#D8554A;opacity:.6}
+.hd{display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:10px;margin-bottom:6px;border-bottom:2px solid #333;position:relative;font-family:'Noto Serif SC','Songti SC',serif}
+.hd .l h1{margin:0;font-size:22px;letter-spacing:.06em;font-weight:900;font-family:'Noto Serif SC',serif}
+.hd .l .k{font-family:'Courier New',monospace;font-size:10.5px;letter-spacing:.28em;color:#6B5A2E;margin-top:2px}
+.hd .r{text-align:right;font-family:'Courier New',monospace;font-size:10px;letter-spacing:.2em;color:#6B5A2E;line-height:1.7}
+.hd .r .n{font-family:'Bebas Neue','Oswald','Arial Black',sans-serif;font-size:16px;color:#333;letter-spacing:.14em;display:block}
+.q{display:grid;grid-template-columns:26px 1fr 60px;gap:12px;padding:14px 0 12px;border-bottom:1px dashed #B8A578;align-items:start;font-size:16px;line-height:33px;color:#1A1A1A;position:relative;font-family:'Zhi Mang Xing','KaiTi','STKaiti','Kaiti SC',serif}
+.q .n{font-family:'Bebas Neue','Oswald','Arial Black',sans-serif;font-size:16px;color:#6B5A2E;letter-spacing:.06em;font-weight:900;padding-top:6px}
+.q .a{position:relative;padding-right:32px}
+.q .marks{display:flex;flex-direction:column;align-items:flex-end;gap:2px;padding-top:2px}
+.mark{font-size:24px;font-weight:900;font-family:'Impact','Arial Black',sans-serif;line-height:1}
+.mark.ok{color:#2F8F3F}
+.mark.bad{color:#D8554A}
+.ans{color:#2F8F3F;background:linear-gradient(180deg,transparent 55%,rgba(47,143,63,.14) 55%);padding:0 3px}
+.wrong{color:#D8554A;text-decoration:line-through;text-decoration-color:#D8554A;text-decoration-thickness:2px}
+.note{position:absolute;font-size:14px;color:#D8554A;font-family:'Zhi Mang Xing','KaiTi','STKaiti',serif;transform:rotate(-4deg);margin-left:6px}
+.correction{position:absolute;top:-6px;right:34px;color:#D8554A;font-family:'Zhi Mang Xing','KaiTi',serif;font-size:16px;background:#FFF;padding:0 4px;transform:rotate(-3deg)}
+.score{margin-top:20px;display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;padding-top:12px;border-top:2.5px solid #333;position:relative}
+.score .lb{font-family:'Courier New',monospace;font-size:10.5px;letter-spacing:.24em;color:#6B5A2E;font-weight:700}
+.score .box{background:#FFF;border:2.5px solid #D8554A;padding:6px 14px;display:flex;align-items:baseline;gap:2px;box-shadow:3px 3px 0 rgba(216,85,74,.2);position:relative}
+.score .num{font-family:'Impact','Arial Black',sans-serif;font-size:36px;color:#D8554A;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:.02em;font-weight:900}
+.score .of{font-size:18px;color:#6B5A2E;font-family:'Bebas Neue','Oswald',sans-serif}
+.score .right{text-align:right}
+.score .right .comment{font-family:'Zhi Mang Xing','KaiTi',serif;color:#D8554A;font-size:17px;line-height:1.3;transform:rotate(-2deg)}
+.stamp{position:absolute;top:-10px;right:14px;border:3px solid #D8554A;color:#D8554A;padding:2px 8px;font-family:'Impact','Arial Black',sans-serif;letter-spacing:.12em;font-size:12px;transform:rotate(-10deg);font-weight:900;background:rgba(255,249,232,.5)}
+.seal{position:absolute;bottom:14px;right:22px;width:80px;height:80px;border:3px double #B03024;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#B03024;font-family:'Impact','Arial Black',sans-serif;letter-spacing:.08em;font-size:13px;transform:rotate(-8deg);opacity:.75;text-align:center;line-height:1.1;font-weight:900}
+.seal::before{content:"";position:absolute;inset:5px;border:1.5px solid #B03024;border-radius:50%}
+.foot{display:flex;justify-content:space-between;font-family:'Courier New',monospace;font-size:10px;letter-spacing:.2em;color:#6B5A2E;margin-top:10px;padding-top:8px;border-top:1px solid #B8A578}
+.cr{font-family:'Courier New',monospace;font-size:10px;color:#8A7550;text-align:center;margin-top:14px;letter-spacing:.12em}
+</style>
+</head>
+<body>
+<div class="w">
+  <div class="paper">
+    <div class="hd">
+      <div class="l">
+        <h1 id="title"></h1>
+        <div class="k" id="subtitle"></div>
+      </div>
+      <div class="r" id="meta"></div>
+    </div>
+    <div class="q">
+      <span class="n">01.</span>
+      <div class="a">风格是<span class="ans">克制的语法</span>——一种可复用的选择。</div>
+      <div class="marks">
+        <svg width="26" height="22" viewBox="0 0 26 22" fill="none">
+          <path d="M3 12 L11 20 L24 3" stroke="#2F8F3F" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="mark ok" id="q1Mark">+6</span>
+      </div>
+    </div>
+    <div class="q">
+      <span class="n">02.</span>
+      <div class="a">留白 = <span class="wrong">缺失</span> <span class="correction">呼吸</span><div class="note">↑ 概念搞错</div></div>
+      <div class="marks">
+        <svg width="24" height="22" viewBox="0 0 24 22" fill="none">
+          <line x1="4" y1="4" x2="20" y2="20" stroke="#D8554A" stroke-width="3.5" stroke-linecap="round"/>
+          <line x1="20" y1="4" x2="4" y2="20" stroke="#D8554A" stroke-width="3.5" stroke-linecap="round"/>
+        </svg>
+        <span class="mark bad" id="q2Mark">−4</span>
+      </div>
+    </div>
+    <div class="q">
+      <span class="n">03.</span>
+      <div class="a">反对称：至少一处<span class="ans">超大字或出血</span>。</div>
+      <div class="marks">
+        <svg width="26" height="22" viewBox="0 0 26 22" fill="none">
+          <path d="M3 12 L11 20 L24 3" stroke="#2F8F3F" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="mark ok" id="q3Mark">+6</span>
+      </div>
+    </div>
+    <div class="q">
+      <span class="n">04.</span>
+      <div class="a">禁默认暗色：<span class="wrong">霓虹</span> <span class="correction">暖色纸感</span><div class="note">→ 反模式</div></div>
+      <div class="marks">
+        <svg width="24" height="22" viewBox="0 0 24 22" fill="none">
+          <line x1="4" y1="4" x2="20" y2="20" stroke="#D8554A" stroke-width="3.5" stroke-linecap="round"/>
+          <line x1="20" y1="4" x2="4" y2="20" stroke="#D8554A" stroke-width="3.5" stroke-linecap="round"/>
+        </svg>
+        <span class="mark bad" id="q4Mark">−2</span>
+      </div>
+    </div>
+    <div class="score">
+      <span class="lb">TOTAL<br>总分</span>
+      <div class="box">
+        <span class="num" id="scoreNum">24</span>
+        <span class="of">/ <span id="scoreOf">26</span></span>
+      </div>
+      <div class="right">
+        <span class="comment" id="comment1">基础扎实</span><br>
+        <span class="comment" style="font-size:13px" id="comment2">但概念要背熟</span>
+      </div>
+    </div>
+    <div class="seal">A-<br>批阅</div>
+    <div class="stamp">RETURN</div>
+    <div id="cbod" style="display:none;font-family:'KaiTi','STKaiti',serif;font-size:13px;line-height:1.7;color:#3a2a1a;background:#FFF;padding:8px 12px;border:1px dashed #B8A578;margin-top:12px"></div>
+    <div class="foot"><span>P.01 · EXAM</span><span>SIGNATURE · 09/26</span></div>
+  </div>
+  <div class="cr">风格指令 · video-shot-demos · 考卷批改（风格卡 19）</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":540},"stateSchema":{"type":"object","properties":{"title":{"type":"string"},"subtitle":{"type":"string"},"student":{"type":"array","items":{"type":"string"},"description":"学号/班级/编号，3 行"},"questions":{"type":"array","items":{"type":"object","properties":{"body":{"type":"string","description":"富文本，可含 <span class='ans'>/<span class='wrong'>/<span class='correction'>/<div class='note'>"},"mark":{"type":"string"}}},"description":"固定 4 槽位"},"score":{"type":"object","properties":{"num":{"type":"number"},"of":{"type":"number"},"comments":{"type":"array","items":{"type":"string"}}}},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "title": "风格样张 · 期中考",
+  "subtitle": "结构验收 · 期中卷",
+  "student": [
+    "学号 · 0001",
+    "班级 · A 组",
+    "NO. 029"
+  ],
+  "questions": [
+    {
+      "body": "第一题：为什么这段脚本不执行？\n\n第二题：`var` 提升覆盖了谁？\n\n第三题：转义在哪一步做的？",
+      "mark": "+6"
+    },
+    {
+      "body": "第一题：为什么这段脚本不执行？\n\n第二题：`var` 提升覆盖了谁？\n\n第三题：转义在哪一步做的？",
+      "mark": "−4"
+    },
+    {
+      "body": "第一题：为什么这段脚本不执行？\n\n第二题：`var` 提升覆盖了谁？\n\n第三题：转义在哪一步做的？",
+      "mark": "+6"
+    },
+    {
+      "body": "第一题：为什么这段脚本不执行？\n\n第二题：`var` 提升覆盖了谁？\n\n第三题：转义在哪一步做的？",
+      "mark": "−2"
+    }
+  ],
+  "score": {
+    "num": 24,
+    "of": 26,
+    "comments": [
+      "基础扎实",
+      "但概念要背熟"
+    ]
+  },
+  "body": "第一题：为什么这段脚本不执行？\n\n第二题：`var` 提升覆盖了谁？\n\n第三题：转义在哪一步做的？"
+}
+</script>
+<script>
+(function(){
+  var DEFAULTS={title:'考卷',subtitle:'EXAM · TOTAL 20 PTS',student:['学号 · 0001','班级 · A 组','NO. 001'],questions:[{body:'题干。',mark:'+0'},{body:'题干。',mark:'−0'},{body:'题干。',mark:'+0'},{body:'题干。',mark:'−0'}],score:{num:0,of:0,comments:['评语一','评语二']}};
+  function str(v){
+    if(v==null) return '';
+    if(typeof v==='string') return v;
+    if(typeof v==='number'||typeof v==='boolean') return String(v);
+    if(Array.isArray(v)) return v.map(str).filter(Boolean).join(' ');
+    return '';
+  }
+  function num(v){
+    if(typeof v==='number' && isFinite(v)) return v;
+    if(typeof v==='string' && v.trim()!==''){var n=parseFloat(v);if(isFinite(n)) return n;}
+    return 0;
+  }
+  function put(id, v, allowHtml){
+    var el=document.getElementById(id);
+    if(!el) return;
+    var s=str(v);
+    if(!allowHtml || !/<[a-z]/i.test(s)) el.textContent=s;
+    else el.innerHTML=s;
+  }
+  function items(v, max){
+    if(!Array.isArray(v)) return [];
+    var a=[];
+    var cap=max||6;
+    for(var i=0;i<v.length && i<cap;i++){
+      var x=v[i];
+      if(x==null) continue;
+      var o={};
+      if(typeof x==='string'||typeof x==='number'||typeof x==='boolean'){
+        o.body=str(x); o.mark='';
+      } else if(typeof x==='object' && !Array.isArray(x)){
+        o.body=str(x.body!=null?x.body:(x.text!=null?x.text:(x.content!=null?x.content:'')));
+        o.mark=str(x.mark!=null?x.mark:(x.value!=null?x.value:(x.score!=null?x.score:'')));
+      } else continue;
+      if(o.body!=='') a.push(o);
+    }
+    return a;
+  }
+  var sEl=document.querySelector('script[data-card-state]');
+  var S=Object.assign({}, DEFAULTS);
+  if(sEl){
+    try{
+      var u=JSON.parse(sEl.textContent);
+      if(u && typeof u==='object' && !Array.isArray(u)){
+        for(var k in u) S[k]=u[k];
+        if(u.score && typeof u.score==='object') S.score=Object.assign({}, DEFAULTS.score, u.score);
+      }
+    }catch(e){}
+  }
+  put('title', S.title);
+  put('subtitle', S.subtitle);
+  var stu=Array.isArray(S.student)?S.student:[];
+  var meta='';
+  for(var i=0;i<stu.length && i<3;i++){
+    var s=str(stu[i]);
+    if(s!==''){
+      if(meta) meta+='\n';
+      if(i===2) meta+='<span class="n">'+s+'</span>';
+      else meta+=s;
+    }
+  }
+  put('meta', meta, true);
+  var qs=items(S.questions, 4);
+  for(var k=0;k<4;k++){
+    var q=qs[k]||{body:'',mark:''};
+    put('q'+(k+1)+'Mark', q.mark);
+  }
+  // 题干是结构性，保持原 HTML；不改，只在数据里保留以备扩展
+  put('scoreNum', num(S.score.num));
+  put('scoreOf', num(S.score.of));
+  var cmts=Array.isArray(S.score.comments)?S.score.comments:[];
+  put('comment1', cmts[0]||'');
+  put('comment2', cmts[1]||'');
+  var escF=function(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');};
+  var paras=(function(b){if(Array.isArray(b))return b.map(String).filter(Boolean);if(typeof b==='string')return b.split(/\n\s*\n/).map(function(t){return t.trim();}).filter(Boolean);return [];})(S.body);
+  var bb=document.getElementById('cbod');
+  if(bb){if(paras.length){bb.innerHTML=paras.map(function(t){return '<p style="margin:0 0 .4em">'+escF(t)+'</p>';}).join('');bb.style.display='';}else{bb.style.display='none';bb.innerHTML='';}}
+})();
+</script>
+</body>
+</html>

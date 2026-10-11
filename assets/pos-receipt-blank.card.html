@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>便利店小票样张</title>
+<style>
+body{margin:0;background:#2F3133;font-family:'Bebas Neue','Oswald','Noto Sans SC',sans-serif;color:#141414}
+.w{max-width:360px;margin:0 auto;padding:52px 14px 26px}
+.paper{background:#FCFCF7;padding:20px 22px 30px;position:relative;box-shadow:0 18px 40px rgba(0,0,0,.45);font-family:'Courier New','Noto Sans SC',monospace;
+-webkit-mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50% 0/16px 100%;
+mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 50% 0/16px 100%}
+.perf{border-top:2px dashed #141414;margin:0 0 14px;position:relative;top:-8px}
+.store{text-align:center;font-family:'Bebas Neue','Oswald',sans-serif;font-size:26px;letter-spacing:.18em;line-height:1.1}
+.store small{display:block;font-family:'Courier New',monospace;font-size:10px;letter-spacing:.22em;margin-top:4px;color:#444}
+.meta{display:flex;justify-content:space-between;font-size:11px;color:#333;margin-top:12px}
+.dash{border:none;border-top:1.5px dashed #141414;margin:12px 0}
+.it{display:flex;justify-content:space-between;font-size:13px;padding:5px 0;letter-spacing:.02em}
+.it b{font-weight:700}
+.qty{color:#555}
+.tot{display:flex;justify-content:space-between;font-family:'Bebas Neue','Oswald',sans-serif;font-size:22px;letter-spacing:.06em;margin-top:4px}
+.tot b{color:#B53929}
+.bar{height:44px;margin-top:16px;background:repeating-linear-gradient(90deg,#141414 0 2px,#FCFCF7 2px 4px,#141414 4px 7px,#FCFCF7 7px 8px,#141414 8px 10px,#FCFCF7 10px 13px,#141414 13px 14px,#FCFCF7 14px 17px)}
+.code{text-align:center;font-size:11px;letter-spacing:.34em;margin-top:5px}
+.thanks{text-align:center;font-size:13px;margin-top:14px;letter-spacing:.14em}
+.cr{text-align:center;font-size:10px;color:#8A8C8E;margin-top:16px;letter-spacing:.1em;font-family:'Courier New',monospace}
+</style>
+</head>
+<body>
+<div class="w">
+  <div class="paper">
+    <div class="perf"></div>
+    <div class="store" id="store"></div>
+    <div class="meta"><span id="date"></span><span id="register"></span></div>
+    <hr class="dash">
+    <div id="items"></div>
+    <hr class="dash">
+    <div class="it"><span>ERRORS</span><span><b id="errors"></b></span></div>
+    <div class="tot"><span>TOTAL</span><b id="total"></b></div>
+    <div class="bar"></div>
+    <div class="code" id="code"></div>
+    <div class="thanks" id="thanks"></div>
+  </div>
+  <div class="cr">风格指令 · video-shot-demos · 便利店 POS（风格卡 2-4）</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":400},"stateSchema":{"type":"object","properties":{"store":{"type":"string"},"storeTag":{"type":"string"},"date":{"type":"string"},"register":{"type":"string"},"items":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string"},"value":{"type":"string"}}},"description":"小票行，上限 6；value 可带前缀 ×"},"errors":{"type":"number"},"total":{"type":"string"},"code":{"type":"string"},"thanks":{"type":"string"},"title":{"type":"string","description":"主标题（必填）"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "store": "单品",
+  "storeTag": "单品",
+  "date": "2026-09-26",
+  "register": "合计 ¥ 42.00 · 找零 ¥ 8.00",
+  "items": [
+    {
+      "name": "单品",
+      "value": "×26"
+    },
+    {
+      "name": "单品",
+      "value": "×12"
+    },
+    {
+      "name": "单品",
+      "value": "×05"
+    },
+    {
+      "name": "照片记忆面板",
+      "value": "×01"
+    },
+    {
+      "name": "单品",
+      "value": "PASS"
+    }
+  ],
+  "errors": 0,
+  "total": "26/26",
+  "code": "单品",
+  "thanks": "单品",
+  "title": "单品",
+  "body": "合计 ¥ 42.00 · 找零 ¥ 8.00"
+}
+</script>
+<script>
+(function(){
+  var DEFAULTS={store:'STORE',storeTag:'TAG',date:'2026-01-01',register:'REG 00',items:[{name:'Item',value:'×01'}],errors:0,total:'0/0',code:'0000 0000',thanks:'THANK YOU'};
+  function str(v){
+    if(v==null) return '';
+    if(typeof v==='string') return v;
+    if(typeof v==='number'||typeof v==='boolean') return String(v);
+    if(Array.isArray(v)) return v.map(str).filter(Boolean).join(' ');
+    return '';
+  }
+  function num(v){
+    if(typeof v==='number' && isFinite(v)) return v;
+    if(typeof v==='string' && v.trim()!==''){var n=parseFloat(v);if(isFinite(n)) return n;}
+    return 0;
+  }
+  function put(id, v, allowHtml){
+    var el=document.getElementById(id);
+    if(!el) return;
+    var s=str(v);
+    if(!allowHtml || !/<[a-z]/i.test(s)) el.textContent=s;
+    else el.innerHTML=s;
+  }
+  function items(v, max){
+    if(!Array.isArray(v)) return [];
+    var a=[];
+    var cap=max||6;
+    for(var i=0;i<v.length && i<cap;i++){
+      var x=v[i];
+      if(x==null) continue;
+      var o={};
+      if(typeof x==='string'||typeof x==='number'||typeof x==='boolean'){
+        o.name=str(x); o.value='';
+      } else if(typeof x==='object' && !Array.isArray(x)){
+        o.name=str(x.name!=null?x.name:(x.label!=null?x.label:(x.title!=null?x.title:(x.text!=null?x.text:''))));
+        var vv=x.value!=null?x.value:(x.score!=null?x.score:x.count!=null?x.count:x.tag);
+        o.value=str(vv);
+      } else continue;
+      if(o.name!=='') a.push(o);
+    }
+    return a;
+  }
+  var sEl=document.querySelector('script[data-card-state]');
+  var S=Object.assign({}, DEFAULTS);
+  if(sEl){
+    try{
+      var u=JSON.parse(sEl.textContent);
+      if(u && typeof u==='object' && !Array.isArray(u)){
+        for(var k in u) S[k]=u[k];
+      }
+    }catch(e){}
+  }
+  put('store', str(S.title||S.store)+'<small>'+str(S.storeTag)+'</small>', true);
+  put('date', S.date);
+  put('register', S.register);
+  var listEl=document.getElementById('items');
+  if(listEl){
+    var its=items(S.items, 6);
+    var html='';
+    for(var i=0;i<its.length;i++){
+      var it=its[i];
+      var cls=(i===its.length-1 && it.value==='PASS')?' qty':'';
+      html+='<div class="it"><span'+(cls?' class="qty"':'')+'>'+it.name+'</span><span><b>'+(it.value||'')+'</b></span></div>';
+    }
+    listEl.innerHTML=html;
+  }
+  put('errors', num(S.errors));
+  put('total', S.total);
+  put('code', S.code);
+  put('thanks', S.body||S.thanks);
+})();
+</script>
+</body>
+</html>

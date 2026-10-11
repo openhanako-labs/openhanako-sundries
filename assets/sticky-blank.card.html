@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>便签纸流程样张</title>
+<style>
+body{margin:0;background:#F3EAD3;color:#3B2A16;font-family:'ZCOOL KuaiLe','YouYuan','Microsoft YaHei',sans-serif}
+.w{max-width:520px;margin:0 auto;padding:52px 20px 24px}
+.board{position:relative;background:#EFE4C8;background-image:linear-gradient(180deg,rgba(255,255,255,.4) 0%,transparent 100%),repeating-linear-gradient(90deg,transparent 0 30px,rgba(59,42,22,.04) 30px 31px);padding:26px 22px 22px;border-radius:14px;box-shadow:inset 0 0 40px rgba(59,42,22,.08)}
+.tape{position:absolute;height:24px;background:rgba(255,214,102,.65);background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.06) 0 2px,transparent 2px 6px);box-shadow:0 2px 4px rgba(59,42,22,.15);z-index:2}
+.tape.t1{top:-8px;left:40px;width:110px;transform:rotate(-4deg)}
+.tape.t2{top:-8px;right:60px;width:130px;transform:rotate(3deg)}
+.tape.t3{top:118px;left:110px;width:100px;background:rgba(255,182,193,.75);transform:rotate(2deg)}
+.tape.t4{top:286px;left:210px;width:110px;background:rgba(186,225,199,.75);transform:rotate(-3deg)}
+h1{font-size:32px;margin:0 0 4px;letter-spacing:.04em;color:#3B2A16;line-height:1.1}
+h1 em{font-style:normal;color:#B03024}
+.sub{font-family:'Courier New',monospace;font-size:10.5px;letter-spacing:.28em;color:#8A6A3A;margin:0 0 22px}
+.flow{display:grid;grid-template-columns:1fr 40px 1fr;gap:8px;align-items:center;margin-bottom:20px;position:relative}
+.note{position:relative;padding:20px 14px 14px;min-height:88px;font-size:14px;line-height:1.55;color:#3B2A16;font-family:inherit;box-shadow:0 6px 12px rgba(59,42,22,.18),0 2px 4px rgba(59,42,22,.1);transform-origin:center}
+.n1{background:linear-gradient(135deg,#FFE8A3,#FFDA6E);transform:rotate(-2.5deg)}
+.n2{background:linear-gradient(135deg,#FFC1CE,#FF9DB6);transform:rotate(1.5deg)}
+.n3{background:linear-gradient(135deg,#B8E1C7,#96CFAC);transform:rotate(-1.5deg)}
+.n4{background:linear-gradient(135deg,#B8D4F5,#90B8EE);transform:rotate(2.5deg)}
+.note .num{position:absolute;top:-14px;left:-10px;width:34px;height:34px;background:#3B2A16;color:#FFF9EE;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue','Oswald','Arial Black',sans-serif;font-size:18px;letter-spacing:.02em;box-shadow:0 4px 0 rgba(0,0,0,.2);transform:rotate(-8deg);font-weight:900}
+.note h3{font-size:16px;margin:0 0 4px;font-weight:900;letter-spacing:.04em;color:#3B2A16}
+.note p{margin:0;font-size:12.5px;color:#5B4520;font-family:inherit}
+.arr{display:flex;align-items:center;justify-content:center;color:#B03024;font-size:26px;font-family:'Bebas Neue','Oswald',sans-serif;font-weight:900}
+.arr svg{width:34px;height:24px}
+.arrowdown{margin:0 auto 14px;width:24px;display:block;color:#B03024}
+.arrowdown svg{width:24px;height:34px}
+.hand{font-size:13px;color:#8A6A3A;text-align:center;font-family:inherit;font-style:italic;margin-top:6px}
+.hand b{color:#B03024;font-style:normal}
+.foot{margin-top:14px;display:flex;justify-content:space-between;font-family:'Courier New',monospace;font-size:10px;letter-spacing:.22em;color:#8A6A3A;padding-top:10px;border-top:1.5px dashed #B08D57}
+.cr{font-family:'Courier New',monospace;font-size:10px;color:#8A6A3A;text-align:center;margin-top:14px;letter-spacing:.12em}
+</style>
+</head>
+<body>
+<div class="w">
+  <div class="board">
+    <div class="tape t1"></div>
+    <div class="tape t2"></div>
+    <div class="tape t3"></div>
+    <div class="tape t4"></div>
+    <h1><span id="titleMain"></span><em id="titleAccent"></em><span id="titleTail"></span></h1>
+    <p class="sub" id="sub"></p>
+    <div class="flow">
+      <div class="note n1">
+        <span class="num">1</span>
+        <h3 id="n1Title"></h3>
+        <p id="n1Desc"></p>
+      </div>
+      <div class="arr">
+        <svg viewBox="0 0 34 24" fill="none"><path d="M2 12 Q12 4 20 12 Q26 17 30 12" stroke="#B03024" stroke-width="2.4" stroke-linecap="round" fill="none"/><path d="M26 6 L32 12 L26 18" stroke="#B03024" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      </div>
+      <div class="note n2">
+        <span class="num">2</span>
+        <h3 id="n2Title"></h3>
+        <p id="n2Desc"></p>
+      </div>
+    </div>
+    <div class="arrowdown">
+      <svg viewBox="0 0 24 34" fill="none"><path d="M12 2 Q4 12 12 18 Q17 22 12 26" stroke="#B03024" stroke-width="2.4" stroke-linecap="round" fill="none"/><path d="M6 22 L12 28 L18 22" stroke="#B03024" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+    </div>
+    <div class="flow">
+      <div class="note n3">
+        <span class="num">3</span>
+        <h3 id="n3Title"></h3>
+        <p id="n3Desc"></p>
+      </div>
+      <div class="arr">
+        <svg viewBox="0 0 34 24" fill="none"><path d="M2 12 Q12 20 20 12 Q26 7 30 12" stroke="#B03024" stroke-width="2.4" stroke-linecap="round" fill="none"/><path d="M26 6 L32 12 L26 18" stroke="#B03024" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      </div>
+      <div class="note n4">
+        <span class="num">4</span>
+        <h3 id="n4Title"></h3>
+        <p id="n4Desc"></p>
+      </div>
+    </div>
+    <p class="hand" id="hand"></p>
+    <div class="foot"><span>P.01 · STICKY FLOW</span><span>STICKY NOTE · 2-2</span></div>
+  </div>
+  <div class="cr">风格指令 · video-shot-demos · 便签纸流程（风格卡 17）</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":520},"stateSchema":{"type":"object","properties":{"titleMain":{"type":"string"},"titleAccent":{"type":"string"},"titleTail":{"type":"string"},"subtitle":{"type":"string"},"items":{"type":"array","items":{"type":"object","properties":{"title":{"type":"string"},"desc":{"type":"string"}}},"description":"4 步骤便签"},"hand":{"type":"string","description":"可含 <b></b> 强调"},"title":{"type":"string","description":"主标题（必填）"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "titleMain": "流程",
+  "titleAccent": "四步",
+  "titleTail": "·一张便签",
+  "subtitle": "S 型流程 · 四步一张便签",
+  "items": [
+    {
+      "title": "选风格",
+      "desc": "先定基调，再写内容"
+    },
+    {
+      "title": "搭骨架",
+      "desc": "S 型流程 · 四步一张便签"
+    },
+    {
+      "title": "加细节",
+      "desc": "S 型流程 · 四步一张便签"
+    },
+    {
+      "title": "发布",
+      "desc": "S 型流程 · 四步一张便签"
+    }
+  ],
+  "hand": "顺序对了，事就成了一半",
+  "title": "sticky",
+  "body": "S 型流程 · 四步一张便签"
+}
+</script>
+<script>
+(function(){
+  var DEFAULTS={titleMain:'流程',titleAccent:'四步',titleTail:'·一张便签',subtitle:'STICKY FLOW',items:[{title:'步骤一',desc:'描述一'},{title:'步骤二',desc:'描述二'},{title:'步骤三',desc:'描述三'},{title:'步骤四',desc:'描述四'}],hand:'提示'};
+  function str(v){
+    if(v==null) return '';
+    if(typeof v==='string') return v;
+    if(typeof v==='number'||typeof v==='boolean') return String(v);
+    if(Array.isArray(v)) return v.map(str).filter(Boolean).join(' ');
+    return '';
+  }
+  function put(id, v, allowHtml){
+    var el=document.getElementById(id);
+    if(!el) return;
+    var s=str(v);
+    if(!allowHtml || !/<[a-z]/i.test(s)) el.textContent=s;
+    else el.innerHTML=s;
+  }
+  function items(v, max){
+    if(!Array.isArray(v)) return [];
+    var a=[];
+    var cap=max||6;
+    for(var i=0;i<v.length && i<cap;i++){
+      var x=v[i];
+      if(x==null) continue;
+      var o={};
+      if(typeof x==='string'||typeof x==='number'||typeof x==='boolean'){
+        o.title=str(x); o.desc='';
+      } else if(typeof x==='object' && !Array.isArray(x)){
+        o.title=str(x.title!=null?x.title:(x.name!=null?x.name:(x.heading!=null?x.heading:(x.label!=null?x.label:''))));
+        o.desc=str(x.desc!=null?x.desc:(x.text!=null?x.text:(x.body!=null?x.body:(x.content!=null?x.content:''))));
+      } else continue;
+      if(o.title!=='') a.push(o);
+    }
+    return a;
+  }
+  var sEl=document.querySelector('script[data-card-state]');
+  var S=Object.assign({}, DEFAULTS);
+  if(sEl){
+    try{
+      var u=JSON.parse(sEl.textContent);
+      if(u && typeof u==='object' && !Array.isArray(u)){
+        for(var k in u) S[k]=u[k];
+      }
+    }catch(e){}
+  }
+  put('titleMain', S.title||S.titleMain||'');
+  put('titleAccent', S.titleAccent);
+  put('titleTail', S.titleTail);
+  put('sub', S.body||S.subtitle||'');
+  var its=items(S.items, 4);
+  for(var i=0;i<4;i++){
+    var it=its[i]||{title:'',desc:''};
+    put('n'+(i+1)+'Title', it.title);
+    put('n'+(i+1)+'Desc', it.desc);
+  }
+  put('hand', S.hand, true);
+  if(S.body){var bb=document.createElement('div');bb.style.cssText='padding-top:10px;border-top:1.5px dashed #B08D57;font-size:13px;line-height:1.7;color:#3B2A16;font-family:inherit';var ps=[];if(Array.isArray(S.body)){ps=S.body.map(function(x){return String(x).trim();}).filter(Boolean);}else{ps=String(S.body).split(/\n\s*\n/).map(function(x){return x.trim();}).filter(Boolean);}bb.innerHTML=ps.map(function(t){return '<p style="margin:0 0 6px">'+String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</p>';}).join('');var foot=document.querySelector('.board > .foot');if(foot)foot.parentNode.insertBefore(bb,foot);else document.querySelector('.w').appendChild(bb);}
+})();
+</script>
+</body>
+</html>

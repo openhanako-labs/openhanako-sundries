@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>暗色科技样张</title>
+<style>
+body{margin:0;background:#05060A;color:#D7DCE5;font-family:'Segoe UI','Noto Sans SC',sans-serif}
+.c{max-width:620px;margin:0 auto;padding:52px 18px 24px;position:relative;overflow:hidden}
+.grid{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent 0 39px,rgba(77,166,255,.07) 39px 40px),repeating-linear-gradient(90deg,transparent 0 39px,rgba(77,166,255,.07) 39px 40px);pointer-events:none}
+.hud{position:absolute;width:26px;height:26px;border-color:#4DA6FF;pointer-events:none}
+.h1{top:44px;left:14px;border-top:2px solid;border-left:2px solid}
+.h2{top:44px;right:14px;border-top:2px solid;border-right:2px solid}
+.h3{bottom:14px;left:14px;border-bottom:2px solid;border-left:2px solid}
+.h4{bottom:14px;right:14px;border-bottom:2px solid;border-right:2px solid}
+.lb{position:relative;font-family:Consolas,monospace;font-size:11px;letter-spacing:.32em;color:#4DA6FF}
+.h{position:relative;font-size:clamp(38px,9vw,58px);font-weight:900;margin:16px 0 6px;background:linear-gradient(90deg,#4DA6FF 0%,#A97BFF 52%,#FF9A3C 100%);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:.02em}
+.sub{position:relative;font-size:13.5px;color:#8E96A6;letter-spacing:.14em}
+.rows{position:relative;margin-top:24px;display:flex;gap:12px;flex-wrap:wrap}
+.ch{font-family:Consolas,monospace;font-size:11.5px;padding:9px 14px;border:1px solid rgba(255,255,255,.16);border-radius:4px;background:rgba(255,255,255,.04);color:#C6CDDA}
+.ch i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px;vertical-align:middle}
+.scan{position:absolute;left:0;right:0;top:0;height:100%;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.02) 3px 4px)}
+.cr{position:relative;font-family:Consolas,monospace;font-size:10px;color:#5A6070;text-align:center;margin-top:26px;letter-spacing:.14em}
+</style>
+</head>
+<body>
+<div class="c">
+  <div class="grid"></div><div class="scan"></div>
+  <div class="hud h1"></div><div class="hud h2"></div><div class="hud h3"></div><div class="hud h4"></div>
+  <div class="lb" data-role="note">THEME // DARK-TECH · DEFAULT</div>
+  <div class="h" data-role="title">暗色科技</div>
+  <div class="sub" data-role="subtitle">黑底 · 蓝紫橙渐变 · 网格 HUD</div>
+  <div id="cbod" data-role="body" style="position:relative;display:none;font-size:13px;line-height:1.7;color:#C6CDDA;margin-top:10px;max-width:90%"></div>
+  <div class="rows">
+    <span class="ch"><i style="background:#4DA6FF"></i><span data-role="ch-0">blue #4DA6FF</span></span>
+    <span class="ch"><i style="background:#A97BFF"></i><span data-role="ch-1">purple #A97BFF</span></span>
+    <span class="ch"><i style="background:#FF9A3C"></i><span data-role="ch-2">orange #FF9A3C</span></span>
+  </div>
+  <div class="cr" data-role="caption">风格指令 · ppt-animation · 暗色科技主题（默认）</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":620},"stateSchema":{"type":"object","properties":{"title":{"type":"string","description":"主标题"},"subtitle":{"type":"string","description":"副题"},"note":{"type":"string","description":"主题标签"},"items":{"type":"array","maxItems":6,"items":{"type":"object","properties":{"text":{"type":"string","description":"芯片文本"}}},"description":"颜色芯片"},"caption":{"type":"string","description":"底部标注"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "note": "所有面板都在等一个值。",
+  "title": "暗色科技",
+  "subtitle": "HUD OVERLAY · BUILD 2026.10",
+  "items": [
+    {
+      "text": "所有面板都在等一个值。"
+    },
+    {
+      "text": "所有面板都在等一个值。"
+    },
+    {
+      "text": "所有面板都在等一个值。"
+    }
+  ],
+  "caption": "SYS · ONLINE · 60FPS",
+  "body": "所有面板都在等一个值。"
+}
+</script>
+<script id="__card_render__">
+(function(){
+  function readState(){var d=null;try{var s=document.querySelector('script[data-card-state]');if(s)d=JSON.parse(s.textContent);}catch(e){}return d;
+  }
+  function str(v,d){if(v===undefined||v===null)return d;if(typeof v==="string"){v=v.trim();return v===''?d:v;}return String(v);}
+  function arr(v,n){if(!Array.isArray(v))return [];var o=[];for(var i=0;i<v.length&&o.length<n;i++){var x=v[i];if(x&&typeof x==="object"&&!Array.isArray(x))o.push(x);}return o;}
+  function set(el,v,d){var t=str(v,d);if(el)el.textContent=t;}
+  var S=readState(); if(!S)return; try{
+    var DEFAULTS={title:'',body:''};
+    S=Object.assign({},DEFAULTS,S);
+    set(document.querySelector('[data-role="note"]'),S.note,'');
+    set(document.querySelector('[data-role="title"]'),S.title||S.heading,'Title');
+    set(document.querySelector('[data-role="subtitle"]'),S.subtitle||S.sub,'');
+    var paras=(function(b){if(Array.isArray(b))return b.map(String).filter(Boolean);if(typeof b==='string')return b.split(/\n\s*\n/).map(function(t){return t.trim();}).filter(Boolean);return [];})(S.body);
+    var bb=document.querySelector('[data-role="body"]');
+    if(bb){
+      if(paras.length){
+        while(bb.firstChild) bb.removeChild(bb.firstChild);
+        for(var i=0;i<paras.length;i++){
+          var pp=document.createElement('p');
+          pp.style.cssText='margin:0 0 .4em';
+          pp.textContent=paras[i];
+          bb.appendChild(pp);
+        }
+        bb.style.display='';
+      }else{bb.style.display='none';bb.innerHTML='';}
+    }
+    var it=arr(S.items||S.list||S.rows,6);
+    for(var i=0;i<3;i++){var x=it[i];set(document.querySelector('[data-role="ch-'+i+'"]'),x?(x.text||x.body||x.content||''):'');}
+    set(document.querySelector('[data-role="caption"]'),S.caption,'');
+  }catch(err){console.error('[card] render error:',err);}
+})();
+</script>
+</body>
+</html>

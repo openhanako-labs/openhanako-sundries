@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>暖橙渐变样张</title>
+<style>
+body{margin:0;background:#FFF7ED;color:#431F0A;font-family:'Segoe UI','Noto Sans SC',sans-serif}
+.c{max-width:600px;margin:0 auto;padding:56px 18px 26px}
+.banner{background:linear-gradient(100deg,#EA580C,#F97316,#FDBA74);border-radius:12px;padding:26px 24px;color:#fff;position:relative;overflow:hidden}
+.banner::after{content:"";position:absolute;right:-30px;top:-30px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.18)}
+.lb{font-size:10px;letter-spacing:.34em;opacity:.85}
+.h{font-size:2rem;font-weight:900;margin:8px 0 4px;letter-spacing:.02em}
+.sub{font-size:12.5px;opacity:.9;letter-spacing:.1em}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.pt{background:#fff;border:1px solid #FAD9BC;border-radius:8px;padding:14px;text-align:center}
+.pt i{display:block;width:30px;height:30px;border-radius:50%;margin:0 auto 8px}
+.pt b{font-family:Consolas,monospace;font-size:11.5px;color:#C2410C;display:block}
+.pt span{font-size:11px;color:#9A6A4A}
+.cr{font-family:Consolas,monospace;font-size:10px;color:#D3A180;text-align:center;margin-top:22px;letter-spacing:.12em}
+</style>
+</head>
+<body>
+<div class="c">
+  <div class="banner">
+    <div class="lb">STYLE // ORANGE</div>
+    <div class="h" id="title"></div>
+    <div class="sub" id="subtitle"></div>
+  </div>
+  <div class="grid">
+    <div class="pt"><i style="background:#EA580C"></i><b>#EA580C</b><span>主橙</span></div>
+    <div class="pt"><i style="background:#F97316"></i><b>#F97316</b><span>亮橙</span></div>
+    <div class="pt"><i style="background:#FDBA74"></i><b>#FDBA74</b><span>杏仁</span></div>
+  </div>
+  <div class="cr">风格指令 · design-media · SVG 风格表 orange</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":600},"stateSchema":{"type":"object","properties":{"title":{"type":"string","description":"色卡主标题"},"subtitle":{"type":"string","description":"一句话风格说明"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "title": "暖橙渐变",
+  "subtitle": "暖橙 · 适合带结论的内容",
+  "body": "暖橙 · 适合带结论的内容"
+}
+</script>
+<script>
+(function(){
+var D={title:'Sample Title',subtitle:'Sample subtitle'};
+function str(v){if(v==null)return'';if(typeof v==='string')return v;if(typeof v==='number'||typeof v==='boolean')return String(v);if(Array.isArray(v))return v.map(str).filter(Boolean).join(' ');return'';}
+function pick(o){if(!o||typeof o!=='object'||Array.isArray(o))return null;var a=arguments;for(var i=1;i<a.length;i++){var k=a[i];if(Object.prototype.hasOwnProperty.call(o,k)&&str(o[k])!=='')return o[k];}return null;}
+function put(id,v){var el=document.getElementById(id);if(el)el.textContent=str(v);}
+var sEl=document.querySelector('script[data-card-state]');
+var S=Object.assign({},D);
+if(sEl){try{var u=JSON.parse(sEl.textContent);if(u&&typeof u==='object'&&!Array.isArray(u))for(var k in u)S[k]=u[k];}catch(e){}}
+put('title',pick(S,'title','heading'));
+put('subtitle',pick(S,'body','subtitle','desc'));
+})();
+</script>
+</body>
+</html>

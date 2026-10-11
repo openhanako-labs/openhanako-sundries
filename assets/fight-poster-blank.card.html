@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>拳击海报样张</title>
+<style>
+body{margin:0;background:#111;color:#F5C518;font-family:'Bebas Neue','Oswald','Arial Black',sans-serif}
+.w{max-width:560px;margin:0 auto;padding:52px 16px 26px}
+.poster{position:relative;background:#141414;border:5px solid #F5C518;overflow:hidden;padding:26px 22px 30px;box-shadow:10px 12px 0 rgba(0,0,0,.6)}
+.stripes{position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(245,197,24,.07) 0 14px,transparent 14px 34px);pointer-events:none}
+.kicker{position:relative;text-align:center;font-size:14px;letter-spacing:.5em;color:#E23E2C}
+.t1{position:relative;font-size:clamp(46px,11vw,72px);font-weight:900;text-align:center;line-height:.94;margin-top:10px;-webkit-text-stroke:2px #111;letter-spacing:.03em;text-shadow:5px 5px 0 #E23E2C}
+.vs{position:relative;display:flex;align-items:center;justify-content:center;gap:14px;margin:12px 0}
+.vs i{flex:1;height:5px;background:#F5C518;transform:skewX(-20deg)}
+.vs b{width:74px;height:74px;border-radius:50%;background:#E23E2C;color:#111;display:flex;align-items:center;justify-content:center;font-size:34px;box-shadow:0 0 0 5px #111,0 0 0 8px #E23E2C;transform:rotate(-8deg)}
+.t2{position:relative;font-size:clamp(46px,11vw,72px);font-weight:900;text-align:center;line-height:.94;-webkit-text-stroke:2px #111;letter-spacing:.03em;text-shadow:5px 5px 0 #F5C518}
+.deets{position:relative;display:flex;justify-content:space-between;margin-top:18px;border-top:3px solid #F5C518;padding-top:10px;font-size:15px;letter-spacing:.14em;color:#F5E9B8}
+.cr{text-align:center;font-size:10px;color:#6E6650;margin-top:16px;letter-spacing:.14em}
+</style>
+</head>
+<body>
+<div class="w">
+  <div class="poster">
+    <div class="stripes"></div>
+    <div class="kicker">风格之夜 · STYLE NIGHT</div>
+    <div class="t1">SWISS</div>
+    <div class="vs"><i></i><b>VS</b><i></i></div>
+    <div class="t2">MEMPHIS</div>
+    <div class="deets"><span>26 样张 · 一回合</span><span>零错误 · KO</span></div>
+  </div>
+  <div class="cr">风格指令 · video-shot-demos · 拳击海报对决（风格卡 0-4）</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":560},"stateSchema":{"type":"object","properties":{"side_left":{"type":"string","description":"左边选手"},"side_right":{"type":"string","description":"右边选手"},"title":{"type":"string","description":"主标题（必填）"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "side_left": "SWISS",
+  "side_right": "MEMPHIS",
+  "title": "READY",
+  "body": "ROUND 03 · 决胜局"
+}
+</script>
+<script id="__card_render__">
+(function(){
+  function readState(){var d=null;try{var s=document.querySelector('script[data-card-state]');if(s)d=JSON.parse(s.textContent);}catch(e){}return d;
+  }
+  function s(v,d){if(v===undefined||v===null)return d;if(typeof v==="string"){v=v.trim();return v===''?d:v;}return String(v);}
+  function arr(v,n){if(!Array.isArray(v))return [];var o=[];for(var i=0;i<v.length&&o.length<n;i++){var x=v[i];if(x&&typeof x==="object"&&!Array.isArray(x))o.push(x);}return o;}
+  function e(v,d){var x=s(v,d);if(x===d)return d;return String(x).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+  var S=readState(); if(!S)return; try{
+    var DEFAULTS={title:'',body:''};
+    S=Object.assign({},DEFAULTS,S);
+    if(S.body){S.side_left=S.body;}
+    if(S.title){var k=document.querySelector(".kicker");if(k)k.textContent=S.title;}
+
+if(S.side_left){var e1=document.querySelector(".t1");if(e1)e1.textContent=s(S.side_left,e1.textContent);}
+if(S.side_right){var e2=document.querySelector(".t2");if(e2)e2.textContent=s(S.side_right,e2.textContent);}
+}catch(err){console.error("[card] render error:",err);} })();
+</script>
+</body>
+</html>

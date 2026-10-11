@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abstract Editorial 样张</title>
+<style>
+body{margin:0;color:#fff}
+.poster{position:relative;overflow:hidden;max-width:680px;margin:0 auto;min-height:440px;background:#0A0A0F;padding:48px 24px 24px;font-family:'Arial Black','Segoe UI',system-ui,sans-serif}
+.grain{position:absolute;inset:0;pointer-events:none;opacity:.22;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");mix-blend-mode:overlay}
+.blk-blue{position:absolute;top:-46px;right:-34px;width:230px;height:170px;background:#00D4FF;clip-path:polygon(18% 0,100% 0,100% 100%,0 100%);transform:rotate(6deg)}
+.blk-mag{position:absolute;left:-48px;top:214px;width:250px;height:96px;background:#FF2D7B;clip-path:polygon(0 0,100% 0,74% 100%,0 100%)}
+.blk-yellow{position:absolute;right:52px;bottom:64px;width:44px;height:44px;background:#FFE600;box-shadow:9px 9px 0 #FF3D00}
+.blk-red{position:absolute;left:0;bottom:0;width:120px;height:10px;background:#FF3D00}
+.eyebrow{position:relative;font-size:11px;letter-spacing:.34em;color:#00D4FF;font-weight:700}
+.display{position:relative;margin-top:56px;line-height:.92}
+.w1{font-size:clamp(44px,11vw,72px);font-weight:900;letter-spacing:-.02em;color:#fff}
+.w2{font-size:clamp(44px,11vw,72px);font-weight:900;letter-spacing:-.02em;color:#FFE600;margin-left:44px;text-shadow:7px 7px 0 #FF2D7B;white-space:nowrap}
+.rules{position:relative;margin-top:38px;font-size:12px;letter-spacing:.18em;color:rgba(255,255,255,.85);font-weight:700}
+.palette{position:relative;display:flex;gap:14px;margin-top:16px;flex-wrap:wrap}
+.sw{display:flex;align-items:center;gap:6px;font-size:10px;font-family:Consolas,monospace;color:rgba(255,255,255,.75)}
+.dot{width:14px;height:14px;border-radius:0}
+.meta{position:absolute;right:20px;bottom:20px;font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,.55);font-family:Consolas,monospace}
+.credit{position:relative;margin-top:26px;font-size:10px;letter-spacing:.14em;color:rgba(255,255,255,.45);font-weight:700}
+</style>
+</head>
+<body>
+<div class="poster">
+  <div class="blk-blue"></div>
+  <div class="blk-mag"></div>
+  <div class="blk-yellow"></div>
+  <div class="blk-red"></div>
+  <div class="grain"></div>
+  <div class="eyebrow" data-text>STYLE PROMPT / p04</div>
+  <div class="display">
+    <div class="w1" data-text>ABSTRACT</div>
+    <div class="w2" data-text>EDITORIAL</div>
+  </div>
+  <div class="rules" data-text>几何色块 · 硬边投影 · 噪点颗粒 · 对角线切割</div>
+  <div class="palette">
+    <span class="sw"><span class="dot" style="background:#FF2D7B"></span>#FF2D7B</span>
+    <span class="sw"><span class="dot" style="background:#00D4FF"></span>#00D4FF</span>
+    <span class="sw"><span class="dot" style="background:#FFE600"></span>#FFE600</span>
+    <span class="sw"><span class="dot" style="background:#FF3D00"></span>#FF3D00</span>
+  </div>
+  <div class="credit">风格指令 · image-gen-tools · p04 风格模板库</div>
+  <div class="meta" data-text>ISSUE 09/26</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":520},"stateSchema":{"type":"object","properties":{"eyebrow":{"type":"string"},"w1":{"type":"string"},"w2":{"type":"string"},"rules":{"type":"string"},"palette":{"type":"array","items":{"type":"string"}},"issue":{"type":"string"},"title":{"type":"string","description":"主标题（必填）"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "eyebrow": "ISSUE 04 — 抽象",
+  "w1": "ABSTRACT",
+  "w2": "EDITORIAL",
+  "rules": "几何色块 · 硬边投影 · 噪点颗粒 · 对角线切割",
+  "palette": [
+    "#FF2D7B",
+    "#00D4FF",
+    "#FFE600",
+    "#FF3D00"
+  ],
+  "issue": "2026 / 10",
+  "title": "abstract-editorial",
+  "body": "几何色块 · 硬边投影 · 噪点颗粒 · 对角线切割"
+}
+</script>
+<script>
+(function(){
+var MANIFEST={"spec":"1.0","display":{"preferredWidthPx":520},"stateSchema":{"type":"object","properties":{"eyebrow":{"type":"string"},"w1":{"type":"string"},"w2":{"type":"string"},"rules":{"type":"string"},"palette":{"type":"array"},"issue":{"type":"string"}}}};
+var SAMPLE={"eyebrow":"STYLE PROMPT / p04","w1":"ABSTRACT","w2":"EDITORIAL","rules":"几何色块 · 硬边投影 · 噪点颗粒 · 对角线切割","palette":["#FF2D7B","#00D4FF","#FFE600","#FF3D00"],"issue":"ISSUE 09/26"};
+var raw, S;
+try{raw=document.querySelector('[data-card-state]');S=raw?JSON.parse(raw.textContent):{};}catch(err){S={}}
+S=Object.assign({},SAMPLE,S);
+var s=function(v,d){if(v===undefined||v===null)return d;if(typeof v==='number'||typeof v==='boolean')return String(v);if(Array.isArray(v))return v.map(function(x){return String(x);}).join('\n\n');return typeof v==='string'?v:d};
+function put(sel,val,def){var el=document.querySelector(sel);if(el)el.textContent=s(val,def)}
+
+var titleVal=S.title||S.eyebrow||SAMPLE.eyebrow;
+var parts=String(titleVal).split(/\s+/);
+if(parts.length>1){
+  var idx=1;
+  S.w1=parts.slice(0,idx).join(' ');
+  S.w2=parts.slice(idx).join(' ');
+}else{
+  var str0=String(titleVal);
+  if(str0.length>1){
+    var mid=Math.ceil(str0.length/2);
+    S.w1=str0.slice(0,mid);
+    S.w2=str0.slice(mid);
+  }
+}
+
+S.rules=S.body||S.rules||'';
+
+put('.eyebrow',titleVal,SAMPLE.eyebrow);
+put('.w1',S.w1,SAMPLE.w1);
+put('.w2',S.w2,SAMPLE.w2);
+put('.rules',S.rules,SAMPLE.rules);
+var palette=Array.isArray(S.palette)?S.palette.slice(0,4):SAMPLE.palette;
+var sws=document.querySelectorAll('.palette .sw');
+for(var i=0;i<sws.length;i++){
+  var v=palette[i];
+  if(v!=null){sws[i].textContent=(typeof v==='string'?v:String(v))}
+}
+put('.meta',S.issue||SAMPLE.issue,SAMPLE.issue);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>极简黑白样张</title>
+<style>
+body{margin:0;background:#FFFFFF;color:#000000;font-family:'Helvetica Neue',Helvetica,Arial,'Noto Sans SC',sans-serif}
+.c{max-width:620px;margin:0 auto;padding:56px 24px 28px;border-left:1px solid #000;border-right:1px solid #000;min-height:430px;position:relative}
+.lb{font-size:10px;letter-spacing:.4em;font-weight:700;text-transform:uppercase}
+.rule{height:3px;background:#000;margin:14px 0}
+.h{font-size:clamp(40px,9vw,62px);font-weight:900;letter-spacing:-.03em;line-height:.98;margin:18px 0 4px}
+.h em{font-style:normal;background:#000;color:#FFF;padding:0 10px}
+.sub{font-size:12px;letter-spacing:.24em;color:#000;margin-top:14px;text-transform:uppercase}
+.rows{margin-top:26px;border-top:1px solid #000}
+.r{display:flex;justify-content:space-between;padding:11px 2px;border-bottom:1px solid #000;font-size:13px;font-weight:600;letter-spacing:.05em}
+.r span:last-child{font-family:Consolas,monospace;font-weight:400}
+.marks{display:flex;gap:0;margin-top:24px}
+.marks i{flex:1;height:26px;background:#000}
+.marks i:nth-child(2){background:#7A7A7A}
+.marks i:nth-child(3){background:#D9D9D9}
+.marks i:nth-child(4){background:#FFF;border:1px solid #000;box-sizing:border-box}
+.cr{position:absolute;left:24px;right:24px;bottom:16px;font-size:10px;letter-spacing:.3em;display:flex;justify-content:space-between;color:#000}
+</style>
+</head>
+<body>
+<div class="c">
+  <div class="lb" id="subtitle"></div>
+  <div class="rule"></div>
+  <div class="h" id="title"></div>
+  <div class="rows">
+    <div class="r"><span>CORNER</span><span>0px</span></div>
+    <div class="r"><span>PALETTE</span><span>#000 / #FFF</span></div>
+    <div class="r"><span>GRAY STEPS</span><span>4</span></div>
+  </div>
+  <div class="marks"><i></i><i></i><i></i><i></i></div>
+  <div class="cr"><span>DESIGN-MEDIA / MONO</span><span>01</span></div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":620},"stateSchema":{"type":"object","properties":{"title":{"type":"string","description":"色卡主标题"},"subtitle":{"type":"string","description":"顶部标签（副标题）"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "title": "极简黑白",
+  "subtitle": "全程无衬线 · 极致字号差",
+  "body": "全程无衬线 · 极致字号差"
+}
+</script>
+<script>
+(function(){
+var D={title:'Sample Title',subtitle:'Sample subtitle'};
+function str(v){if(v==null)return'';if(typeof v==='string')return v;if(typeof v==='number'||typeof v==='boolean')return String(v);if(Array.isArray(v))return v.map(str).filter(Boolean).join(' ');return'';}
+function pick(o){if(!o||typeof o!=='object'||Array.isArray(o))return null;var a=arguments;for(var i=1;i<a.length;i++){var k=a[i];if(Object.prototype.hasOwnProperty.call(o,k)&&str(o[k])!=='')return o[k];}return null;}
+function put(id,v){var el=document.getElementById(id);if(el)el.textContent=str(v);}
+var sEl=document.querySelector('script[data-card-state]');
+var S=Object.assign({},D);
+if(sEl){try{var u=JSON.parse(sEl.textContent);if(u&&typeof u==='object'&&!Array.isArray(u))for(var k in u)S[k]=u[k];}catch(e){}}
+put('title',pick(S,'title','heading'));
+put('subtitle',pick(S,'body','subtitle','desc'));
+})();
+</script>
+</body>
+</html>

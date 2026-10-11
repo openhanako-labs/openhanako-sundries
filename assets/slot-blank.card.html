@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>嘉年华老虎机样张</title>
+<style>
+body{margin:0;background:#0B1020;color:#EAF6FF;font-family:'Bungee','Arial Black','Noto Sans SC',sans-serif}
+.w{max-width:440px;margin:0 auto;padding:52px 16px 26px;text-align:center}
+.mq{position:relative;background:linear-gradient(180deg,#131A38,#0E1430);border:3px solid #2dd4ee;border-radius:18px;padding:24px 18px 20px;box-shadow:0 0 34px rgba(45,212,238,.3),inset 0 0 30px rgba(11,16,32,.9)}
+.bulbs{position:absolute;left:10px;right:10px;display:flex;justify-content:space-between}
+.bulbs.top{top:7px}.bulbs.bot{bottom:7px}
+.bulb{width:9px;height:9px;border-radius:50%;background:#3A3F5C;animation:chase 1.2s infinite}
+@keyframes chase{0%,100%{background:#3A3F5C;box-shadow:none}50%{background:#ffd23f;box-shadow:0 0 10px #ffd23f,0 0 20px rgba(255,210,63,.6)}}
+.t{font-size:clamp(28px,7vw,40px);color:#2dd4ee;text-shadow:0 0 14px rgba(45,212,238,.9),0 0 40px rgba(45,212,238,.45);letter-spacing:.06em;margin:6px 0 2px}
+.s{font-family:Consolas,monospace;font-size:11px;letter-spacing:.34em;color:#ffd23f}
+.reels{display:flex;gap:10px;justify-content:center;margin:18px 0 6px}
+.reel{width:74px;height:86px;background:#F8FAFF;border:3px solid #ffd23f;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:44px;color:#0B1020;box-shadow:inset 0 -12px 18px rgba(11,16,32,.18),0 6px 16px rgba(0,0,0,.5);font-family:'Arial Black',sans-serif}
+.reel.win{border-color:#ff4d6d;box-shadow:0 0 18px rgba(255,77,109,.75),inset 0 -12px 18px rgba(11,16,32,.18)}
+.status{font-family:Consolas,monospace;font-size:13px;letter-spacing:.2em;color:#ffd23f;min-height:20px;margin-top:8px}
+.lever{margin-top:14px;font-family:'Bungee','Arial Black',sans-serif;font-size:17px;letter-spacing:.1em;color:#fff;background:linear-gradient(180deg,#ff4d6d,#C21B3A);border:2px solid #FF8FA3;border-radius:999px;padding:13px 42px;cursor:pointer;box-shadow:0 7px 0 #7A0F22,0 12px 22px rgba(0,0,0,.5);transition:.12s}
+.lever:hover{filter:brightness(1.1)}
+.lever:active{transform:translateY(5px);box-shadow:0 2px 0 #7A0F22}
+.lever:focus-visible{outline:3px solid #ffd23f;outline-offset:3px}
+.coin{font-family:Consolas,monospace;font-size:11px;color:#6E78A8;margin-top:14px;letter-spacing:.16em}
+.cr{font-family:Consolas,monospace;font-size:10px;color:#4A5278;margin-top:12px;letter-spacing:.12em}
+</style>
+</head>
+<body>
+<div class="w">
+  <div class="mq">
+    <div class="bulbs top"><span class="bulb" style="animation-delay:0s"></span><span class="bulb" style="animation-delay:.1s"></span><span class="bulb" style="animation-delay:.2s"></span><span class="bulb" style="animation-delay:.3s"></span><span class="bulb" style="animation-delay:.4s"></span><span class="bulb" style="animation-delay:.5s"></span><span class="bulb" style="animation-delay:.6s"></span><span class="bulb" style="animation-delay:.7s"></span><span class="bulb" style="animation-delay:.8s"></span><span class="bulb" style="animation-delay:.9s"></span><span class="bulb" style="animation-delay:1s"></span><span class="bulb" style="animation-delay:1.1s"></span></div>
+    <div class="t" id="title"></div>
+    <div class="s" id="subtitle"></div>
+    <div class="reels"><div class="reel" id="r1">7</div><div class="reel" id="r2">7</div><div class="reel" id="r3">7</div></div>
+    <div class="status" id="status"></div>
+    <button type="button" class="lever" id="spin" data-action="spin"><span id="cta"></span></button>
+    <div class="bulbs bot" style="margin-top:16px"><span class="bulb" style="animation-delay:.55s"></span><span class="bulb" style="animation-delay:.65s"></span><span class="bulb" style="animation-delay:.75s"></span><span class="bulb" style="animation-delay:.85s"></span><span class="bulb" style="animation-delay:.95s"></span><span class="bulb" style="animation-delay:1.05s"></span><span class="bulb" style="animation-delay:1.15s"></span><span class="bulb" style="animation-delay:0.05s"></span><span class="bulb" style="animation-delay:0.15s"></span><span class="bulb" style="animation-delay:0.25s"></span><span class="bulb" style="animation-delay:0.35s"></span><span class="bulb" style="animation-delay:0.45s"></span></div>
+    <div class="coin" id="coin"></div>
+  </div>
+  <div class="cr">风格指令 · video-shot-demos · 嘉年华老虎机（风格卡 2-5）</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":440},"stateSchema":{"type":"object","properties":{"title":{"type":"string","description":"机器主标题"},"subtitle":{"type":"string","description":"副标题"},"reels":{"type":"array","description":"三个转轮初始符号（样张为 '7'）","maxItems":3,"items":{"type":"string"}},"status":{"type":"string","description":"状态行"},"cta":{"type":"string","description":"拉杆按钮文字"},"coin":{"type":"string","description":"底部 CREDIT/BET/WIN 行"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "title": "风格老虎机",
+  "subtitle": "LUCKY SPIN · 三转轮",
+  "reels": [
+    "7",
+    "7",
+    "7"
+  ],
+  "status": "READY",
+  "cta": "拉一把",
+  "coin": "CREDIT 88 · BET 1 · WIN 0",
+  "body": "LUCKY SPIN · 三转轮"
+}
+</script>
+<script>
+(function(){
+var D={title:'Sample Slot',subtitle:'Sample lines',reels:['7','7','7'],status:'READY',cta:'Spin',coin:'CREDIT 0 · BET 0 · WIN 0'};
+function str(v){if(v==null)return'';if(typeof v==='string')return v;if(typeof v==='number'||typeof v==='boolean')return String(v);if(Array.isArray(v))return v.map(str).filter(Boolean).join(' ');return'';}
+function pick(o,keys){if(!o||typeof o!=='object'||Array.isArray(o))return null;for(var i=0;i<keys.length;i++){var k=keys[i];if(Object.prototype.hasOwnProperty.call(o,k)&&str(o[k])!=='')return o[k];}return null;}
+function put(id,v){var el=document.getElementById(id);if(el)el.textContent=str(v);}
+function slots(v,max){if(!Array.isArray(v))return null;var out=[];for(var i=0;i<v.length&&out.length<max;i++){var s=str(v[i]);out.push(s);}return out;}
+var sEl=document.querySelector('script[data-card-state]');
+var S=Object.assign({},D);
+if(sEl){try{var u=JSON.parse(sEl.textContent);if(u&&typeof u==='object'&&!Array.isArray(u))for(var k in u)S[k]=u[k];}catch(e){}}
+var R=slots(pick(S,['reels','symbols','slots']),3)||D.reels;
+put('title',pick(S,['title','heading']));
+put('subtitle',pick(S,['body','subtitle','desc']));
+put('status',pick(S,['status','caption']));
+put('cta',pick(S,['cta','action','button']));
+put('coin',pick(S,['coin','credit','footer']));
+for(var i=0;i<3;i++)put('r'+(i+1),R[i]||'');
+
+var pool=['7','★','BAR','7','★','7','倍','7'];
+var reels=[document.getElementById('r1'),document.getElementById('r2'),document.getElementById('r3')];
+var st=document.getElementById('status'),spin=document.getElementById('spin'),busy=false;
+var finalStatus=pick(S,['status','caption']);
+spin.addEventListener('click',function(){
+ if(busy)return;busy=true;spin.disabled=true;
+ st.textContent='SPINNING…';
+ reels.forEach(function(r){r.classList.remove('win');});
+ var timers=[];
+ reels.forEach(function(r,ri){
+  var iv=setInterval(function(){r.textContent=pool[Math.floor(Math.random()*pool.length)];},70);
+  timers.push(iv);
+  setTimeout(function(){clearInterval(iv);r.textContent=(R[ri]||'7');r.classList.add('win');},900+ri*260);
+ });
+ setTimeout(function(){
+  st.textContent=finalStatus||'JACKPOT';
+  busy=false;spin.disabled=false;
+ },1700);
+});
+})();
+</script>
+</body>
+</html>

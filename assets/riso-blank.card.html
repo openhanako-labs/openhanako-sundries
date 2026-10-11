@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Risograph 版画样张</title>
+<style>
+body{margin:0;background:#F7F3EA;color:#1E1E1E;font-family:'Zilla Slab','Rockwell','Georgia',serif}
+.w{max-width:600px;margin:0 auto;padding:52px 16px 26px}
+.sheet{position:relative;background:#F7F3EA;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='90' height='90' filter='url(%23g)' opacity='0.16'/%3E%3C/svg%3E");border:1px solid #E2DACA;padding:34px 30px 30px;overflow:hidden}
+.crop{position:absolute;width:20px;height:20px;pointer-events:none}
+.crop::before,.crop::after{content:"";position:absolute;background:#8A8578}
+.crop::before{left:9px;top:0;width:1.5px;height:20px}
+.crop::after{top:9px;left:0;height:1.5px;width:20px}
+.cr1{top:8px;left:8px}.cr2{top:8px;right:8px}.cr3{bottom:8px;left:8px}.cr4{bottom:8px;right:8px}
+.duo{position:relative;text-align:center;margin-top:6px;mix-blend-mode:multiply}
+.duo h1{font-size:clamp(52px,13vw,84px);font-weight:900;letter-spacing:.06em;margin:0;line-height:1}
+.duo h1 .a{color:#FF48B0;position:relative;display:inline-block}
+.duo h1 .b{color:#0078BF;position:relative;display:inline-block;margin-left:-6px}
+.duo .mis{position:absolute;left:3.5px;top:2.5px;color:#0078BF;opacity:.85;z-index:-1}
+.sub{text-align:center;font-size:13.5px;letter-spacing:.34em;color:#0078BF;margin-top:12px;font-weight:700;mix-blend-mode:multiply}
+.bars{display:flex;justify-content:center;gap:16px;margin-top:24px;mix-blend-mode:multiply}
+.ink{display:flex;align-items:center;gap:7px;font-size:11.5px;letter-spacing:.14em;color:#4A4640}
+.ink i{width:26px;height:26px;border-radius:50%}
+.body{margin-top:24px;background:rgba(255,255,255,.5);border:1.5px solid #1E1E1E;padding:16px 18px;font-size:14px;line-height:1.85;mix-blend-mode:multiply}
+.body b{color:#FF48B0;-webkit-text-stroke:.3px #1E1E1E}
+.cr{text-align:center;font-size:10px;color:#9A9486;margin-top:18px;letter-spacing:.12em}
+</style>
+</head>
+<body>
+<div class="w">
+  <div class="sheet">
+    <span class="crop cr1"></span><span class="crop cr2"></span><span class="crop cr3"></span><span class="crop cr4"></span>
+    <div class="duo"><h1><span class="a"><span data-text>套</span><span class="mis" data-text>套</span></span><span class="b"><span data-text>印</span><span class="mis" data-text>印</span></span></h1></div>
+    <div class="sub" data-text>RISOGRAPH · 两色 · 错位 3PX</div>
+    <div class="bars">
+      <span class="ink"><i style="background:#FF48B0"></i><span data-text>荧光粉</span></span>
+      <span class="ink"><i style="background:#0078BF"></i><span data-text>印刷蓝</span></span>
+      <span class="ink"><i style="background:#1E1E1E"></i><span data-text>黑</span></span>
+    </div>
+    <div class="body">双色套印，故意错位——重叠处压出第三种颜色，颗粒是油墨的呼吸，<b>不是噪点滤镜</b>。裁切十字在四角，规矩线就是装饰。</div>
+  </div>
+  <div class="cr">风格指令 · video-shot-demos · Risograph 版画（风格卡 3-5）</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":600},"stateSchema":{"type":"object","properties":{"a1":{"type":"string"},"a2":{"type":"string"},"label":{"type":"string"},"bars":{"type":"array","items":{"type":"object","properties":{"text":{"type":"string"}}}},"body":{"type":"string"},"title":{"type":"string","description":"主标题（必填）"}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "a1": "套",
+  "a2": "印",
+  "label": "荧光粉叠印刷蓝，套色偏一点才是手印的味道。",
+  "bars": [
+    {
+      "text": "荧光粉"
+    },
+    {
+      "text": "印刷蓝"
+    },
+    {
+      "text": "黑"
+    }
+  ],
+  "body": "荧光粉叠印刷蓝，套色偏一点才是手印的味道。",
+  "title": "套色"
+}
+</script>
+<script>
+(function(){
+var MANIFEST={"spec":"1.0","display":{"preferredWidthPx":600},"stateSchema":{"type":"object","properties":{"a1":{"type":"string"},"a2":{"type":"string"},"label":{"type":"string"},"bars":{"type":"array"},"body":{"type":"string"}}}};
+var SAMPLE={"a1":"套","a2":"印","label":"RISOGRAPH · 两色 · 错位 3PX","bars":[{"text":"荧光粉"},{"text":"印刷蓝"},{"text":"黑"}],"body":"双色套印，故意错位——重叠处压出第三种颜色，颗粒是油墨的呼吸，**不是噪点滤镜**。裁切十字在四角，规矩线就是装饰。"};
+var raw, S;
+try{raw=document.querySelector('[data-card-state]');S=raw?JSON.parse(raw.textContent):{};}catch(e){S={}}
+S=Object.assign({},SAMPLE,S);
+var s=function(v,d){if(v===undefined||v===null)return d;if(typeof v==='number'||typeof v==='boolean')return String(v);if(Array.isArray(v))return v.map(function(x){return String(x);}).join('\n\n');return typeof v==='string'?v:d};
+function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function renderRich(str){return esc(str).replace(/\*\*([^*]+)\*\*/g,'<b>$1</b>')}
+var duo=document.querySelector('.duo h1');
+var a=duo.querySelector('.a'), b=duo.querySelector('.b');
+var aSpans=a.querySelectorAll('span[data-text]');
+aSpans[0].textContent=s(S.a1,'');
+aSpans[1].textContent=s(S.a1,'');
+var bSpans=b.querySelectorAll('span[data-text]');
+bSpans[0].textContent=s(S.a2,'');
+bSpans[1].textContent=s(S.a2,'');
+document.querySelector('.sub').textContent=s(S.title||S.label,'');
+var list=Array.isArray(S.bars)?S.bars.slice(0,3):SAMPLE.bars;
+var barSpans=document.querySelectorAll('.ink span[data-text]');
+for(var i=0;i<barSpans.length;i++){var it=list[i];barSpans[i].textContent=it&&typeof it==='object'?s(it.text,''):''}
+document.querySelector('.body').innerHTML=renderRich(s(S.body,''));
+})();
+</script>
+</body>
+</html>

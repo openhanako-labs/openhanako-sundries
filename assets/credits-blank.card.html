@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>哑光片尾样张</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#08111c;color:#d4dce6;font-family:'Ma Shan Zheng','Kaiti SC','STKaiti','KaiTi','PingFang SC','Microsoft YaHei',serif;-webkit-font-smoothing:antialiased}
+  .w{max-width:500px;margin:0 auto;padding:48px 16px 24px}
+  .card{position:relative;background:radial-gradient(ellipse at 50% 50%,#0d1a2c 0%,#080f1a 50%,#040810 100%);border:1px solid #1a2840;border-radius:4px;padding:26px 22px 22px;overflow:hidden;box-shadow:8px 8px 0 rgba(0,0,0,.55);min-height:420px}
+
+  /* 呼吸光 */
+  .glow{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);width:340px;height:340px;background:radial-gradient(circle,rgba(200,180,140,.32) 0%,rgba(160,140,110,.18) 30%,rgba(90,70,50,.06) 55%,transparent 75%);pointer-events:none;animation:breathe 6s ease-in-out infinite alternate;filter:blur(2px)}
+  @keyframes breathe{0%{opacity:.55;transform:translate(-50%,-50%) scale(.92)}100%{opacity:1;transform:translate(-50%,-50%) scale(1.08)}}
+
+  /* 边缘粒子感 */
+  .card::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(circle at 15% 20%,rgba(255,255,255,.15) 0 1px,transparent 2px),
+    radial-gradient(circle at 82% 30%,rgba(255,255,255,.12) 0 1px,transparent 2px),
+    radial-gradient(circle at 25% 78%,rgba(255,255,255,.1) 0 1px,transparent 2px),
+    radial-gradient(circle at 70% 88%,rgba(255,255,255,.13) 0 1px,transparent 2px);
+    pointer-events:none;opacity:.7}
+
+  .content{position:relative;z-index:2;text-align:center}
+  .hdr{padding:0 0 20px;border-bottom:1px solid rgba(200,180,140,.25);margin-bottom:20px}
+  .hdr .en{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:6px;color:#c9a24a;margin-bottom:8px}
+  .hdr h1{margin:0;font-family:'Ma Shan Zheng','Kaiti SC','STKaiti','KaiTi',serif;font-size:56px;color:#f0e6cc;line-height:1;text-shadow:0 0 24px rgba(200,180,140,.4),0 0 60px rgba(160,140,110,.2);letter-spacing:6px}
+  .hdr .rule{margin-top:14px;display:flex;align-items:center;gap:10px;justify-content:center}
+  .hdr .rule::before,.hdr .rule::after{content:"";flex:0 0 60px;height:1px;background:linear-gradient(90deg,transparent,#c9a24a,transparent)}
+  .hdr .rule span{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:4px;color:#c9a24a}
+
+  .credits{font-family:'IBM Plex Mono','Courier New',monospace;font-size:11.5px;line-height:2;color:#b8b2a4;letter-spacing:1.5px}
+  .credits .row{display:flex;justify-content:space-between;align-items:baseline;padding:2px 12px;border-bottom:1px dotted rgba(200,180,140,.15)}
+  .credits .row b{color:#f0e6cc;font-family:'Ma Shan Zheng','Kaiti SC','STKaiti',serif;font-size:16px;letter-spacing:2px;font-weight:400}
+  .credits .row i{font-style:normal;color:#7a7060;font-size:9.5px;letter-spacing:3px}
+
+  .end{margin-top:22px;padding-top:14px;border-top:1px solid rgba(200,180,140,.25);display:flex;justify-content:space-between;align-items:center}
+  .end .tc{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:3px;color:#7a7060}
+  .end .btn{background:transparent;color:#f0e6cc;border:1px solid #c9a24a;padding:8px 20px;font-family:'Ma Shan Zheng','Kaiti SC','STKaiti',serif;font-size:16px;letter-spacing:4px;cursor:pointer;border-radius:22px;box-shadow:0 0 12px rgba(201,162,74,.2);transition:.2s}
+  .end .btn:hover{background:rgba(200,180,140,.15)}
+
+  .cr{margin-top:14px;font-size:10px;letter-spacing:1.5px;color:#5a6272;font-family:'IBM Plex Mono',monospace;text-align:left}
+</style>
+</head>
+<body>
+<div class="w">
+  <div class="card">
+    <div class="glow"></div>
+    <div class="content">
+      <div class="hdr">
+        <div class="en">CREDITS · MATTE · 4-2</div>
+        <h1>片 尾</h1>
+        <div class="rule"><span>END OF REEL · 感 谢 出 席</span></div>
+      </div>
+      <div class="credits">
+        <div class="row"><b>制 作</b><i>PRODUCTION</i></div>
+        <div class="row"><b>策 划</b><i>WRITER · DIRECTOR</i></div>
+        <div class="row"><b>镜 头</b><i>CAMERA · 4-1 MONTAGE</i></div>
+        <div class="row"><b>剪 辑</b><i>EDITOR</i></div>
+        <div class="row"><b>鸣 谢</b><i>SPECIAL THANKS</i></div>
+      </div>
+      <div class="end">
+        <div class="tc">FRAME 2088 · TC 00:14:20</div>
+        <button class="btn" type="button" data-action="restart">再 看 一 遍</button>
+      </div>
+    </div>
+  </div>
+  <div class="cr">风格指令 · video-shot-demos · 哑光片尾（风格卡 4-2）</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":500},"stateSchema":{"type":"object","properties":{"title":{"type":"string","description":"片尾标题"},"subtitle":{"type":"string","description":"副题"},"items":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string","description":"角色名"},"value":{"type":"string","description":"职衔/说明"}}},"description":"致谢条目（≤8）"},"caption":{"type":"string","description":"片尾时间码"},"btn":{"type":"string","description":"按钮"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "title": "片 尾",
+  "subtitle": "CREDITS · 片子演完了",
+  "items": [
+    {
+      "name": "制 作",
+      "value": "PRODUCTION"
+    },
+    {
+      "name": "策 划",
+      "value": "统筹、排版、配色与最后的删减。"
+    },
+    {
+      "name": "镜 头",
+      "value": "统筹、排版、配色与最后的删减。"
+    },
+    {
+      "name": "剪 辑",
+      "value": "EDITOR"
+    },
+    {
+      "name": "鸣 谢",
+      "value": "统筹、排版、配色与最后的删减。"
+    }
+  ],
+  "caption": "制作名单 · 2026 秋",
+  "btn": "再 看 一 遍",
+  "body": "统筹、排版、配色与最后的删减。"
+}
+</script>
+<script id="__card_render__">
+(function(){
+  function readState(){var d=null;try{var s=document.querySelector('script[data-card-state]');if(s)d=JSON.parse(s.textContent);}catch(e){}return d;
+  }
+  function s(v,d){if(v===undefined||v===null)return d;if(typeof v==="string"){v=v.trim();return v===''?d:v;}return String(v);}
+  function arr(v,n){if(!Array.isArray(v))return [];var o=[];for(var i=0;i<v.length&&o.length<n;i++){var x=v[i];if(x&&typeof x==="object"&&!Array.isArray(x))o.push(x);}return o;}
+  function e(v,d){var x=s(v,d);if(x===d)return d;return String(x).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+  var S=readState(); if(!S)return; try{
+    var DEFAULTS={title:'',body:''};
+    S=Object.assign({},DEFAULTS,S);if(S.body){if(S.title)S.title=S.title+'\n'+S.body;else S.title=S.body;}
+
+if(S.title){var e1=document.querySelector(".hdr h1");if(e1)e1.textContent=s(S.title,e1.textContent);}
+if(S.subtitle){var e2=document.querySelector(".hdr .rule span");if(e2)e2.textContent=s(S.subtitle,e2.textContent);}
+var it=arr(S.items||S.list||S.rows,8);
+var rows=document.querySelectorAll(".credits > .row");
+for(var i=0;i<rows.length;i++){var x=it[i];if(!x)continue;var r=rows[i];var b=r.querySelector("b");var ii=r.querySelector("i");if(b)b.textContent=s(x.name||"");if(ii)ii.textContent=s(x.value||"");}
+if(S.caption){var e3=document.querySelector(".end .tc");if(e3)e3.textContent=s(S.caption,e3.textContent);}
+if(S.btn){var e4=document.querySelector(".end .btn");if(e4)e4.textContent=s(S.btn,e4.textContent);}
+}catch(err){console.error("[card] render error:",err);} })();
+</script>
+</body>
+</html>

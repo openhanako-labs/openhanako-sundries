@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>黑色电影档案样张</title>
+<style>
+body{margin:0;background:#0e0c09;color:#d8c8a0;font-family:'Special Elite','Courier Prime','Courier New','Noto Serif SC',monospace}
+.w{max-width:600px;margin:0 auto;padding:52px 18px 28px}
+.file{position:relative;background:#2b241c;border:1px solid #4a3a24;border-radius:2px;padding:26px 24px 24px;box-shadow:0 18px 40px rgba(0,0,0,.7);overflow:hidden}
+.blinds{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(115deg,rgba(255,220,160,0) 0 24px,rgba(255,220,160,.10) 24px 26px,rgba(0,0,0,0) 26px 52px,rgba(0,0,0,.32) 52px 54px);mix-blend-mode:normal}
+.vignette{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 40%,rgba(0,0,0,.55) 100%)}
+.content{position:relative;z-index:2}
+.top{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid rgba(216,200,160,.35);padding-bottom:10px;margin-bottom:14px}
+.top .l{font-size:11px;letter-spacing:.32em;color:#a8956b}
+.top .r{font-size:10.5px;letter-spacing:.16em;color:#7a6a4a}
+.big{font-size:56px;line-height:1;letter-spacing:.16em;font-family:'Special Elite','Courier New',monospace;font-weight:700;color:#d8c8a0;margin:2px 0 4px}
+.big .accent{color:#c9a44c}
+.sub{font-family:'Noto Serif SC',serif;font-size:20px;letter-spacing:.18em;margin-bottom:14px;color:#d8c8a0}
+.meta{display:grid;grid-template-columns:1fr 1fr;gap:8px 20px;font-size:11px;line-height:1.6;padding:10px 0;border-top:1px dashed rgba(216,200,160,.28);border-bottom:1px dashed rgba(216,200,160,.28);margin-bottom:14px}
+.meta div span{display:block;color:#7a6a4a;font-size:9.5px;letter-spacing:.2em;margin-bottom:2px}
+.meta div b{color:#d8c8a0;font-weight:400;letter-spacing:.06em}
+.note{font-size:12.5px;line-height:1.8;color:#c9b896}
+.note .red{color:#c9402a}
+.stamp{position:absolute;bottom:24px;right:22px;width:120px;height:44px;border:2px solid rgba(201,64,42,.7);color:rgba(201,64,42,.85);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:14px;letter-spacing:.28em;transform:rotate(-8deg);font-family:'Special Elite','Courier New',monospace;font-weight:700;z-index:3}
+.stamp::after{content:"";position:absolute;inset:4px;border:1px dashed rgba(201,64,42,.4);border-radius:2px}
+.cr{text-align:center;font-size:10px;color:#5c4e34;margin-top:12px;letter-spacing:.14em}
+</style>
+</head>
+<body>
+<div class="w">
+<div class="file">
+<div class="blinds"></div>
+<div class="vignette"></div>
+<div class="content">
+<div class="top"><span class="l" data-text>CONFIDENTIAL · CASE FILE</span><span class="r" data-text>0-4 / 档案 026</span></div>
+<div class="big">NOIR<span class="accent">.</span></div>
+<div class="sub" data-text>百叶窗 · 档案</div>
+<div class="meta">
+<div><span>CASE ID</span><b data-text>SC-2-6 · 2026-09</b></div>
+<div><span>STATUS</span><b data-text>未结案 / PENDING</b></div>
+<div><span>LOCATION</span><b data-text>南巷 22 号 · 三楼</b></div>
+<div><span>FILED BY</span><b data-text>Det. Y.X.</b></div>
+</div>
+<div class="note">灯被百叶窗切成一条条的。桌面摊开一叠<span class="red">证物袋</span>，烟灰缸空了。有人在等一个电话，或者一个谎言。</div>
+</div>
+<div class="stamp">CLOSED?</div>
+</div>
+<div class="cr">风格指令 · video-shot-demos · 黑色电影档案（风格卡 0-4）</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":600},"stateSchema":{"type":"object","properties":{"topLeft":{"type":"string"},"topRight":{"type":"string"},"subtitle":{"type":"string"},"caseId":{"type":"string"},"status":{"type":"string"},"location":{"type":"string"},"filedBy":{"type":"string"},"note":{"type":"string"},"title":{"type":"string","description":"主标题（必填）"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "topLeft": "CONFIDENTIAL",
+  "topRight": "CASE 0-4",
+  "subtitle": "结案 · 归档",
+  "caseId": "SC-2-6",
+  "status": "未结案 / PENDING",
+  "location": "南巷 22 号 · 旧仓库",
+  "filedBy": "Det. Y.X.",
+  "note": "证据链已补齐，等最后一次复核。",
+  "title": "noir-file",
+  "body": "证据链已补齐，等最后一次复核。"
+}
+</script>
+<script>
+(function(){
+var MANIFEST={"spec":"1.0","display":{"preferredWidthPx":600},"stateSchema":{"type":"object","properties":{"topLeft":{"type":"string"},"topRight":{"type":"string"},"subtitle":{"type":"string"},"caseId":{"type":"string"},"status":{"type":"string"},"location":{"type":"string"},"filedBy":{"type":"string"},"note":{"type":"string"}}}};
+var SAMPLE={"topLeft":"CONFIDENTIAL · CASE FILE","topRight":"0-4 / 档案 026","subtitle":"百叶窗 · 档案","caseId":"SC-2-6 · 2026-09","status":"未结案 / PENDING","location":"南巷 22 号 · 三楼","filedBy":"Det. Y.X.","note":"灯被百叶窗切成一条条的。桌面摊开一叠#red 证物袋 #，烟灰缸空了。有人在等一个电话，或者一个谎言。"};
+var raw, S;
+try{raw=document.querySelector('[data-card-state]');S=raw?JSON.parse(raw.textContent):{};}catch(e){S={}}
+S=Object.assign({},SAMPLE,S);
+var s=function(v,d){if(v===undefined||v===null)return d;if(typeof v==='number'||typeof v==='boolean')return String(v);if(Array.isArray(v))return v.map(function(x){return String(x);}).join('\n\n');return typeof v==='string'?v:d};
+function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function renderNote(str){return esc(str).replace(/#red ([^#]+) #/g,'<span class="red">$1</span>')}
+var content=document.querySelector('.content');
+var tops=content.querySelectorAll('.top span');
+tops[0].textContent=s(S.topLeft,'');
+tops[1].textContent=s(S.topRight,'');
+content.querySelector('.big').textContent=s(S.title,'NOIR.');
+var metaBs=content.querySelectorAll('.meta b');
+var vals=[s(S.caseId,''),s(S.status,''),s(S.location,''),s(S.filedBy,'')];
+for(var i=0;i<metaBs.length;i++){metaBs[i].textContent=vals[i]}
+content.querySelector('.note').innerHTML=renderNote(s((S.body&&S.body.length>0?S.body:S.note)||'',''));
+})();
+</script>
+</body>
+</html>

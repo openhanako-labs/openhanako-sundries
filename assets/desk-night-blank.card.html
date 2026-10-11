@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>深夜书桌扁平插画样张</title>
+<style>
+body{margin:0;background:linear-gradient(180deg,#141a35 0%,#0f1226 60%,#0a0d1c 100%);color:#e6ecff;font-family:'Nunito','Noto Sans SC',system-ui,sans-serif}
+.w{max-width:600px;margin:0 auto;padding:52px 18px 28px}
+.top{display:flex;align-items:baseline;gap:14px;margin-bottom:18px}
+.k{font-family:'Nunito',sans-serif;font-weight:900;font-size:46px;letter-spacing:.1em;color:#ffd58a;line-height:1;text-shadow:0 2px 0 rgba(0,0,0,.4)}
+.top h1{font-size:26px;font-weight:900;margin:0;color:#fff;letter-spacing:.04em}
+.top .en{font-family:'Nunito',sans-serif;font-size:10px;letter-spacing:.36em;color:#7a87b8;margin-left:auto;white-space:nowrap}
+.scene{position:relative;background:linear-gradient(180deg,#1a2246,#0d1230);border-radius:12px;padding:24px 22px 22px;box-shadow:0 12px 30px rgba(0,0,0,.55);overflow:hidden}
+.lamp{position:absolute;top:14px;right:22px;width:110px;height:110px;pointer-events:none}
+.ray{position:absolute;top:0;right:60px;width:340px;height:290px;background:radial-gradient(ellipse at top right,rgba(255,214,140,.42),rgba(255,214,140,.06) 55%,transparent 75%);pointer-events:none}
+.desk{position:relative;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:38px}
+.it{background:#2a3055;border-radius:6px;padding:12px;color:#dfe5ff;box-shadow:0 4px 0 rgba(0,0,0,.25);position:relative;font-size:11px;line-height:1.4}
+.it b{display:block;font-size:13px;font-weight:800;margin-bottom:4px;color:#ffe0a8;letter-spacing:.03em}
+.it.big{grid-column:span 2}
+.it.tilt{transform:rotate(-3deg);background:#3a2b1a;box-shadow:0 4px 0 rgba(0,0,0,.3),0 8px 18px rgba(255,214,140,.14)}
+.it.glow{background:linear-gradient(135deg,#f5c874,#e39b3a);color:#3a2408}
+.it.glow b{color:#3a2408}
+.it svg{position:absolute;right:8px;top:8px;opacity:.5}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.tag{background:rgba(255,214,140,.1);color:#ffd58a;padding:5px 10px;border-radius:999px;font-size:11px;letter-spacing:.06em;font-family:'Nunito',sans-serif;font-weight:700}
+.tag.alt{background:rgba(140,180,255,.12);color:#a9c1ff}
+.foot{display:flex;justify-content:space-between;margin-top:14px;font-size:10.5px;color:#7a87b8;letter-spacing:.22em;font-family:'Nunito',sans-serif;font-weight:600}
+.cr{text-align:center;font-size:10px;color:#4d5680;margin-top:12px;letter-spacing:.12em;font-family:'Nunito',sans-serif}
+</style>
+</head>
+<body>
+<div class="w">
+<div class="top">
+<div class="k" id="num"></div>
+<h1 id="title"></h1>
+<div class="en" id="subtitle"></div>
+</div>
+<div id="cbod" style="display:none;font-size:13px;line-height:1.7;color:#c9d0ec;margin-bottom:18px;max-width:96%"></div>
+<div class="scene">
+<div class="ray"></div>
+<svg class="lamp" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 L78 44 L22 44 Z" fill="#f5c874"/><rect x="46" y="42" width="8" height="30" fill="#7a5a2c"/><ellipse cx="50" cy="80" rx="26" ry="6" fill="#4a3a1e"/></svg>
+<div class="desk">
+<div class="it big" id="slot0"><b id="il0"></b><span id="iv0"></span></div>
+<div class="it" id="slot1"><b id="il1"></b><span id="iv1"></span></div>
+<div class="it tilt" id="slot2"><b id="il2"></b><span id="iv2"></span></div>
+<div class="it glow" id="slot3"><b id="il3"></b><span id="iv3"></span></div>
+<div class="it" id="slot4"><b id="il4"></b><span id="iv4"></span></div>
+</div>
+<div class="tags">
+<span class="tag" id="tag0"></span>
+<span class="tag alt" id="tag1"></span>
+<span class="tag" id="tag2"></span>
+<span class="tag alt" id="tag3"></span>
+</div>
+<div class="foot"><span id="footL"></span><span id="footR"></span></div>
+</div>
+<div class="cr">风格指令 · video-shot-demos · 深夜书桌扁平插画（风格卡 0-1）</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":600},"stateSchema":{"type":"object","properties":{"num":{"type":"string","description":"编号（如 0-1）"},"title":{"type":"string","description":"标题"},"subtitle":{"type":"string","description":"英文副标题"},"items":{"type":"array","description":"5 个桌面物件（固定槽位，样式 big/tilt/glow/tilt 之外为默认）：[{label|name,text|body}]","maxItems":5,"items":{"type":"object","properties":{"label":{"type":"string"},"text":{"type":"string"}}}},"tags":{"type":"array","description":"4 个标签：[text, alt, text, alt]","maxItems":4,"items":{"type":"string"}},"footLeft":{"type":"string","description":"底部左侧"},"footRight":{"type":"string","description":"底部右侧时间戳"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "num": "0-1",
+  "title": "深夜书桌",
+  "subtitle": "台灯还亮着的时候，别急着收尾",
+  "items": [
+    {
+      "label": "任务降临",
+      "text": "台灯还亮着的时候，别急着收尾"
+    },
+    {
+      "label": "咖啡",
+      "text": "还热"
+    },
+    {
+      "label": "便签",
+      "text": "先做那件最难的一件事"
+    },
+    {
+      "label": "台灯",
+      "text": "40W · 暖色"
+    },
+    {
+      "label": "纸笔",
+      "text": "备用"
+    }
+  ],
+  "tags": [
+    "铺陈 · 场景",
+    "节奏 · 慢启",
+    "暖光 · 深夜",
+    "扁平 · 无描边"
+  ],
+  "footLeft": "22:47",
+  "footRight": "未保存",
+  "body": "台灯还亮着的时候，别急着收尾"
+}
+</script>
+<script>
+(function(){
+var D={num:'0-0',title:'Sample Title',subtitle:'EN SUBTITLE',items:[{label:'One',text:'Body one.'},{label:'Two',text:'Body two.'},{label:'Three',text:'Body three.'},{label:'Four',text:'Body four.'},{label:'Five',text:'Body five.'}],tags:['Tag one','Tag two','Tag three','Tag four'],footLeft:'LEFT / 00',footRight:'00:00:00'};
+function str(v){if(v==null)return'';if(typeof v==='string')return v;if(typeof v==='number'||typeof v==='boolean')return String(v);if(Array.isArray(v))return v.map(str).filter(Boolean).join(' ');return'';}
+function pick(o,keys){if(!o||typeof o!=='object'||Array.isArray(o))return null;for(var i=0;i<keys.length;i++){var k=keys[i];if(Object.prototype.hasOwnProperty.call(o,k)&&str(o[k])!=='')return o[k];}return null;}
+function put(id,v){var el=document.getElementById(id);if(el)el.textContent=str(v);}
+function items(v,max){if(!Array.isArray(v))return null;var out=[];for(var i=0;i<v.length&&out.length<max;i++){var it=v[i];if(typeof it==='string'){out.push({label:'',text:it});continue;}if(!it||typeof it!=='object'||Array.isArray(it))continue;var l=pick(it,['label','name','tag']),t=pick(it,['text','body','content','value']);if(!str(l)&&!str(t))continue;out.push({label:l,text:t});}return out;}
+function tags(v,max){if(!Array.isArray(v))return null;var out=[];for(var i=0;i<v.length&&out.length<max;i++){var s=str(v[i]);out.push(s);}return out;}
+var sEl=document.querySelector('script[data-card-state]');
+var S=Object.assign({},D);
+if(sEl){try{var u=JSON.parse(sEl.textContent);if(u&&typeof u==='object'&&!Array.isArray(u))for(var k in u)S[k]=u[k];}catch(e){}}
+var I=items(pick(S,['items','list','rows']),5)||D.items;
+var T=tags(pick(S,['tags','chips','labels']),4)||D.tags;
+put('num',pick(S,['num','code']));
+put('title',pick(S,['title','heading']));
+put('subtitle',pick(S,['subtitle','desc']));
+put('footL',pick(S,['footLeft','left']));
+put('footR',pick(S,['footRight','right','time']));
+var escF=function(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');};
+var paras=(function(b){if(Array.isArray(b))return b.map(String).filter(Boolean);if(typeof b==='string')return b.split(/\n\s*\n/).map(function(t){return t.trim();}).filter(Boolean);return [];})(S.body);
+var bb=document.getElementById('cbod');
+if(bb){if(paras.length){bb.innerHTML=paras.map(function(t){return '<p style="margin:0 0 .4em">'+escF(t)+'</p>';}).join('');bb.style.display='';}else{bb.style.display='none';bb.innerHTML='';}}
+for(var i=0;i<5;i++){
+  put('il'+i,I[i]?I[i].label:'');
+  put('iv'+i,I[i]?I[i].text:'');
+  var s=document.getElementById('slot'+i);
+  if(s)s.style.display=I[i]?'':'none';
+}
+for(var j=0;j<4;j++){
+  put('tag'+j,T[j]||'');
+  var tg=document.getElementById('tag'+j);
+  if(tg)tg.style.display=T[j]?'':'none';
+}
+})();
+</script>
+</body>
+</html>

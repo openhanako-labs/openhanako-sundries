@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>希卡终端样张</title>
+<style>
+body{margin:0;background:#66645D;font-family:'Roboto','Segoe UI',sans-serif;color:#E9E1D1}
+.t{max-width:560px;margin:0 auto;padding:48px 16px 20px}
+.p{position:relative;background:rgba(0,0,0,.6);border:1px solid rgba(226,222,211,.3);border-radius:8px;padding:22px 24px;overflow:hidden}
+.p::after{content:"";position:absolute;inset:3px;border:1px solid rgba(226,222,211,.35);border-radius:6px;pointer-events:none}
+.scan{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0 5px,rgba(60,211,252,.05) 5px 6px)}
+.eye{display:flex;align-items:center;gap:12px;margin-bottom:12px;position:relative}
+.eye svg{filter:drop-shadow(0 0 6px rgba(79,192,255,.7));flex:0 0 auto}
+.sys{font-family:'Cinzel','Segoe UI',serif;font-size:1.15rem;letter-spacing:.14em;color:#3CD3FC;text-shadow:0 0 10px rgba(79,192,255,.5)}
+.b{font-style:italic;font-size:.9rem;line-height:1.75;margin:8px 0 16px;position:relative}
+.r{display:flex;justify-content:space-between;font-size:.78rem;font-style:italic;border-bottom:1px dashed rgba(226,222,211,.25);padding:7px 0;position:relative}
+.r b{font-style:normal;color:#E2D146;font-weight:500;font-family:Consolas,monospace}
+.dt{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;vertical-align:middle}
+.a{font-family:inherit;font-style:italic;font-size:.88rem;color:#3CD3FC;background:transparent;border:1px solid #3CD3FC;border-radius:6px;padding:10px 24px;cursor:pointer;letter-spacing:.1em;margin-top:16px;position:relative;box-shadow:0 0 10px rgba(79,192,255,.35),inset 0 0 8px rgba(79,192,255,.12);transition:.2s}
+.a:hover{box-shadow:0 0 18px rgba(79,192,255,.7),inset 0 0 10px rgba(79,192,255,.22);background:rgba(60,211,252,.08)}
+.a:focus-visible{outline:2px solid #3CD3FC;outline-offset:2px}
+.cr{font-size:10px;color:rgba(233,225,209,.5);text-align:center;margin-top:12px;font-style:italic;letter-spacing:.08em}
+</style>
+</head>
+<body>
+<div class="t">
+  <div class="p">
+    <div class="scan"></div>
+    <div class="eye">
+      <svg viewBox="0 0 40 44" width="32" height="35" role="img"><title>希卡之眼</title><circle cx="20" cy="19" r="16" fill="none" stroke="#3CD3FC" stroke-width="2"/><circle cx="20" cy="19" r="7.5" fill="none" stroke="#3CD3FC" stroke-width="2"/><circle cx="20" cy="19" r="3" fill="#3CD3FC"/><path d="M20 35 L20 42" stroke="#3CD3FC" stroke-width="2"/></svg>
+      <span class="sys" id="title"></span>
+    </div>
+    <div class="b" id="subtitle"></div>
+    <div class="r"><span><span class="dt" style="background:#6FD49C"></span><span id="lbl1"></span></span><b id="val1"></b></div>
+    <div class="r"><span><span class="dt" style="background:#E2D146"></span><span id="lbl2"></span></span><b id="val2"></b></div>
+    <div class="r"><span><span class="dt" style="background:#F15050"></span><span id="lbl3"></span></span><b id="val3"></b></div>
+    <button type="button" class="a" data-action="activate"><span id="cta"></span></button>
+  </div>
+  <div class="cr">风格指令 · design-skills · Zelda Hyrule UI 八条铁律</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":560},"stateSchema":{"type":"object","properties":{"title":{"type":"string","description":"终端顶部系统名"},"subtitle":{"type":"string","description":"斜体说明"},"rows":{"type":"array","description":"三行状态：[{label,value}]，超过 3 行截断","items":{"type":"object","properties":{"label":{"type":"string"},"value":{"type":"string"}}}},"cta":{"type":"string","description":"按钮文字"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "title": "回廊里的回声",
+  "subtitle": "SHEIKAH · CHAPTER 04",
+  "rows": [
+    {
+      "label": "状态",
+      "value": "ONLINE"
+    },
+    {
+      "label": "辉光",
+      "value": "#4FC0FF"
+    },
+    {
+      "label": "纯白 / 纯黑文字",
+      "value": "BANNED"
+    }
+  ],
+  "cta": "启动终端",
+  "body": "SHEIKAH · CHAPTER 04"
+}
+</script>
+<script>
+(function(){
+var D={title:'Sample Terminal',subtitle:'Sample italic line.',rows:[{label:'Label 1',value:'Value 1'},{label:'Label 2',value:'Value 2'},{label:'Label 3',value:'Value 3'}],cta:'Activate'};
+function str(v){if(v==null)return'';if(typeof v==='string')return v;if(typeof v==='number'||typeof v==='boolean')return String(v);if(Array.isArray(v))return v.map(str).filter(Boolean).join(' ');return'';}
+function pick(o,keys){if(!o||typeof o!=='object'||Array.isArray(o))return null;for(var i=0;i<keys.length;i++){var k=keys[i];if(Object.prototype.hasOwnProperty.call(o,k)&&str(o[k])!=='')return o[k];}return null;}
+function put(id,v){var el=document.getElementById(id);if(el)el.textContent=str(v);}
+function rows(v,max){if(!Array.isArray(v))return null;var out=[];for(var i=0;i<v.length&&out.length<max;i++){var it=v[i];if(!it||typeof it!=='object'||Array.isArray(it))continue;var l=pick(it,['label','name','tag']),t=pick(it,['value','text','body','content']);if(str(l)===''&&str(t)==='')continue;out.push({label:pick(it,['label','name','tag']),value:pick(it,['value','text','body','content'])});}return out;}
+var sEl=document.querySelector('script[data-card-state]');
+var S=Object.assign({},D);
+if(sEl){try{var u=JSON.parse(sEl.textContent);if(u&&typeof u==='object'&&!Array.isArray(u))for(var k in u)S[k]=u[k];}catch(e){}}
+var R=rows(pick(S,['rows','items','list']),3)||D.rows;
+put('title',pick(S,['title','heading']));
+put('subtitle',pick(S,['body','subtitle','desc']));
+put('cta',pick(S,['cta','action']));
+for(var i=0;i<3;i++){put('lbl'+(i+1),R[i]?R[i].label:'');put('val'+(i+1),R[i]?R[i].value:'');}
+})();
+</script>
+</body>
+</html>

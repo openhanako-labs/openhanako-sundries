@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>浅色 SaaS 仪表盘样张</title>
+<style>
+body{margin:0;background:#F4F6FB;color:#0F172A;font-family:'Manrope','system-ui',-apple-system,'Noto Sans SC','Microsoft YaHei',sans-serif}
+.w{max-width:540px;margin:0 auto;padding:52px 20px 24px}
+.app{background:#FFFFFF;border-radius:20px;padding:20px 22px 20px;box-shadow:0 12px 32px rgba(30,42,90,.14),0 2px 6px rgba(30,42,90,.08)}
+.hd{display:flex;justify-content:space-between;align-items:center;padding-bottom:14px;border-bottom:1px solid #EEF1F7;margin-bottom:16px}
+.hd h1{font-size:20px;margin:0;font-weight:700;letter-spacing:-.01em}
+.hd .sub{font-size:11.5px;color:#6B7280;margin:2px 0 0}
+.hd .avatar{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#5B8DEF,#8A5BEF);color:#FFF;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;font-family:'Bebas Neue','Arial Black',sans-serif;letter-spacing:.04em}
+.tabs{display:flex;gap:6px;background:#F1F4FA;padding:4px;border-radius:10px;margin-bottom:18px}
+.tab{flex:1;padding:7px 8px;font-size:12px;color:#6B7280;text-align:center;border-radius:7px;font-weight:600;letter-spacing:.02em;cursor:pointer}
+.tab.on{background:#FFF;color:#0F172A;box-shadow:0 2px 6px rgba(30,42,90,.12)}
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}
+.k{background:#F8FAFC;border:1px solid #EEF1F7;border-radius:12px;padding:12px 12px 10px;font-variant-numeric:tabular-nums}
+.k .lbl{font-size:9.5px;color:#6B7280;letter-spacing:.16em;font-family:'Courier New',monospace;text-transform:uppercase;font-weight:600}
+.k .v{font-size:22px;font-weight:800;line-height:1.15;margin:4px 0 2px;letter-spacing:-.01em}
+.k .u{font-size:10px;color:#6B7280;font-family:'Courier New',monospace;letter-spacing:.06em}
+.k .t{display:inline-flex;align-items:center;gap:3px;font-size:10px;padding:1px 6px;border-radius:99px;font-weight:700;margin-top:5px;font-family:'Courier New',monospace;letter-spacing:.06em}
+.k .t.up{background:#DCFCE7;color:#15803D}
+.k .t.dn{background:#FEE2E2;color:#B91C1C}
+.k .t svg{width:8px;height:8px}
+.k.hi{background:#EFF6FF;border-color:#BFDBFE}
+.k.hi .v{color:#1D4ED8}
+.section{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.section h3{font-size:12.5px;font-weight:700;margin:0;letter-spacing:.02em}
+.section .m{font-size:10.5px;color:#6B7280;font-family:'Courier New',monospace;letter-spacing:.14em}
+.chart{background:#F8FAFC;border:1px solid #EEF1F7;border-radius:12px;padding:12px 14px;margin-bottom:14px}
+.bar{display:grid;grid-template-columns:56px 1fr 44px;align-items:center;gap:10px;margin-bottom:5px;font-variant-numeric:tabular-nums;font-size:11px}
+.bar:last-child{margin-bottom:0}
+.bar .n{color:#374151;font-weight:600;letter-spacing:.06em;font-family:'Courier New',monospace}
+.bar .trk{height:8px;background:#E5E7EB;border-radius:4px;overflow:hidden}
+.bar .fill{height:100%;background:linear-gradient(90deg,#5B8DEF,#8A5BEF);border-radius:4px}
+.bar .v{text-align:right;font-weight:700;color:#0F172A;font-family:'Courier New',monospace;font-size:11px}
+.list{display:flex;flex-direction:column;gap:6px}
+.li{display:grid;grid-template-columns:32px 1fr auto;align-items:center;gap:10px;padding:7px 8px;background:#F8FAFC;border-radius:8px;font-size:12px;font-variant-numeric:tabular-nums}
+.li .ic{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center}
+.li .ic svg{width:16px;height:16px}
+.li .nm{color:#0F172A;font-weight:600}
+.li .desc{font-size:10.5px;color:#6B7280;font-family:'Courier New',monospace;letter-spacing:.08em}
+.li .sc{color:#1D4ED8;font-weight:800;font-family:'Courier New',monospace;font-size:11px}
+.foot{margin-top:14px;padding-top:10px;border-top:1px solid #EEF1F7;display:flex;justify-content:space-between;font-size:10px;color:#6B7280;font-family:'Courier New',monospace;letter-spacing:.14em}
+.cr{font-family:'Courier New',monospace;font-size:10px;color:#9AA3B8;text-align:center;margin-top:14px;letter-spacing:.12em}
+</style>
+</head>
+<body>
+<div class="w">
+  <div class="app">
+    <div class="hd">
+      <div>
+        <h1>Style Console</h1>
+        <p class="sub">风格平台 · 概览 / OVERVIEW</p>
+      </div>
+      <div class="avatar">M</div>
+    </div>
+    <div class="tabs">
+      <div class="tab on">概览</div>
+      <div class="tab">风格库</div>
+      <div class="tab">发布</div>
+      <div class="tab">设置</div>
+    </div>
+    <div class="kpi">
+      <div class="k hi">
+        <div class="lbl">STYLES</div>
+        <div class="v">41</div>
+        <div class="u">active</div>
+        <span class="t up"><svg viewBox="0 0 10 10" fill="none"><path d="M2 6 L5 3 L8 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>+3</span>
+      </div>
+      <div class="k">
+        <div class="lbl">CARDS</div>
+        <div class="v">128</div>
+        <div class="u">published</div>
+        <span class="t up"><svg viewBox="0 0 10 10" fill="none"><path d="M2 6 L5 3 L8 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>+12%</span>
+      </div>
+      <div class="k">
+        <div class="lbl">VIEWS</div>
+        <div class="v">9,420</div>
+        <div class="u">this week</div>
+        <span class="t dn"><svg viewBox="0 0 10 10" fill="none"><path d="M2 4 L5 7 L8 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>-2%</span>
+      </div>
+      <div class="k">
+        <div class="lbl">PASS</div>
+        <div class="v">97<span style="font-size:14px">%</span></div>
+        <div class="u">check-card</div>
+        <span class="t up"><svg viewBox="0 0 10 10" fill="none"><path d="M2 6 L5 3 L8 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>+0.4</span>
+      </div>
+    </div>
+    <div class="section">
+      <h3>风格使用 Top 6</h3>
+      <span class="m">P.01 · 24H</span>
+    </div>
+    <div id="__L03_chart__" class="chart">
+      <div class="bar"><span class="n">TOY</span><div class="trk"><div class="fill" style="width:86%"></div></div><span class="v">86</span></div>
+      <div class="bar"><span class="n">MEMPHIS</span><div class="trk"><div class="fill" style="width:74%"></div></div><span class="v">74</span></div>
+      <div class="bar"><span class="n">LECTURE</span><div class="trk"><div class="fill" style="width:62%"></div></div><span class="v">62</span></div>
+      <div class="bar"><span class="n">TOPO</span><div class="trk"><div class="fill" style="width:51%"></div></div><span class="v">51</span></div>
+      <div class="bar"><span class="n">EXAM</span><div class="trk"><div class="fill" style="width:38%"></div></div><span class="v">38</span></div>
+      <div class="bar"><span class="n">CERT.</span><div class="trk"><div class="fill" style="width:24%"></div></div><span class="v">24</span></div>
+    </div>
+    <div class="section">
+      <h3>待处理</h3>
+      <span class="m">3 ITEMS</span>
+    </div>
+    <div id="__L03_list__" class="list">
+      <div class="li">
+        <div class="ic" style="background:#EFF6FF"><svg viewBox="0 0 16 16" fill="none"><path d="M4 8 L7 11 L12 5" stroke="#1D4ED8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div><div class="nm">style-mag-list.card.html</div><div class="desc">CONFORMANCE · PASS</div></div>
+        <span class="sc">98</span>
+      </div>
+      <div class="li">
+        <div class="ic" style="background:#FEF3C7"><svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#B45309" stroke-width="2" fill="none"/><path d="M8 5 V8 L10 10" stroke="#B45309" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <div><div class="nm">Style 24 · Rework</div><div class="desc">REVIEW · IN QUEUE</div></div>
+        <span class="sc" style="color:#B45309">72</span>
+      </div>
+      <div class="li">
+        <div class="ic" style="background:#DCFCE7"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8 L13 8 M9 4 L13 8 L9 12" stroke="#15803D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div><div class="nm">Deploy to Chalkboard</div><div class="desc">PENDING · STAGE</div></div>
+        <span class="sc" style="color:#15803D">READY</span>
+      </div>
+    </div>
+    <div id="__L03_foot__" class="foot"><span>P.01 · OVERVIEW</span><span>UPDATE · 09/26 · 12:00</span></div>
+  </div>
+  <div class="cr">风格指令 · video-shot-demos · 浅色 SaaS 仪表盘（风格卡 16）</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":540},"stateSchema":{"type":"object","properties":{"header_title":{"type":"string","description":"应用标题"},"header_subtitle":{"type":"string","description":"应用副题"},"avatar":{"type":"string","description":"头像字符"},"tabs":{"type":"array","items":{"type":"string","description":"Tab 文字"},"description":"顶部 Tab"},"kpi":{"type":"array","items":{"type":"object","properties":{"label":{"type":"string","description":"指标名"},"value":{"type":"string","description":"数值"},"unit":{"type":"string","description":"单位说明"},"trend":{"type":"string","description":"up 或 dn"},"delta":{"type":"string","description":"变化"},"hi":{"type":"string","description":"true 表示高亮"}}},"description":"KPI 卡（4）"},"bars":{"type":"array","items":{"type":"object","properties":{"label":{"type":"string","description":"类别名"},"value":{"type":"number","description":"数值 0-100"}}},"description":"排行条（≤6）"},"items":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string","description":"条目标题"},"desc":{"type":"string","description":"条目描述"},"score":{"type":"string","description":"得分/状态"},"icon":{"type":"string","description":"图标 svg-check / svg-clock / svg-arrow"},"icon_color":{"type":"string","description":"图标主色"}}},"description":"列表（≤6）"},"foot_left":{"type":"string","description":"页脚左"},"foot_right":{"type":"string","description":"页脚右"},"title":{"type":"string","description":"主标题（必填）"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "header_title": "指标",
+  "header_subtitle": "指标",
+  "avatar": "M",
+  "tabs": [
+    "概览",
+    "风格库",
+    "发布",
+    "设置"
+  ],
+  "kpi": [
+    {
+      "label": "STYLES",
+      "value": 41,
+      "unit": "active",
+      "trend": "up",
+      "delta": "+3",
+      "hi": true
+    },
+    {
+      "label": "CARDS",
+      "value": 128,
+      "unit": "published",
+      "trend": "up",
+      "delta": "+12%"
+    },
+    {
+      "label": "VIEWS",
+      "value": "9,420",
+      "unit": "this week",
+      "trend": "dn",
+      "delta": "-2%"
+    },
+    {
+      "label": "PASS",
+      "value": "97",
+      "unit": "check-card",
+      "trend": "up",
+      "delta": "+0.4"
+    }
+  ],
+  "bars": [
+    {
+      "label": "TOY",
+      "value": 86
+    },
+    {
+      "label": "MEMPHIS",
+      "value": 74
+    },
+    {
+      "label": "LECTURE",
+      "value": 62
+    },
+    {
+      "label": "TOPO",
+      "value": 51
+    },
+    {
+      "label": "EXAM",
+      "value": 38
+    },
+    {
+      "label": "CERT.",
+      "value": 24
+    }
+  ],
+  "items": [
+    {
+      "name": "本周新增 41 张，下周目标 48 张。",
+      "desc": "指标",
+      "score": "98",
+      "icon": "check",
+      "icon_color": "#1D4ED8"
+    },
+    {
+      "name": "指标",
+      "desc": "指标",
+      "score": "72",
+      "icon": "clock",
+      "icon_color": "#B45309"
+    },
+    {
+      "name": "指标",
+      "desc": "指标",
+      "score": "READY",
+      "icon": "arrow",
+      "icon_color": "#15803D"
+    }
+  ],
+  "foot_left": "指标",
+  "foot_right": "本周新增 41 张，下周目标 48 张。",
+  "title": "指标",
+  "body": "本周新增 41 张，下周目标 48 张。"
+}
+</script>
+
+
+
+<script id="__card_render__">
+(function(){
+  function readState(){var d=null;try{var s=document.querySelector('script[data-card-state]');if(s)d=JSON.parse(s.textContent);}catch(e){}return d;
+  }
+  function s(v,d){if(v===undefined||v===null)return d;if(typeof v==="string"){v=v.trim();return v===''?d:v;}return String(v);}
+  function arr(v,n){if(!Array.isArray(v))return [];var o=[];for(var i=0;i<v.length&&o.length<n;i++){var x=v[i];if(x&&typeof x==="object"&&!Array.isArray(x))o.push(x);}return o;}
+  function e(v,d){var x=s(v,d);if(x===d)return d;return String(x).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+  var S=readState(); if(!S)return; try{
+    var DEFAULTS={title:'',body:''};
+    S=Object.assign({},DEFAULTS,S);if(S.body){if(S.title)S.title=S.title+'\n'+S.body;else S.title=S.body;}
+
+var e1=document.querySelector(".hd h1");if(e1)e1.textContent=s(S.header_title||(S.title||''),e1.textContent);
+var e2=document.querySelector(".hd .sub");if(e2)e2.textContent=s(S.header_subtitle||(S.body||''),e2.textContent);
+if(S.avatar){var e3=document.querySelector(".hd .avatar");if(e3)e3.textContent=s(S.avatar,e3.textContent);}
+var tabs=arr(S.tabs,6);
+var tabEls=document.querySelectorAll(".tab");
+for(var ti=0;ti<4;ti++){var te=tabEls[ti];var tt=tabs[ti];if(!te||!tt)continue;te.textContent=s(tt.label||tt.text||tt,"");}
+var kpis=arr(S.kpi,4);
+var kEls=document.querySelectorAll(".kpi > .k");
+for(var ki=0;ki<4;ki++){var ke=kEls[ki];var kk=kpis[ki];if(!ke||!kk)continue;
+  var kl=ke.querySelector(".lbl");if(kl)kl.textContent=s(kk.label||"");
+  var kv=ke.querySelector(".v");if(kv){var vv=kk.value;var vstr=(typeof vv==="number")?vv:String(vv);if(kk.unit==="check-card"){kv.innerHTML=vstr+"<span style='font-size:14px'>%</span>";}else{kv.textContent=vstr;}}
+  var ku=ke.querySelector(".u");if(ku)ku.textContent=s(kk.unit||"");
+  var kd=ke.querySelector(".t span");if(kd&&kk.delta!==undefined)kd.textContent=s(kk.delta,"");
+  if(kk.hi===true){ke.classList.add("hi");}else{ke.classList.remove("hi");}
+}
+var bars=arr(S.bars||[],6);
+var barEls=document.querySelectorAll("#__L03_chart__ > .bar");
+for(var bi=0;bi<6;bi++){var be=barEls[bi];var bb=bars[bi];if(!be||!bb)continue;var bn=be.querySelector(".n");var bfill=be.querySelector(".fill");var bv=be.querySelector(".v");if(bn)bn.textContent=s(bb.label||bb.n||"");if(bfill){bfill.style.width=(bb.value)+"%";}if(bv)bv.textContent=s(bb.value!==undefined?bb.value:"");}
+var items=arr(S.items||S.list||S.rows,6);
+var liEls=document.querySelectorAll("#__L03_list__ > .li");
+for(var li=0;li<6;li++){var le=liEls[li];var xx=items[li];if(!le||!xx)continue;var nm=le.querySelector(".nm");var ds=le.querySelector(".desc");var sc=le.querySelector(".sc");if(nm)nm.textContent=s(xx.name||xx.text||"");if(ds)ds.textContent=s(xx.desc||xx.description||"");if(sc){sc.textContent=s(xx.score||"");if(xx.icon_color&&le.style)le.querySelector(".ic").style.background=xx.icon_color==="green"?("#DCFCE7"):(xx.icon_color==="orange"?("#FEF3C7"):"#EFF6FF");sc.style.color=xx.icon_color;}}
+var ft=arr(S.foot||[],2);
+if(typeof S.foot_left!=="undefined"||typeof S.foot_right!=="undefined"){var fs=document.querySelectorAll("#__L03_foot__ > span");if(fs[0]&&S.foot_left)fs[0].textContent=s(S.foot_left,fs[0].textContent);if(fs[1]&&S.foot_right)fs[1].textContent=s(S.foot_right,fs[1].textContent);}
+}catch(err){console.error("[card] render error:",err);} })();
+</script>
+</body>
+</html>

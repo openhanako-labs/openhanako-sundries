@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>报纸档案样张</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#a89877;color:#1a1610;font-family:'Playfair Display','Georgia','Noto Serif SC',serif;-webkit-font-smoothing:antialiased}
+  .w{max-width:600px;margin:0 auto;padding:48px 16px 24px}
+  .card{position:relative;background:#e8dcbe;background-image:
+    radial-gradient(ellipse at 20% 15%,rgba(120,80,20,.25),transparent 55%),
+    radial-gradient(ellipse at 80% 85%,rgba(100,60,10,.22),transparent 55%),
+    linear-gradient(180deg,#efe1c0 0%,#dcc9a0 100%);
+    border:1px solid #8a6a3a;box-shadow:8px 8px 0 rgba(0,0,0,.2);padding:18px 18px 18px;overflow:hidden}
+  .card::before{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");pointer-events:none}
+
+  .mast{text-align:center;border-bottom:3px double #4a3418;padding-bottom:10px;margin-bottom:14px;position:relative;z-index:2}
+  .mast h1{margin:0;font-size:32px;font-weight:900;letter-spacing:4px;color:#2a2118;line-height:1}
+  .mast .en{font-family:'Courier New',monospace;font-size:10px;letter-spacing:6px;color:#7a4a1a;margin-top:4px}
+  .mast .date{margin-top:6px;display:flex;justify-content:center;gap:10px;font-family:'Courier New',monospace;font-size:10.5px;letter-spacing:2px;color:#4a3418}
+  .mast .date span{padding:2px 8px;border:1px solid #4a3418}
+
+  .rule{margin:10px 0 14px;height:6px;background:
+    repeating-linear-gradient(90deg,#4a3418 0 4px,transparent 4px 8px),
+    linear-gradient(180deg,transparent 3px,#4a3418 3px,#4a3418 4px,transparent 4px,#4a3418 4px,#4a3418 5px,transparent 5px);
+    position:relative;z-index:2}
+
+  .cols{column-count:2;column-gap:16px;column-rule:1px solid #8a6a3a;font-size:12.5px;line-height:1.7;color:#2a2118;position:relative;z-index:2}
+  .cols p{margin:0 0 8px;text-align:justify;font-family:'Playfair Display','Noto Serif SC',Georgia,serif}
+  .cols p:first-child::first-letter{font-family:'Playfair Display',Georgia,serif;font-size:3.4em;float:left;line-height:.85;padding:4px 8px 0 0;font-weight:900;color:#7a1e1a}
+  .cols b{color:#7a1e1a}
+
+  /* 剪贴块 */
+  .clip{position:relative;background:#fbf4e0;padding:10px 12px 12px;border:1px solid #c9b48c;box-shadow:6px 6px 0 rgba(0,0,0,.28);margin:16px 0 12px;font-family:'Courier New',monospace;font-size:11px;line-height:1.55;color:#2a2118;z-index:3}
+  .clip.c1{transform:rotate(-1.4deg);margin-right:16px}
+  .clip.c2{transform:rotate(1.6deg);margin-left:18px;margin-top:-8px}
+  .clip .hd{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #4a3418;padding-bottom:3px;margin-bottom:5px}
+  .clip .hd b{font-family:'Playfair Display',Georgia,serif;font-size:14px;font-weight:900;letter-spacing:1px;color:#7a1e1a}
+  .clip .hd i{font-style:normal;font-family:'Courier New',monospace;font-size:9px;letter-spacing:2px;color:#7a4a1a}
+  .clip .q{font-family:'Playfair Display','Noto Serif SC',Georgia,serif;font-size:12px;line-height:1.55;color:#2a2118}
+  .clip .q em{font-style:normal;background:rgba(201,85,59,.28);padding:0 3px;font-weight:700}
+
+  .cr{margin-top:16px;padding-top:8px;border-top:1px solid #8a6a3a;font-size:10px;letter-spacing:1.5px;color:#4a3418;font-family:'Courier New',monospace;text-align:left;position:relative;z-index:2}
+</style>
+</head>
+<body>
+<div class="w">
+  <div class="card">
+    <div class="mast">
+      <h1 id="h1"></h1>
+      <div class="en">CLIPPING · ARCHIVE · EDITION 3-3</div>
+      <div class="date"><span id="d1"></span><span id="d2"></span><span id="d3"></span></div>
+    </div>
+    <div class="rule"></div>
+    <div class="cols" id="cols"></div>
+    <div id="cbod" style="display:none;font-size:12.5px;line-height:1.7;color:#2a2118;font-family:'Playfair Display','Noto Serif SC',Georgia,serif;padding:0 2px 6px;position:relative;z-index:2"></div>
+    <div class="clip c1">
+      <div class="hd"><b id="c1Title"></b><i id="c1Tag"></i></div>
+      <div class="q" id="c1Quote"></div>
+    </div>
+    <div class="clip c2">
+      <div class="hd"><b id="c2Title"></b><i id="c2Tag"></i></div>
+      <div class="q" id="c2Quote"></div>
+    </div>
+  </div>
+  <div class="cr">风格指令 · video-shot-demos · 报纸档案（风格卡 3-3）</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":600},"stateSchema":{"type":"object","properties":{"title":{"type":"string"},"date":{"type":"array","items":{"type":"string"},"description":"三段日期标签"},"columns":{"type":"array","items":{"type":"string"},"description":"两栏正文"},"items":{"type":"array","items":{"type":"object","properties":{"title":{"type":"string"},"tag":{"type":"string"},"quote":{"type":"string","description":"可含 <em></em> 标记高亮片段"}}},"description":"剪贴块，上限 2"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "title": "风 格 日 报",
+  "date": [
+    "事件复盘：结构先行，文案后至。\n\n所有样张先过结构检查，再谈审美。",
+    "NO.036",
+    "￥ 事件复盘"
+  ],
+  "columns": [
+    "事件复盘：结构先行，文案后至。\n\n所有样张先过结构检查，再谈审美。",
+    "事件复盘：结构先行，文案后至。\n\n所有样张先过结构检查，再谈审美。"
+  ],
+  "items": [
+    {
+      "title": "「事件复盘」",
+      "tag": "事件复盘：结构先行，文案后至。\n\n所有样张先过结构检查，再谈审美。",
+      "quote": "事件复盘：结构先行，文案后至。\n\n所有样张先过结构检查，再谈审美。"
+    },
+    {
+      "title": "「补录」",
+      "tag": "事件复盘：结构先行，文案后至。\n\n所有样张先过结构检查，再谈审美。",
+      "quote": "事件复盘：结构先行，文案后至。\n\n所有样张先过结构检查，再谈审美。"
+    }
+  ],
+  "body": "事件复盘：结构先行，文案后至。\n\n所有样张先过结构检查，再谈审美。"
+}
+</script>
+<script>
+(function(){
+  var DEFAULTS={title:'日报',date:['MONTH','NO.001','￥ TAG'],columns:['段落一。','段落二。'],items:[{title:'「标题一」',tag:'DATE · TAG-01',quote:'一段引文。'},{title:'「标题二」',tag:'DATE · TAG-02',quote:'一段引文。'}]};
+  function str(v){
+    if(v==null) return '';
+    if(typeof v==='string') return v;
+    if(typeof v==='number'||typeof v==='boolean') return String(v);
+    if(Array.isArray(v)) return v.map(str).filter(Boolean).join(' ');
+    return '';
+  }
+  function put(id, v, allowHtml){
+    var el=document.getElementById(id);
+    if(!el) return;
+    var s=str(v);
+    if(!allowHtml || !/<[a-z]/i.test(s)) el.textContent=s;
+    else el.innerHTML=s;
+  }
+  function items(v, max){
+    if(!Array.isArray(v)) return [];
+    var a=[];
+    var cap=max||6;
+    for(var i=0;i<v.length && i<cap;i++){
+      var x=v[i];
+      if(x==null) continue;
+      if(typeof x==='string'||typeof x==='number'||typeof x==='boolean'){
+        var s=str(x); if(s!=='') a.push({text:s});
+      } else if(typeof x==='object' && !Array.isArray(x)){
+        var o={};
+        var title=str(x.title!=null?x.title:(x.heading!=null?x.heading:(x.label!=null?x.label:(x.name!=null?x.name:(x.tag!=null?x.tag:'')))));
+        o.title=title;
+        o.tag=str(x.tag!=null?x.tag:(x.label!=null?x.label:''));
+        var txt=x.text!=null?x.text:(x.body!=null?x.body:(x.content!=null?x.content:x.quote!=null?x.quote:''));
+        o.quote=str(txt);
+        if(o.title!=='') a.push(o);
+      }
+    }
+    return a;
+  }
+  var sEl=document.querySelector('script[data-card-state]');
+  var S=Object.assign({}, DEFAULTS);
+  if(sEl){
+    try{
+      var u=JSON.parse(sEl.textContent);
+      if(u && typeof u==='object' && !Array.isArray(u)){
+        for(var k in u) S[k]=u[k];
+      }
+    }catch(e){}
+  }
+  put('h1', S.title);
+  var d=Array.isArray(S.date)?S.date:[];
+  put('d1', d[0]||'');
+  put('d2', d[1]||'');
+  put('d3', d[2]||'');
+  var colsEl=document.getElementById('cols');
+  if(colsEl && Array.isArray(S.columns)){
+    var html='';
+    for(var i=0;i<S.columns.length && i<4;i++){
+      var c=str(S.columns[i]);
+      if(c!=='') html+='<p>'+c.replace(/([^\n])(\n+)/g,'$1</p><p>$2').replace(/^\n+/,'').replace(/\n+$/,'')+'</p>';
+    }
+    colsEl.innerHTML=html;
+  }
+  var cl=items(S.items, 2);
+  for(var k=0;k<2;k++){
+    var it=cl[k];
+    put('c'+(k+1)+'Title', it&&it.title, false);
+    put('c'+(k+1)+'Tag', it&&it.tag, false);
+    put('c'+(k+1)+'Quote', it&&it.quote, true);
+  }
+  var escF=function(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');};
+  var paras=(function(b){if(Array.isArray(b))return b.map(String).filter(Boolean);if(typeof b==='string')return b.split(/\n\s*\n/).map(function(t){return t.trim();}).filter(Boolean);return [];})(S.body);
+  var bb=document.getElementById('cbod');
+  if(bb){
+    if(paras.length){
+      var ph='';
+      for(var pi=0;pi<paras.length;pi++){ph+='<p style="margin:0 0 6px;text-align:justify">'+escF(paras[pi])+'</p>';} 
+      bb.innerHTML=ph;
+      bb.style.display='';
+    }else{bb.style.display='none';bb.innerHTML='';}
+  }
+})();
+</script>
+</body>
+</html>

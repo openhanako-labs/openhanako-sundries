@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>武功秘籍样张</title>
+<style>
+body{margin:0;background:#1E2A3A;color:#E8DCC0;font-family:'Ma Shan Zheng','STKaiti','KaiTi','STKaiti',cursive}
+.w{max-width:560px;margin:0 auto;padding:52px 16px 26px}
+.book{position:relative;background:repeating-linear-gradient(90deg,#33506B 0 6px,#314D67 6px 12px);border-radius:6px 14px 14px 6px;padding:26px 26px 26px 64px;min-height:360px;box-shadow:0 18px 44px rgba(0,0,0,.55),inset 0 0 60px rgba(0,0,0,.28)}
+.spine{position:absolute;left:26px;top:24px;bottom:24px;width:1px;background:rgba(232,220,192,.35)}
+.hole{position:absolute;left:20px;width:13px;height:13px;border-radius:50%;background:#1E2A3A;box-shadow:inset 0 2px 3px rgba(0,0,0,.7),0 1px 0 rgba(255,255,255,.15)}
+.h1{top:44px}.h2{top:33%}.h3{top:66%}.h4{bottom:44px}
+.thread{position:absolute;left:14px;top:24px;bottom:24px;width:26px}
+.sign{position:absolute;left:52px;top:30px;background:#F4EEDD;color:#1E2A3A;border-radius:2px;padding:16px 7px;font-size:1.35rem;letter-spacing:.3em;writing-mode:vertical-rl;box-shadow:3px 4px 10px rgba(0,0,0,.4);font-weight:700}
+.body{display:flex;justify-content:flex-end;gap:18px;padding-left:104px}
+.motto{writing-mode:vertical-rl;font-size:1.28rem;line-height:2.4;letter-spacing:.32em;color:#F0E4C8;text-shadow:0 1px 2px rgba(0,0,0,.5)}
+.zhupi{writing-mode:vertical-rl;font-size:.95rem;line-height:2.2;letter-spacing:.22em;color:#D4574A;border-right:2px solid #B53929;padding-right:8px;margin-top:34px}
+.seal{position:absolute;right:26px;bottom:26px;width:52px;height:52px;border:3px solid #C0392A;color:#C0392A;display:flex;align-items:center;justify-content:center;font-size:1.25rem;letter-spacing:.04em;transform:rotate(-6deg);border-radius:4px;opacity:.92;writing-mode:vertical-rl;font-weight:700}
+.ed{position:absolute;left:64px;bottom:24px;font-size:.8rem;color:rgba(232,220,192,.7);letter-spacing:.3em}
+.cr{text-align:center;font-size:10px;color:rgba(232,220,192,.5);margin-top:16px;letter-spacing:.12em}
+</style>
+</head>
+<body>
+<div class="w">
+  <div class="book">
+    <div class="spine"></div>
+    <div class="hole h1"></div><div class="hole h2"></div><div class="hole h3"></div><div class="hole h4"></div>
+    <svg class="thread" viewBox="0 0 26 340" preserveAspectRatio="none" role="img" title="装订线"><path d="M4 16 L22 74 L4 152 L22 230 L4 308 M22 16 L4 74 L22 152 L4 230 L22 308" stroke="#F4EEDD" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>
+    <div class="sign" data-text>风格秘籍</div>
+    <div class="body">
+      <div class="zhupi" data-text>色不过三 · 线不过二</div>
+      <div class="motto" data-text>先立其骨 · 后傅其色 · 骨立而色自附</div>
+    </div>
+    <div class="seal" data-text>秘藏</div>
+    <div class="ed" data-text>卷二十六 · 样张篇</div>
+  </div>
+  <div class="cr">风格指令 · video-shot-demos · 武功秘籍（风格卡 2-8）</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":560},"stateSchema":{"type":"object","properties":{"sign":{"type":"string"},"motto":{"type":"string"},"zhupi":{"type":"string"},"seal":{"type":"string"},"volume":{"type":"string"},"title":{"type":"string","description":"主标题（必填）"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "sign": "风格秘籍",
+  "motto": "先立其骨 · 后傅其色 · 骨立而色自附",
+  "zhupi": "配色之前，先把结构立住。",
+  "seal": "秘藏",
+  "volume": "卷二十六 · 样张篇",
+  "title": "wugong",
+  "body": "配色之前，先把结构立住。"
+}
+</script>
+<script>
+(function(){
+var MANIFEST={"spec":"1.0","display":{"preferredWidthPx":560},"stateSchema":{"type":"object","properties":{"sign":{"type":"string"},"motto":{"type":"string"},"zhupi":{"type":"string"},"seal":{"type":"string"},"volume":{"type":"string"}}}};
+var SAMPLE={"sign":"风格秘籍","motto":"先立其骨 · 后傅其色 · 骨立而色自附","zhupi":"色不过三 · 线不过二","seal":"秘藏","volume":"卷二十六 · 样张篇"};
+var raw, S;
+try{raw=document.querySelector('[data-card-state]');S=raw?JSON.parse(raw.textContent):{};}catch(e){S={}}
+S=Object.assign({},SAMPLE,S);
+var s=function(v,d){if(v===undefined||v===null)return d;if(typeof v==='number'||typeof v==='boolean')return String(v);if(Array.isArray(v))return v.map(function(x){return String(x);}).join('\n\n');return typeof v==='string'?v:d};
+var book=document.querySelector('.book');
+function put(sel,val,def){var e=book.querySelector(sel);if(e)e.textContent=s(val,def)}
+put('.sign',(S.title&&S.title.length>0?S.title:S.sign),'');
+put('.motto',S.motto,'');
+put('.zhupi',(S.body&&S.body.length>0?S.body:S.zhupi),'');
+put('.seal',S.seal,'');
+put('.ed',S.volume,'');
+})();
+</script>
+</body>
+</html>

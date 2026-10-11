@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>户外等高线地图样张</title>
+<style>
+body{margin:0;background:#E8DDC0;font-family:'ZCOOL KuaiLe','YouYuan','Microsoft YaHei',sans-serif;color:#4A3520}
+.w{max-width:520px;margin:0 auto;padding:52px 20px 24px}
+.map{position:relative;background:#F5EBD0;background-image:radial-gradient(rgba(74,53,32,.06) 1px,transparent 1.5px);background-size:12px 12px;border:2px solid #4A3520;padding:20px 22px 22px;box-shadow:6px 6px 0 rgba(74,53,32,.28);overflow:hidden}
+.compass{position:absolute;top:14px;right:16px;width:52px;height:52px}
+.hdr{display:flex;align-items:baseline;gap:10px;border-bottom:2px double #4A3520;padding-bottom:6px;margin-bottom:8px}
+.hdr h1{font-size:22px;margin:0;letter-spacing:.04em;color:#4A3520}
+.hdr .en{font-family:'Courier New',monospace;font-size:10px;letter-spacing:.28em;color:#8A6A3A}
+.peak{position:relative;height:186px;margin:8px 0 10px;background:linear-gradient(180deg,rgba(232,221,192,.5) 0%,rgba(232,221,192,0) 100%)}
+.peak svg{position:absolute;inset:0;width:100%;height:100%}
+.peak .flag{position:absolute;top:16px;left:56%;font-size:36px;color:#B03024;line-height:.7}
+.peak .flag svg{width:28px;height:28px}
+.peak .peaklbl{position:absolute;top:6px;left:56%;transform:translateX(18px);font-family:'Courier New',monospace;font-size:11px;letter-spacing:.24em;color:#4A3520;font-weight:700}
+.peak .start{position:absolute;bottom:20px;left:26%;font-size:14px;color:#4A3520}
+.peak .start svg{width:20px;height:20px}
+.peak .dashed{stroke:#4A3520;stroke-width:1.5;stroke-dasharray:4 5;fill:none;stroke-linecap:round}
+.contour{fill:none;stroke:#6B4F2A;stroke-width:1.4;stroke-linecap:round}
+.legend{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;font-family:'Courier New',monospace;font-size:10.5px;letter-spacing:.14em;color:#4A3520;background:rgba(74,53,32,.06);padding:10px 12px;border:1.5px solid rgba(74,53,32,.4)}
+.legend div{display:flex;flex-direction:column;align-items:flex-start;gap:2px}
+.legend b{font-family:inherit;font-size:11px;letter-spacing:.24em;font-weight:700;color:#8A6A3A}
+.legend .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:middle}
+.cr{font-family:'Courier New',monospace;font-size:10px;color:#8A6A3A;text-align:center;margin-top:14px;letter-spacing:.14em}
+</style>
+</head>
+<body>
+<div class="w">
+  <div class="map">
+    <div class="hdr">
+      <h1 data-text>风格地形图</h1>
+      <span class="en" data-text>TOPOGRAPHY OF STYLE · 1-2</span>
+    </div>
+    <svg class="compass" viewBox="0 0 40 40">
+      <circle cx="20" cy="20" r="16" fill="none" stroke="#4A3520" stroke-width="1.5"/>
+      <path d="M20 5 L23 20 L20 15 L17 20 Z" fill="#B03024" stroke="#4A3520" stroke-width="1"/>
+      <path d="M20 35 L17 20 L20 25 L23 20 Z" fill="#4A3520"/>
+      <text x="20" y="4" text-anchor="middle" font-family="Courier New" font-size="6" fill="#4A3520" font-weight="700">N</text>
+    </svg>
+    <div class="peak">
+      <svg viewBox="0 0 460 186" preserveAspectRatio="none">
+        <path class="contour" d="M20 180 Q120 158 230 158 Q340 158 440 178" opacity=".35"/>
+        <path class="contour" d="M50 168 Q140 138 230 138 Q320 138 410 168" opacity=".45"/>
+        <path class="contour" d="M78 152 Q150 118 230 118 Q310 118 380 152" opacity=".55"/>
+        <path class="contour" d="M102 132 Q160 100 230 100 Q300 100 356 132" opacity=".65"/>
+        <path class="contour" d="M124 112 Q172 82 230 82 Q288 82 334 112" opacity=".75"/>
+        <path class="contour" d="M146 92 Q184 62 230 62 Q276 62 312 92" opacity=".85"/>
+        <path class="contour" d="M166 74 Q196 46 230 46 Q264 46 292 74" opacity=".95"/>
+        <path class="contour" d="M186 58 Q206 32 230 32 Q254 32 272 58" stroke-width="1.6"/>
+        <circle cx="230" cy="32" r="4" fill="#B03024"/>
+        <path class="dashed" d="M76 158 Q150 108 230 42"/>
+      </svg>
+      <div class="peaklbl" data-text>1500M · 峰顶</div>
+      <div class="flag">
+        <svg viewBox="0 0 24 24" fill="none">
+          <line x1="6" y1="2" x2="6" y2="22" stroke="#4A3520" stroke-width="2" stroke-linecap="round"/>
+          <path d="M6 4 L20 8 L6 12 Z" fill="#B03024" stroke="#4A3520" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="start">
+        <svg viewBox="0 0 20 20" fill="none">
+          <path d="M2 10 L18 10 M11 3 L18 10 L11 17" stroke="#4A3520" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+    <div class="legend">
+      <div><b>EASY</b><span class="dot" style="background:#8CBF8C"></span><span data-text>缓坡 · 40°</span></div>
+      <div><b>MID</b><span class="dot" style="background:#D4A24C"></span><span data-text>山脊 · 60°</span></div>
+      <div><b>HARD</b><span class="dot" style="background:#B03024"></span><span data-text>峭壁 · 85°</span></div>
+      <div><b>PEAK</b><span class="dot" style="background:#4A3520"></span><span data-text>登顶 · 1500</span></div>
+    </div>
+  </div>
+  <div class="cr">风格指令 · video-shot-demos · 户外等高线地图（风格卡 14）</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":520},"stateSchema":{"type":"object","properties":{"title":{"type":"string"},"subtitle":{"type":"string"},"peakLabel":{"type":"string"},"legend":{"type":"array","items":{"type":"object","properties":{"text":{"type":"string"}}}},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "title": "风格地形图",
+  "subtitle": "TOPOGRAPHY OF STYLE · 1-2",
+  "peakLabel": "1500M · 峰顶",
+  "legend": [
+    {
+      "text": "缓坡 · 40°"
+    },
+    {
+      "text": "山脊 · 60°"
+    },
+    {
+      "text": "峭壁 · 85°"
+    },
+    {
+      "text": "登顶 · 1500"
+    }
+  ],
+  "body": "TOPOGRAPHY OF STYLE · 1-2"
+}
+</script>
+<script>
+(function(){
+var MANIFEST={"spec":"1.0","display":{"preferredWidthPx":520},"stateSchema":{"type":"object","properties":{"title":{"type":"string"},"subtitle":{"type":"string"},"peakLabel":{"type":"string"},"legend":{"type":"array"}}}};
+var SAMPLE={"title":"风格地形图","subtitle":"TOPOGRAPHY OF STYLE · 1-2","peakLabel":"1500M · 峰顶","legend":[{"text":"缓坡 · 40°"},{"text":"山脊 · 60°"},{"text":"峭壁 · 85°"},{"text":"登顶 · 1500"}]};
+var raw, S;
+try{raw=document.querySelector('[data-card-state]');S=raw?JSON.parse(raw.textContent):{};}catch(e){S={}}
+S=Object.assign({},SAMPLE,S);
+var MAX_ITEMS=4;
+var s=function(v,d){if(v===undefined||v===null)return d;if(typeof v==='number'||typeof v==='boolean')return String(v);if(Array.isArray(v))return v.map(function(x){return String(x);}).join('\n\n');return typeof v==='string'?v:d};
+function put(sel,val,def){var e=document.querySelector(sel);if(e)e.textContent=s(val,def)}
+put('.hdr h1',S.title,'');
+put('.hdr .en',S.body||S.subtitle,'');
+put('.peaklbl',S.peakLabel,'');
+var list=Array.isArray(S.legend)?S.legend.slice(0,MAX_ITEMS):SAMPLE.legend;
+var spans=document.querySelectorAll('.legend span[data-text]');
+for(var i=0;i<spans.length;i++){var it=list[i];spans[i].textContent=it&&typeof it==='object'?s(it.text,''):''}
+})();
+</script>
+</body>
+</html>

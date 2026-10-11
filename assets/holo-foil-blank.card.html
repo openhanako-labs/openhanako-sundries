@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全息收藏卡样张</title>
+<style>
+body{margin:0;background:radial-gradient(1200px 600px at 50% -10%,#1A2140,#0B0E1A 70%);font-family:'Segoe UI','Noto Sans SC',sans-serif;color:#C9D2E8}
+.st{max-width:480px;margin:0 auto;padding:52px 16px 26px;text-align:center}
+.lb{font-size:10px;letter-spacing:.36em;color:#5E6A8F}
+.box{margin-top:18px;perspective:900px}
+.card{position:relative;width:300px;height:450px;margin:0 auto;transform:rotateY(-7deg) rotateX(4deg);transform-style:preserve-3d;transition:transform .18s ease-out;cursor:grab;border-radius:16px;box-shadow:0 30px 60px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.09)}
+.lyr{position:absolute;inset:0;border-radius:16px;overflow:hidden}
+.bg{transform:translateZ(-22px);background:radial-gradient(120% 90% at 30% 20%,#223058 0%,#131A33 55%,#0A0E1E 100%);background-image:radial-gradient(1.6px 1.6px at 18% 26%,rgba(255,255,255,.9),transparent),radial-gradient(1.2px 1.2px at 72% 18%,rgba(255,255,255,.75),transparent),radial-gradient(1.4px 1.4px at 56% 64%,rgba(255,255,255,.8),transparent),radial-gradient(1px 1px at 34% 76%,rgba(255,255,255,.6),transparent),radial-gradient(1.5px 1.5px at 84% 52%,rgba(255,255,255,.7),transparent),radial-gradient(120% 90% at 30% 20%,#223058,#0A0E1E 80%)}
+.subj{transform:translateZ(26px);display:flex;align-items:center;justify-content:center}
+.subj svg{width:64%;filter:drop-shadow(0 14px 24px rgba(0,0,0,.5))}
+.foil{position:absolute;inset:0;border-radius:16px;pointer-events:none;mix-blend-mode:overlay;opacity:.65;transition:background .3s;transform:translateZ(30px);background:linear-gradient(var(--ang,110deg),#FF6FB5 0%,#FFE66D 32%,#66D9FF 66%,#FFFFFF 92%)}
+.f-gold .foil{background:linear-gradient(var(--ang,110deg),#8A5A00 0%,#FFE66D 34%,#FFFBE8 62%,#C9922B 96%)}
+.f-silver .foil{background:linear-gradient(var(--ang,110deg),#7C8896 0%,#E9EFF5 40%,#FFFFFF 66%,#AEB9C6 96%)}
+.f-pearl .foil{background:linear-gradient(var(--ang,110deg),#FFD9EC 0%,#D6F3FF 45%,#FFF7FF 70%,#E4D6FF 96%)}
+.f-original .foil{opacity:0}
+.txt{transform:translateZ(0);border-radius:16px;padding:16px 14px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.35),inset 0 0 0 5px rgba(10,14,30,.35)}
+.ti{text-align:center;font-size:26px;font-weight:800;letter-spacing:.12em;color:#FFF;text-shadow:0 2px 14px rgba(0,0,0,.6)}
+.su{text-align:center;font-size:12px;letter-spacing:.3em;color:rgba(255,255,255,.85);margin-top:4px}
+.bm{display:flex;justify-content:space-between;align-items:flex-end;font-size:10.5px;letter-spacing:.14em;color:rgba(255,255,255,.8)}
+.tech{text-align:center;font-size:13px;font-style:italic;color:#FFE66D;letter-spacing:.2em;text-shadow:0 0 10px rgba(255,230,109,.5)}
+.fcs{display:flex;justify-content:center;gap:8px;margin-top:22px}
+.fc{font:inherit;font-size:12px;padding:7px 16px;border-radius:999px;border:1px solid rgba(201,210,232,.35);background:rgba(201,210,232,.08);color:#C9D2E8;cursor:pointer;transition:.15s}
+.fc:hover{border-color:#8FA3D9;color:#fff}
+.fc[aria-pressed=true]{background:rgba(143,163,217,.25);border-color:#8FA3D9;color:#fff;font-weight:600}
+.fc:focus-visible{outline:2px solid #8FA3D9;outline-offset:2px}
+.fn{font-size:11.5px;color:#7E8AB4;margin-top:12px;letter-spacing:.16em}
+.cr{font-size:10px;color:#4E5878;margin-top:16px;letter-spacing:.1em}
+</style>
+</head>
+<body>
+<div class="st">
+  <div class="lb">RUIC · CSS-3D FALLBACK · FOUR FINISHES</div>
+  <div class="box" id="box">
+    <div class="card f-gold" id="card">
+      <div class="lyr bg"></div>
+      <div class="lyr subj">
+        <svg viewBox="0 0 200 260" role="img" title="晶体主体">
+          <polygon points="100,20 160,80 130,220 70,220 40,80" fill="#2E3F6E" stroke="#8FA3D9" stroke-width="2"/>
+          <polygon points="100,20 160,80 100,110" fill="#3E5490"/>
+          <polygon points="100,20 40,80 100,110" fill="#26355E"/>
+          <polygon points="100,110 130,220 70,220" fill="#223058"/>
+          <path d="M100 20 L100 110 M40 80 L160 80" stroke="#AEBEE8" stroke-width="1.6" opacity=".8"/>
+          <polygon points="100,60 122,96 100,140 78,96" fill="#66D9FF" opacity=".85"/>
+        </svg>
+      </div>
+      <div class="lyr foil" id="foil"></div>
+      <div class="lyr txt">
+        <div><div class="ti" id="title"></div><div class="su" id="subtitle"></div>
+          <div id="cbod" style="display:none;text-align:center;font-size:11px;line-height:1.55;color:rgba(255,255,255,.85);margin-top:6px"></div>
+        </div>
+        <div class="tech" id="tech"></div>
+        <div class="bm"><span id="editionLeft"></span><span id="editionRight"></span></div>
+      </div>
+    </div>
+  </div>
+  <div class="fcs" role="group" aria-label="四种镭射面">
+    <button type="button" class="fc" data-f="pearl" aria-pressed="false">珍珠</button>
+    <button type="button" class="fc" data-f="silver" aria-pressed="false">银</button>
+    <button type="button" class="fc" data-f="gold" aria-pressed="true">烫金</button>
+    <button type="button" class="fc" data-f="original" aria-pressed="false">素面</button>
+  </div>
+  <div class="fn" id="fn"></div>
+  <div class="cr">风格指令 · ruic-card-skill · CSS-3D 回退（光谱相位随视角）</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":480},"stateSchema":{"type":"object","properties":{"title":{"type":"string","description":"卡面主标题"},"subtitle":{"type":"string","description":"卡面副标题（英文）"},"tech":{"type":"string","description":"中部技术标语"},"edition":{"type":"string","description":"底部版本（左/右 以 / 分，如 001 / 001）"},"editionLeft":{"type":"string","description":"底部左侧文本（与 edition 二选一）"},"editionRight":{"type":"string","description":"底部右侧文本（与 edition 二选一）"},"fn":{"type":"string","description":"下方注释（脚注）"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "title": "全息样张",
+  "subtitle": "H O L O",
+  "tech": "典藏版",
+  "editionLeft": "个人全息典藏",
+  "editionRight": "001 / 001",
+  "fn": "全息箔在不同角度下换面，晶体主体保持不变。",
+  "body": "全息箔在不同角度下换面，晶体主体保持不变。"
+}
+</script>
+<script>
+(function(){
+var D={title:'Sample Title',subtitle:'H O L O',tech:'Parallax · Spectrum',edition:'001 / 001',editionLeft:'Collection',editionRight:'001 / 001',fn:'Note line.'};
+function str(v){if(v==null)return'';if(typeof v==='string')return v;if(typeof v==='number'||typeof v==='boolean')return String(v);if(Array.isArray(v))return v.map(str).filter(Boolean).join(' ');return'';}
+function pick(o,keys){if(!o||typeof o!=='object'||Array.isArray(o))return null;for(var i=0;i<keys.length;i++){var k=keys[i];if(Object.prototype.hasOwnProperty.call(o,k)&&str(o[k])!=='')return o[k];}return null;}
+function put(id,v){var el=document.getElementById(id);if(el)el.textContent=str(v);}
+var sEl=document.querySelector('script[data-card-state]');
+var S=Object.assign({},D);
+if(sEl){try{var u=JSON.parse(sEl.textContent);if(u&&typeof u==='object'&&!Array.isArray(u))for(var k in u)S[k]=u[k];}catch(e){}}
+put('title',pick(S,['title','heading']));
+put('subtitle',pick(S,['subtitle','desc']));
+put('tech',pick(S,['tech','tagline','caption']));
+put('fn',pick(S,['fn','note','footnote']));
+var eLeft=pick(S,['editionLeft','left']),eRight=pick(S,['editionRight','right']);
+if(str(eLeft)===''||str(eRight)===''){var ed=str(pick(S,['edition'])).split('/');eLeft=eLeft||ed[0]||'';eRight=eRight||ed.slice(1).join('/')||'';}
+put('editionLeft',eLeft);
+put('editionRight',eRight);
+
+var escF=function(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');};
+var paras=(function(b){if(Array.isArray(b))return b.map(String).filter(Boolean);if(typeof b==='string')return b.split(/\n\s*\n/).map(function(t){return t.trim();}).filter(Boolean);return [];})(S.body);
+var cbod=document.getElementById('cbod');
+if(cbod){if(paras.length){cbod.innerHTML=paras.map(function(t){return '<p style="margin:0 0 .4em">'+escF(t)+'</p>';}).join('');cbod.style.display='';}else{cbod.style.display='none';cbod.innerHTML='';}}
+
+var box=document.getElementById('box'),card=document.getElementById('card'),fn=document.getElementById('fn');
+var NAMES={pearl:'珍珠',silver:'银',gold:'烫金',original:'素面'};
+box.addEventListener('mousemove',function(e){
+ var r=box.getBoundingClientRect();
+ var px=(e.clientX-r.left)/r.width-0.5, py=(e.clientY-r.top)/r.height-0.5;
+ card.style.transform='rotateY('+(px*18).toFixed(2)+'deg) rotateX('+(-py*15).toFixed(2)+'deg)';
+ card.style.setProperty('--ang',((px+py)*90+110).toFixed(1)+'deg');
+});
+box.addEventListener('mouseleave',function(){
+ card.style.transform='rotateY(-7deg) rotateX(4deg)';
+ card.style.setProperty('--ang','110deg');
+});
+var chips=Array.prototype.slice.call(document.querySelectorAll('.fc'));
+chips.forEach(function(b){
+ b.addEventListener('click',function(){
+  chips.forEach(function(x){x.setAttribute('aria-pressed','false');});
+  b.setAttribute('aria-pressed','true');
+  card.className='card f-'+b.dataset.f;
+  var cur=card.className.indexOf('f-original')>=0?'无箔':NAMES[b.dataset.f];
+  fn.textContent='当前面 · '+cur+' · foil '+(b.dataset.f==='original'?'0.00':'0.65')+' · 光标跟随光谱';
+ });
+});
+})();
+</script>
+</body>
+</html>

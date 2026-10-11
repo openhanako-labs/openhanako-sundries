@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitHub Dark 样张</title>
+<style>
+body{margin:0;background:#0D1117;color:#C9D1D9;font-family:Consolas,'JetBrains Mono',monospace}
+.c{max-width:620px;margin:0 auto;padding:52px 16px 26px}
+.bar{display:flex;align-items:center;gap:10px;background:#161B22;border:1px solid #30363D;border-radius:6px 6px 0 0;padding:10px 14px;font-size:12px;color:#8B949E}
+.bar i{width:10px;height:10px;border-radius:50%;background:#30363D}
+.bar b{color:#C9D1D9;font-weight:400}
+.code{background:#0D1117;border:1px solid #30363D;border-top:none;border-radius:0 0 6px 6px;padding:14px 6px 14px 0;font-size:13px;line-height:2}
+.l{display:flex;gap:16px}
+.no{flex:0 0 26px;text-align:right;color:#484F58;user-select:none}
+.k{color:#FF7B72}.fn{color:#D2A8FF}.s{color:#A5D6FF}.v{color:#79C0FF}.cm{color:#8B949E}.g{color:#7EE787}.o{color:#FFA657}
+.meta{display:flex;justify-content:space-between;margin-top:14px;font-size:11px;color:#484F58}
+.cr{font-size:10px;color:#3D444D;text-align:center;margin-top:22px;letter-spacing:.12em}
+</style>
+</head>
+<body>
+<div class="c">
+  <div class="bar"><i></i><i></i><i></i><b id="title"></b><span id="subtitle"></span></div>
+  <div class="code">
+    <div class="l"><span class="no">1</span><span><span class="cm">// GitHub Dark · 开发者</span></span></div>
+    <div class="l"><span class="no">2</span><span><span class="k">const</span> <span class="v">theme</span> = {</span></div>
+    <div class="l"><span class="no">3</span><span>&nbsp;&nbsp;ground: <span class="s">"#0D1117"</span>,</span></div>
+    <div class="l"><span class="no">4</span><span>&nbsp;&nbsp;panel: <span class="s">"#161B22"</span>, <span class="fn">line</span>: <span class="s">"#30363D"</span>,</span></div>
+    <div class="l"><span class="no">5</span><span>&nbsp;&nbsp;syntax: [<span class="g">"green"</span>, <span class="o">"orange"</span>, <span class="v">"blue"</span>],</span></div>
+    <div class="l"><span class="no">6</span><span>}; <span class="cm">// 等宽是本体</span></span></div>
+  </div>
+  <div id="cbod" style="display:none;font-family:Consolas,'JetBrains Mono',monospace;font-size:13px;line-height:1.7;color:#C9D1D9;background:#161B22;border:1px solid #30363D;border-radius:0 0 6px 6px;margin-top:8px;padding:10px 14px;white-space:pre-wrap"></div>
+  <div class="meta"><span>syntax: 6 色</span><span>font: Consolas</span></div>
+  <div class="cr">风格指令 · design-media · SVG 风格表 dark</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":620},"stateSchema":{"type":"object","properties":{"title":{"type":"string","description":"代码文件名"},"subtitle":{"type":"string","description":"风格标签"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "title": "check-card.mjs",
+  "subtitle": "javascript · node tools",
+  "body": "javascript · node tools"
+}
+</script>
+<script>
+(function(){
+var D={title:'sample.card.html',subtitle:'sample-theme'};
+function str(v){if(v==null)return'';if(typeof v==='string')return v;if(typeof v==='number'||typeof v==='boolean')return String(v);if(Array.isArray(v))return v.map(str).filter(Boolean).join(' ');return'';}
+function pick(o){if(!o||typeof o!=='object'||Array.isArray(o))return null;var a=arguments;for(var i=1;i<a.length;i++){var k=a[i];if(Object.prototype.hasOwnProperty.call(o,k)&&str(o[k])!=='')return o[k];}return null;}
+function put(id,v){var el=document.getElementById(id);if(el)el.textContent=str(v);}
+function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+var sEl=document.querySelector('script[data-card-state]');
+var S=Object.assign({},D);
+if(sEl){try{var u=JSON.parse(sEl.textContent);if(u&&typeof u==='object'&&!Array.isArray(u))for(var k in u)S[k]=u[k];}catch(e){}}
+put('title',pick(S,'title','heading'));
+put('subtitle',pick(S,'subtitle','desc'));
+var paras=(function(b){if(Array.isArray(b))return b.map(String).filter(Boolean);if(typeof b==='string')return b.split(/\n\s*\n/).map(function(t){return t.trim();}).filter(Boolean);return [];})(S.body);
+var bb=document.getElementById('cbod');
+if(bb){if(paras.length){bb.innerHTML=paras.map(function(t){return '<p style="margin:0 0 .4em">'+esc(t)+'</p>';}).join('');bb.style.display='';}else{bb.style.display='none';bb.innerHTML='';}}
+})();
+</script>
+</body>
+</html>

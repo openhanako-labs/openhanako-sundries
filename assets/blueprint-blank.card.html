@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>工程蓝图样张</title>
+<style>
+body{margin:0;background:#0E3A6B;color:#DCEEFF;font-family:'Space Grotesk','Segoe UI','Noto Sans SC',sans-serif}
+.w{max-width:640px;margin:0 auto;padding:52px 14px 26px}
+.sheet{position:relative;background:#0E3A6B;background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.055) 0 1px,transparent 1px 32px),repeating-linear-gradient(90deg,rgba(255,255,255,.055) 0 1px,transparent 1px 32px);border:2px solid rgba(255,255,255,.75);padding:22px 22px 84px;min-height:360px}
+.dwg{position:absolute;left:26px;top:56px;right:26px;bottom:100px}
+.lbl{font-size:12px;letter-spacing:.3em;color:#9FC8F2}
+.h{font-size:clamp(24px,5vw,34px);font-weight:700;margin:8px 0 4px;letter-spacing:.06em}
+.svgbox{margin-top:14px;border:1px dashed rgba(255,255,255,.35);border-radius:2px;padding:6px}
+.svgbox svg{display:block;width:100%;height:auto}
+.tblock{position:absolute;right:22px;bottom:20px;display:flex;border:1.5px solid rgba(255,255,255,.85);font-size:11px}
+.tblock div{padding:7px 13px;border-right:1px solid rgba(255,255,255,.55);letter-spacing:.1em}
+.tblock div:last-child{border-right:none}
+.tblock b{display:block;font-size:9px;color:#9FC8F2;letter-spacing:.2em;margin-bottom:3px;font-weight:400}
+.cr{position:absolute;left:22px;bottom:24px;font-size:10px;color:rgba(220,238,255,.6);letter-spacing:.1em}
+</style>
+</head>
+<body>
+<div class="w">
+  <div class="sheet">
+    <div class="lbl" data-text>DWG NO. 2026-STYLE-26</div>
+    <div class="h" data-text>风格样张装配图</div>
+    <div id="cbod" style="display:none;font-size:13px;line-height:1.7;color:#DCEEFF;margin-top:10px;max-width:70%"></div>
+    <div class="svgbox">
+      <svg viewBox="0 0 560 190" role="img" title="装配示意与尺寸标注">
+        <rect x="40" y="40" width="200" height="110" fill="none" stroke="#DCEEFF" stroke-width="2"/>
+        <rect x="60" y="60" width="70" height="70" fill="none" stroke="#DCEEFF" stroke-width="1.4"/>
+        <rect x="150" y="60" width="70" height="70" fill="none" stroke="#DCEEFF" stroke-width="1.4"/>
+        <line x1="95" y1="60" x2="95" y2="130" stroke="#DCEEFF" stroke-width="1" stroke-dasharray="6 4"/>
+        <line x1="185" y1="60" x2="185" y2="130" stroke="#DCEEFF" stroke-width="1" stroke-dasharray="6 4"/>
+        <circle cx="360" cy="95" r="46" fill="none" stroke="#DCEEFF" stroke-width="2"/>
+        <circle cx="360" cy="95" r="24" fill="none" stroke="#DCEEFF" stroke-width="1.4"/>
+        <line x1="360" y1="49" x2="360" y2="141" stroke="#DCEEFF" stroke-width="1" stroke-dasharray="6 4"/>
+        <line x1="314" y1="95" x2="406" y2="95" stroke="#DCEEFF" stroke-width="1" stroke-dasharray="6 4"/>
+        <line x1="40" y1="26" x2="240" y2="26" stroke="#9FC8F2" stroke-width="1"/>
+        <path d="M40 22v8M240 22v8" stroke="#9FC8F2" stroke-width="1"/>
+        <text x="140" y="20" text-anchor="middle" font-size="12" fill="#9FC8F2" font-family="Consolas, monospace" data-text>260.00</text>
+        <line x1="252" y1="40" x2="252" y2="150" stroke="#9FC8F2" stroke-width="1"/>
+        <path d="M248 40h8M248 150h8" stroke="#9FC8F2" stroke-width="1"/>
+        <text x="262" y="99" font-size="12" fill="#9FC8F2" font-family="Consolas, monospace" data-text>110.00</text>
+        <path d="M406 60 L455 30 L510 30" fill="none" stroke="#9FC8F2" stroke-width="1.2"/>
+        <text x="455" y="24" font-size="11" fill="#9FC8F2" font-family="Consolas, monospace" data-text>R46 主轮</text>
+        <path d="M240 130 L285 162 L345 162" fill="none" stroke="#9FC8F2" stroke-width="1.2"/>
+        <text x="288" y="176" font-size="11" fill="#9FC8F2" font-family="Consolas, monospace" data-text>装配基准面 A</text>
+      </svg>
+    </div>
+    <div class="tblock">
+      <div><b>DRAWN</b><span data-text>OPHELIA</span></div>
+      <div><b>SCALE</b><span data-text>1:26</span></div>
+      <div><b>DATE</b><span data-text>2026-09-26</span></div>
+      <div><b>SHEET</b><span data-text>01/01</span></div>
+    </div>
+    <div class="cr">风格指令 · video-shot-demos · 工程蓝图（风格卡 2-1）</div>
+  </div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":640},"stateSchema":{"type":"object","properties":{"eyebrow":{"type":"string"},"title":{"type":"string"},"dim1":{"type":"string"},"dim2":{"type":"string"},"annotation1":{"type":"string"},"annotation2":{"type":"string"},"drawn":{"type":"string"},"scale":{"type":"string"},"date":{"type":"string"},"sheet":{"type":"string"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "eyebrow": "DWG NO. 2026-0410",
+  "title": "风格样张装配图",
+  "dim1": "260.00",
+  "dim2": "110.00",
+  "annotation1": "R46 主轮",
+  "annotation2": "装配基准面 A",
+  "drawn": "OPHELIA",
+  "scale": "1:26",
+  "date": "2026-09-26",
+  "sheet": "01/01",
+  "body": "主轮 R46 与基准面 A 的装配关系。右侧为局部剖视，尺寸单位毫米。"
+}
+</script>
+<script>
+(function(){
+var MANIFEST={"spec":"1.0","display":{"preferredWidthPx":640},"stateSchema":{"type":"object","properties":{"eyebrow":{"type":"string"},"title":{"type":"string"},"dim1":{"type":"string"},"dim2":{"type":"string"},"annotation1":{"type":"string"},"annotation2":{"type":"string"},"drawn":{"type":"string"},"scale":{"type":"string"},"date":{"type":"string"},"sheet":{"type":"string"}}}};
+var SAMPLE={"eyebrow":"DWG NO. 2026-STYLE-26","title":"风格样张装配图","dim1":"260.00","dim2":"110.00","annotation1":"R46 主轮","annotation2":"装配基准面 A","drawn":"OPHELIA","scale":"1:26","date":"2026-09-26","sheet":"01/01"};
+var raw, S;
+try{raw=document.querySelector('[data-card-state]');S=raw?JSON.parse(raw.textContent):{};}catch(e){S={}}
+S=Object.assign({},SAMPLE,S);
+var s=function(v,d){if(v===undefined||v===null)return d;if(typeof v==='number'||typeof v==='boolean')return String(v);return typeof v==='string'?v:d};
+function put(sel,val,def){var el=document.querySelector(sel);if(el)el.textContent=s(val,def)}
+function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+put('.lbl',S.eyebrow,'');
+put('.h',S.title,'');
+var svgTexts=document.querySelectorAll('.svgbox text[data-text]');
+var svgVals=[s(S.dim1,''),s(S.dim2,''),s(S.annotation1,''),s(S.annotation2,'')];
+for(var i=0;i<svgTexts.length;i++){svgTexts[i].textContent=svgVals[i]||''}
+var tblock=document.querySelector('.tblock');
+var tbs=tblock.querySelectorAll('div > span[data-text]');
+var tbVals=[s(S.drawn,''),s(S.scale,''),s(S.date,''),s(S.sheet,'')];
+for(var j=0;j<tbs.length;j++){tbs[j].textContent=tbVals[j]}
+var paras=(function(b){if(Array.isArray(b))return b.map(String).filter(Boolean);if(typeof b==='string')return b.split(/\n\s*\n/).map(function(t){return t.trim();}).filter(Boolean);return [];})(S.body);
+var bb=document.getElementById('cbod');
+if(bb){if(paras.length){bb.innerHTML=paras.map(function(t){return '<p style="margin:0 0 .4em">'+esc(t)+'</p>';}).join('');bb.style.display='';}else{bb.style.display='none';bb.innerHTML='';}}
+})();
+</script>
+</body>
+</html>

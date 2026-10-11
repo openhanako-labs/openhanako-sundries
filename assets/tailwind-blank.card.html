@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>多色层级样张</title>
+<style>
+body{margin:0;background:#F8FAFC;color:#0F172A;font-family:'Segoe UI','Noto Sans SC',sans-serif}
+.c{max-width:620px;margin:0 auto;padding:56px 20px 26px}
+.lb{font-size:11px;letter-spacing:.3em;color:#64748B;font-weight:700}
+.h{font-size:1.9rem;font-weight:800;margin:10px 0 6px}
+.sub{font-size:13px;color:#64748B;letter-spacing:.06em}
+.steps{margin-top:24px;display:flex;flex-direction:column;gap:10px}
+.st{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #E2E8F0;border-radius:8px;padding:13px 16px}
+.st i{width:14px;height:38px;border-radius:4px;flex:0 0 auto}
+.st .t{flex:1}
+.st .t b{display:block;font-size:14px}
+.st .t span{font-size:11.5px;color:#64748B;font-family:Consolas,monospace}
+.st .lv{font-size:11px;color:#94A3B8;letter-spacing:.1em}
+.cr{font-size:10px;color:#94A3B8;text-align:center;margin-top:22px;letter-spacing:.12em}
+</style>
+</head>
+<body>
+<div class="c">
+  <div class="lb">STYLE // TAILWIND</div>
+  <div class="h" id="title"></div>
+  <div class="sub" id="subtitle"></div>
+  <div class="steps">
+    <div class="st"><i style="background:#38BDF8"></i><div class="t"><b>接入层</b><span>sky #38BDF8</span></div><div class="lv">L1</div></div>
+    <div class="st"><i style="background:#A78BFA"></i><div class="t"><b>编排层</b><span>violet #A78BFA</span></div><div class="lv">L2</div></div>
+    <div class="st"><i style="background:#34D399"></i><div class="t"><b>数据层</b><span>emerald #34D399</span></div><div class="lv">L3</div></div>
+    <div class="st"><i style="background:#FBBF24"></i><div class="t"><b>告警层</b><span>amber #FBBF24</span></div><div class="lv">L4</div></div>
+    <div class="st"><i style="background:#FB7185"></i><div class="t"><b>熔断层</b><span>rose #FB7185</span></div><div class="lv">L5</div></div>
+  </div>
+  <div class="cr">风格指令 · design-media · SVG 风格表 tailwind</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":620},"stateSchema":{"type":"object","properties":{"title":{"type":"string","description":"色卡主标题"},"subtitle":{"type":"string","description":"一句话风格说明"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "title": "多色层级区分",
+  "subtitle": "TAILWIND · 组件化排版",
+  "body": "TAILWIND · 组件化排版"
+}
+</script>
+<script>
+(function(){
+var D={title:'Sample Title',subtitle:'Sample subtitle'};
+function str(v){if(v==null)return'';if(typeof v==='string')return v;if(typeof v==='number'||typeof v==='boolean')return String(v);if(Array.isArray(v))return v.map(str).filter(Boolean).join(' ');return'';}
+function pick(o){if(!o||typeof o!=='object'||Array.isArray(o))return null;var a=arguments;for(var i=1;i<a.length;i++){var k=a[i];if(Object.prototype.hasOwnProperty.call(o,k)&&str(o[k])!=='')return o[k];}return null;}
+function put(id,v){var el=document.getElementById(id);if(el)el.textContent=str(v);}
+var sEl=document.querySelector('script[data-card-state]');
+var S=Object.assign({},D);
+if(sEl){try{var u=JSON.parse(sEl.textContent);if(u&&typeof u==='object'&&!Array.isArray(u))for(var k in u)S[k]=u[k];}catch(e){}}
+put('title',pick(S,'title','heading'));
+put('subtitle',pick(S,'body','subtitle','desc'));
+})();
+</script>
+</body>
+</html>

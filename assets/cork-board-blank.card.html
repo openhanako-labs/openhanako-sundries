@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>审讯室软木板样张</title>
+<style>
+body{margin:0;background:#171310;color:#E9E0D0;font-family:'Special Elite','Courier Prime','Courier New','Noto Serif SC',monospace}
+.w{max-width:600px;margin:0 auto;padding:52px 16px 26px}
+.board{position:relative;background:#2A1F14;background-image:radial-gradient(2px 2px at 12% 18%,rgba(140,110,70,.5),transparent),radial-gradient(2.5px 2.5px at 34% 62%,rgba(120,95,60,.45),transparent),radial-gradient(2px 2px at 58% 26%,rgba(150,120,80,.4),transparent),radial-gradient(2.5px 2.5px at 76% 74%,rgba(130,105,65,.45),transparent),radial-gradient(2px 2px at 88% 34%,rgba(145,115,75,.4),transparent);border:10px solid #4A3722;border-radius:4px;box-shadow:0 20px 44px rgba(0,0,0,.6),inset 0 0 50px rgba(0,0,0,.5);padding:26px 24px;min-height:340px}
+.hd{font-size:15px;letter-spacing:.3em;color:#C9B896;text-align:center;margin-bottom:6px}
+.strings{position:absolute;inset:0;pointer-events:none}
+.note{position:absolute;background:#F5EED6;color:#2A1F14;padding:12px 14px 14px;width:190px;font-size:13px;line-height:1.6;box-shadow:4px 6px 14px rgba(0,0,0,.55)}
+.n1{left:6%;top:74px;transform:rotate(-3deg)}
+.n2{right:7%;top:120px;transform:rotate(2.4deg)}
+.n3{left:30%;bottom:34px;transform:rotate(-1.2deg);background:#F2E0B8}
+.note b{display:block;font-size:14px;margin-bottom:4px;letter-spacing:.06em}
+.note .red{color:#B53929}
+.pin{position:absolute;top:-9px;left:50%;transform:translateX(-50%);width:18px;height:18px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#FF7A6E,#B53929 60%,#7A1F14);box-shadow:0 3px 5px rgba(0,0,0,.6)}
+.concl{margin-top:18px;text-align:center;font-size:13.5px;color:#C9B896;letter-spacing:.14em}
+.cr{text-align:center;font-size:10px;color:#6E6047;margin-top:16px;letter-spacing:.12em}
+</style>
+</head>
+<body>
+<div class="w">
+  <div class="board">
+    <div class="hd" data-text>证 据 链 · EVIDENCE</div>
+    <svg class="strings" viewBox="0 0 560 340" preserveAspectRatio="none" role="img" title="红线"><path d="M95 92 L470 138 M470 138 L240 288 M240 288 L95 92" stroke="#B53929" stroke-width="2" fill="none" opacity=".85"/></svg>
+    <div class="note n1"><span class="pin"></span><b>线索 01</b>样张 26 张，<span class="red">check-card 全绿</span>，无一落网。</div>
+    <div class="note n2"><span class="pin"></span><b>线索 02</b>缺失的规范文件 2 份，已标注「实测不存在」。</div>
+    <div class="note n3"><span class="pin"></span><b>结论</b>风格库仍在生长——<span class="red">41 种待提审</span>。</div>
+  </div>
+  <div class="concl" data-text>—— 档案编号 SC-2-6 · 结案待续 ——</div>
+  <div class="cr">风格指令 · video-shot-demos · 审讯室软木板（风格卡 2-6）</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":600},"stateSchema":{"type":"object","properties":{"header":{"type":"string"},"items":{"type":"array","items":{"type":"object","properties":{"label":{"type":"string"},"text":{"type":"string"}}}},"footer":{"type":"string"},"title":{"type":"string","description":"主标题（必填）"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "header": "缺失的规范文件",
+  "items": [
+    {
+      "label": "线索 01",
+      "text": "证据 A 指向证据 B，证据 B 指向结论。中间缺的那一环，就是风险。"
+    },
+    {
+      "label": "线索 02",
+      "text": "证据 A 指向证据 B，证据 B 指向结论。中间缺的那一环，就是风险。"
+    },
+    {
+      "label": "结论",
+      "text": "证据 A 指向证据 B，证据 B 指向结论。中间缺的那一环，就是风险。"
+    }
+  ],
+  "footer": "证据 A 指向证据 B，证据 B 指向结论。中间缺的那一环，就是风险。",
+  "title": "缺失的规范文件",
+  "body": "证据 A 指向证据 B，证据 B 指向结论。中间缺的那一环，就是风险。"
+}
+</script>
+<script>
+(function(){
+var MANIFEST={"spec":"1.0","display":{"preferredWidthPx":600},"stateSchema":{"type":"object","properties":{"header":{"type":"string"},"items":{"type":"array"},"footer":{"type":"string"}}}};
+var SAMPLE={"header":"证 据 链 · EVIDENCE","items":[{"label":"线索 01","text":"样张 26 张，#red check-card 全绿 #，无一落网。"},{"label":"线索 02","text":"缺失的规范文件 2 份，已标注「实测不存在」。"},{"label":"结论","text":"风格库仍在生长——#red 41 种待提审 #。"}],"footer":"—— 档案编号 SC-2-6 · 结案待续 ——"};
+var raw, S;
+try{raw=document.querySelector('[data-card-state]');S=raw?JSON.parse(raw.textContent):{};}catch(err){S={}}
+S=Object.assign({},SAMPLE,S);
+
+S.header=S.title||S.header;
+var items=Array.isArray(S.items)?S.items.slice():[{label:'',text:''},{label:'',text:''},{label:'',text:''}];
+if(S.body){/* 正文不再塞进便签，改为板外独立渲染，避免撑破便签与木板 */}
+S.items=items;
+
+var MAX_ITEMS=3;
+var s=function(v,d){if(v===undefined||v===null)return d;if(typeof v==='number'||typeof v==='boolean')return String(v);if(Array.isArray(v))return v.map(function(x){return String(x);}).join('\n\n');return typeof v==='string'?v:d};
+function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function renderRich(str){return esc(str).replace(/#red ([^#]+) #/g,'<span class="red">$1</span>')}
+var board=document.querySelector('.board');
+board.querySelector('.hd').textContent=s(S.header,'');
+var list=Array.isArray(S.items)?S.items.slice(0,MAX_ITEMS):SAMPLE.items;
+var notes=board.querySelectorAll('.note');
+for(var i=0;i<notes.length;i++){
+  var it=list[i];
+  if(!it||typeof it!=='object')continue;
+  var pin=notes[i].querySelector('.pin');
+  var b=notes[i].querySelector('b');
+  notes[i].textContent='';
+  notes[i].appendChild(pin);
+  b.textContent=s(it.label,'');
+  notes[i].appendChild(b);
+  var rest=document.createElement('span');
+  rest.innerHTML=renderRich(s(it.text,''));
+  notes[i].appendChild(rest);
+}
+document.querySelector('.concl').textContent=s(S.footer,'');
+if(S.body){
+  var _ps=Array.isArray(S.body)?S.body.map(function(x){return String(x).trim();}).filter(Boolean)
+             :String(S.body).split(/\n\s*\n/).map(function(x){return x.trim();}).filter(Boolean);
+  if(_ps.length){
+    var _b=document.querySelector('.board');
+    var _bb=document.createElement('div');
+    _bb.style.cssText='margin:14px 10px 0;padding:12px 14px;background:#EFE3C8;color:#3A2410;border-radius:2px;box-shadow:0 4px 10px rgba(0,0,0,.45);font-size:13px;line-height:1.75';
+    _bb.innerHTML=_ps.map(function(t){return '<p style="margin:0 0 7px">'+renderRich(t)+'</p>';}).join('');
+    if(_b&&_b.parentNode) _b.parentNode.insertBefore(_bb,_b.nextSibling);
+  }
+}
+})();
+</script>
+</body>
+</html>

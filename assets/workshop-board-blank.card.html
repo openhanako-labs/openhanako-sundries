@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>工坊公告板样张</title>
+<style>
+body{margin:0;background:#2a1c10;color:#efe3c8;font-family:'Ma Shan Zheng','Kaiti SC','KaiTi',cursive}
+.w{max-width:620px;margin:0 auto;padding:52px 18px 28px}
+.board{position:relative;background:#4a3220;background-image:radial-gradient(3px 3px at 20% 30%,rgba(20,10,4,.35),transparent),radial-gradient(2px 2px at 70% 60%,rgba(20,10,4,.3),transparent),radial-gradient(2.5px 2.5px at 40% 80%,rgba(20,10,4,.32),transparent),radial-gradient(2px 2px at 85% 20%,rgba(20,10,4,.28),transparent);border:12px solid #2a1808;border-radius:2px;box-shadow:0 18px 40px rgba(0,0,0,.65),inset 0 0 44px rgba(0,0,0,.5);padding:60px 20px 22px}
+.rail{position:absolute;top:32px;left:20px;right:20px;height:6px;background:linear-gradient(180deg,#d4b87a 0%,#a88850 50%,#7a5c2c 100%);border-radius:3px;box-shadow:0 2px 4px rgba(0,0,0,.4)}
+.rail::before,.rail::after{content:"";position:absolute;top:-3px;width:10px;height:12px;background:#a88850;border-radius:2px}
+.rail::before{left:-6px}
+.rail::after{right:-6px}
+.hook{position:absolute;top:34px;width:1.5px;height:22px;background:#5a3c1a}
+.h1{left:120px}
+.h2{left:50%}
+.h3{right:110px}
+.sign{position:absolute;top:56px;transform-origin:top center;animation:sway 4s ease-in-out infinite alternate}
+.s1{left:60px;width:180px;animation-duration:4.2s}
+.s2{left:50%;transform-origin:top center;margin-left:-85px;width:170px;animation-duration:5.1s;animation-delay:-1.4s}
+.s3{right:60px;width:150px;animation-duration:4.7s;animation-delay:-.7s}
+@keyframes sway{
+  0%{transform:rotate(-1.8deg)}
+  100%{transform:rotate(2deg)}
+}
+.wood{background:linear-gradient(180deg,#8a5a30 0%,#5c3a1e 100%);border:3px solid #3a2412;border-radius:3px;padding:16px 14px 16px;box-shadow:0 8px 16px rgba(0,0,0,.55);color:#f4e2b8;font-family:'Ma Shan Zheng','KaiTi',cursive;text-align:center}
+.wood::before{content:"";position:absolute;top:8px;left:50%;transform:translateX(-50%);width:14px;height:14px;background:#8a7a4c;border-radius:50%;box-shadow:inset -2px -2px 3px rgba(0,0,0,.5),0 2px 3px rgba(0,0,0,.5);z-index:2}
+.wood .num{font-family:'Courier New',monospace;font-size:10px;letter-spacing:.28em;color:#d8b878;margin-bottom:4px}
+.wood h3{margin:0;font-size:26px;font-weight:400;letter-spacing:.14em;line-height:1.1}
+.wood p{margin:6px 0 0;font-size:12.5px;line-height:1.65;color:#e8d5a8;font-family:'KaiTi SC','KaiTi',cursive}
+.wood.paper{background:#efe3c8;color:#3a2410;border-color:#a88850;box-shadow:0 8px 16px rgba(0,0,0,.55)}
+.wood.paper .num{color:#a88850}
+.wood.paper h3{color:#3a2410}
+.wood.paper p{color:#5a4632}
+.wood.paper::before{background:#c9a44c}
+.foot{text-align:center;margin-top:22px;font-size:14px;color:#c9b58c;letter-spacing:.16em;font-family:'Ma Shan Zheng',cursive}
+.foot .em{color:#f4e2b8;font-weight:700}
+.cr{text-align:center;font-size:10px;color:#5a4628;margin-top:12px;letter-spacing:.12em}
+</style>
+</head>
+<body>
+<div class="w">
+<div class="board">
+<div class="rail"></div>
+<div class="hook h1"></div><div class="hook h2"></div><div class="hook h3"></div>
+<div class="sign s1"><div class="wood"><div class="num">PLATE · 01</div><h3>锻造</h3><p>把想法锤成<br>可用的形状</p></div></div>
+<div class="sign s2"><div class="wood paper"><div class="num">PLATE · 02</div><h3>淬火</h3><p>遇冷才见真章<br>遇火只是热闹</p></div></div>
+<div class="sign s3"><div class="wood"><div class="num">PLATE · 03</div><h3>回炉</h3><p>不好就再来<br>没有第二次</p></div></div>
+</div>
+<div class="foot">— <span class="em">工坊公告板</span> · 挂牌即承诺 · 掉下就是丢脸 —</div>
+<div class="cr">风格指令 · video-shot-demos · 工坊公告板（风格卡 4-6）</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":620},"stateSchema":{"type":"object","properties":{"items":{"type":"array","items":{"type":"object","properties":{"num":{"type":"string","description":"铭牌编号"},"title":{"type":"string","description":"铭牌标题"},"note":{"type":"string","description":"铭牌说明（HTML）"},"variant":{"type":"string","description":"wood / wood-paper"}}},"description":"挂牌（固定 3）"},"footer":{"type":"string","description":"底部标语（HTML）"},"title":{"type":"string","description":"主标题（必填）"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "items": [
+    {
+      "num": "PLATE · 01",
+      "title": "锻造",
+      "note": "挂牌",
+      "variant": "wood"
+    },
+    {
+      "num": "PLATE · 02",
+      "title": "淬火",
+      "note": "挂牌",
+      "variant": "wood-paper"
+    },
+    {
+      "num": "PLATE · 03",
+      "title": "回炉",
+      "note": "挂牌",
+      "variant": "wood"
+    }
+  ],
+  "footer": "三块挂牌，三条承诺。",
+  "title": "挂牌",
+  "body": "三块挂牌，三条承诺。"
+}
+</script>
+<script id="__card_render__">
+(function(){
+  function readState(){var d=null;try{var s=document.querySelector('script[data-card-state]');if(s)d=JSON.parse(s.textContent);}catch(e){}return d;
+  }
+  function s(v,d){if(v===undefined||v===null)return d;if(typeof v==="string"){v=v.trim();return v===''?d:v;}return String(v);}
+  function arr(v,n){if(!Array.isArray(v))return [];var o=[];for(var i=0;i<v.length&&o.length<n;i++){var x=v[i];if(x&&typeof x==="object"&&!Array.isArray(x))o.push(x);}return o;}
+  function esc(v,d){var x=s(v,d);if(x===d)return d;return String(x).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+  var S=readState(); if(!S)return; try{
+    var DEFAULTS={title:'',body:''};
+    S=Object.assign({},DEFAULTS,S);// body 不再并入 title：title 会写进板内挂牌的 h3，会撑破木板
+
+var it=arr(S.items||S.list||S.rows,3);
+var signs=document.querySelectorAll(".board > .sign");
+for(var i=0;i<signs.length;i++){var x=it[i];var sg=signs[i];if(!sg||!x)continue;
+  var wood=sg.querySelector(".wood");if(!wood)continue;
+  wood.className="wood"+(x.variant&&x.variant==="wood-paper"?" paper":"");
+  var num=wood.querySelector(".num");if(num)num.textContent=s(x.num||"");
+  var h3=wood.querySelector("h3");if(h3)h3.textContent=s(x.title||"");
+  var p=wood.querySelector("p");if(p)p.innerHTML=esc(x.note||"");
+}
+if(S.footer){var fEl=document.querySelector(".foot");if(fEl)fEl.innerHTML=esc(S.footer,fEl.innerHTML);}
+if(S.title){var signs2=document.querySelectorAll(".board > .sign > .wood h3");if(signs2[0])signs2[0].textContent=(S.title+' · ')+signs2[0].textContent;}
+if(S.body){var paras=[];if(Array.isArray(S.body)){paras=S.body.map(function(x){return String(x).trim();}).filter(Boolean);}else{paras=String(S.body).split(/\n\s*\n/).map(function(x){return x.trim();}).filter(Boolean);}var bb=document.createElement('div');bb.style.cssText='text-align:center;margin-top:14px;font-size:14px;color:#efe3c8;letter-spacing:.16em;font-family:"Ma Shan Zheng",cursive;line-height:1.7';bb.innerHTML=paras.map(function(t){return '<p style="margin:0 0 6px">'+String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</p>';}).join('');var board=document.querySelector('.board');var foot=document.querySelector('.foot');
+if(board&&board.parentNode){
+  // 正文放在木板之外，避免撑破固定尺寸的木板盒子
+  if(foot&&foot.parentNode===board.parentNode) board.parentNode.insertBefore(bb,foot);
+  else board.parentNode.insertBefore(bb,board.nextSibling);
+}}
+}catch(err){console.error("[card] render error:",err);} })();
+</script>
+</body>
+</html>

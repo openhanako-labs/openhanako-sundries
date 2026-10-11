@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>渐变暗色样张</title>
+<style>
+body{margin:0;background:#0B1026;color:#E8E9F5;font-family:'Segoe UI','Noto Sans SC',sans-serif}
+.c{max-width:600px;margin:0 auto;padding:56px 20px 28px;min-height:420px;background:linear-gradient(135deg,#0B1026 0%,#1E1440 55%,#33205F 100%);position:relative;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(56px);pointer-events:none}
+.o1{width:240px;height:240px;background:#5B3AC4;opacity:.5;top:-70px;right:-50px}
+.o2{width:200px;height:200px;background:#2B49C9;opacity:.4;bottom:-60px;left:-40px}
+.lb{position:relative;font-family:Consolas,monospace;font-size:11px;letter-spacing:.3em;color:#9D8CFF}
+.h{position:relative;font-size:clamp(38px,9vw,56px);font-weight:850;letter-spacing:.01em;margin:16px 0 8px;color:#fff}
+.sub{position:relative;font-size:14px;color:#B9B4DC;letter-spacing:.08em}
+.stops{position:relative;margin-top:30px;border:1px solid rgba(255,255,255,.16);border-radius:10px;overflow:hidden;background:rgba(11,16,38,.5);backdrop-filter:blur(8px)}
+.ramp{height:52px;background:linear-gradient(90deg,#0B1026,#1E1440,#33205F)}
+.stops .r{display:flex;justify-content:space-between;font-family:Consolas,monospace;font-size:11.5px;padding:9px 14px;color:#C9C4E8;border-top:1px solid rgba(255,255,255,.12)}
+.cr{position:relative;font-family:Consolas,monospace;font-size:10px;color:#7E78A8;text-align:center;margin-top:30px;letter-spacing:.14em}
+</style>
+</head>
+<body>
+<div class="c">
+  <div class="orb o1"></div><div class="orb o2"></div>
+  <div class="lb" data-role="note">THEME // GRADIENT-DARK</div>
+  <div class="h" data-role="title">渐变暗色</div>
+  <div class="sub" data-role="subtitle">深蓝紫渐变底 · 柔光悬浮</div>
+  <div class="stops">
+    <div class="ramp"></div>
+    <div class="r" data-idx="0"><span>stop 0</span><span>#0B1026</span></div>
+    <div class="r" data-idx="1"><span>stop 55%</span><span>#1E1440</span></div>
+    <div class="r" data-idx="2"><span>stop 100%</span><span>#33205F</span></div>
+  </div>
+  <div class="cr" data-role="caption">风格指令 · ppt-animation · 渐变暗色主题</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":600},"stateSchema":{"type":"object","properties":{"title":{"type":"string","description":"主标题"},"subtitle":{"type":"string","description":"副题"},"note":{"type":"string","description":"主题标签"},"items":{"type":"array","maxItems":6,"items":{"type":"object","properties":{"label":{"type":"string","description":"色标位"},"text":{"type":"string","description":"色值"}}},"description":"渐变色标"},"caption":{"type":"string","description":"底部标注"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "note": "深色不是黑，是有层次的暗。",
+  "title": "渐变暗色",
+  "subtitle": "GRADIENT SYSTEM · v2.4",
+  "items": [
+    {
+      "label": "stop 0",
+      "text": "#0B1026"
+    },
+    {
+      "label": "stop 55%",
+      "text": "#1E1440"
+    },
+    {
+      "label": "stop 100%",
+      "text": "#33205F"
+    }
+  ],
+  "caption": "PALETTE · 6 STOPS",
+  "body": "深色不是黑，是有层次的暗。"
+}
+</script>
+<script id="__card_render__">
+(function(){
+  function readState(){var d=null;try{var s=document.querySelector('script[data-card-state]');if(s)d=JSON.parse(s.textContent);}catch(e){}return d;}
+  function str(v,d){if(v===undefined||v===null)return d;if(typeof v==="string"){v=v.trim();return v===''?d:v;}return String(v);}
+  function arr(v,n){if(!Array.isArray(v))return [];var o=[];for(var i=0;i<v.length&&o.length<n;i++){var x=v[i];if(x&&typeof x==="object"&&!Array.isArray(x))o.push(x);}return o;}
+  function set(el,v,d){var t=str(v,d);if(el)el.textContent=t;}
+  var S=readState(); if(!S)return; try{
+    var DEFAULTS={title:'',body:''};
+    S=Object.assign({},DEFAULTS,S);
+    var bodyText='';
+    if(S.body){bodyText=(typeof S.body==='string')?S.body:String(S.body);}
+    set(document.querySelector('[data-role="note"]'),S.note,'');
+    set(document.querySelector('[data-role="title"]'),S.title||S.heading,'Title');
+    var subEl=document.querySelector('[data-role="subtitle"]');
+    if(subEl){subEl.textContent=(bodyText&&!S.subtitle)?bodyText:(S.subtitle||S.sub||'');}
+    var it=arr(S.items||S.list||S.rows,6);
+    var rows=document.querySelectorAll('.stops > .r[data-idx]');
+    for(var i=0;i<rows.length;i++){var x=it[i];if(!x)continue;var sp=rows[i].querySelectorAll('span');set(sp[0],x.label||x.name||x.tag,'');set(sp[1],x.text||x.body||x.content||x.value,'');}
+    var capEl=document.querySelector('[data-role="caption"]');
+    if(capEl){if(bodyText){capEl.textContent=bodyText;}else{set(capEl,S.caption,'');}}
+  }catch(err){console.error('[card] render error:',err);}
+})();
+</script>
+</body>
+</html>

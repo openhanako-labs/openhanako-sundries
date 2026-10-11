@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>简约白色样张</title>
+<style>
+body{margin:0;background:#FFFFFF;color:#1A1A1A;font-family:'Inter','Helvetica Neue','Noto Sans SC','Microsoft YaHei',sans-serif}
+.c{max-width:640px;margin:0 auto;padding:56px 28px 28px}
+.lb{font-size:11px;letter-spacing:.3em;color:#9AA0A6;font-weight:600}
+.h{font-size:clamp(36px,8vw,54px);font-weight:800;letter-spacing:-.02em;margin:14px 0 10px;line-height:1.06}
+.bar{display:flex;gap:6px;margin:18px 0 22px}
+.bar i{height:8px;border-radius:2px}
+.sub{font-size:15px;color:#5F6368;line-height:1.75;max-width:30em}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.pt{border-top:3px solid;padding-top:12px}
+.pt .n{font-size:1.7rem;font-weight:800;letter-spacing:-.02em}
+.pt .t{font-size:12px;color:#5F6368;margin-top:3px}
+.ft{display:flex;justify-content:space-between;margin-top:34px;padding-top:14px;border-top:1px solid #E8EAED;font-size:11px;color:#9AA0A6;letter-spacing:.1em}
+.cr{font-size:10px;color:#BDC1C6;text-align:center;margin-top:16px;letter-spacing:.1em}
+</style>
+</head>
+<body>
+<div class="c">
+  <div class="lb">THEME // CLEAN-WHITE</div>
+  <div id="__L01_title__" class="h">简约白色</div>
+  <div class="bar"><i style="width:64px;background:#1A73E8"></i><i style="width:34px;background:#34A853"></i><i style="width:20px;background:#FBBC04"></i><i style="width:12px;background:#EA4335"></i></div>
+  <div id="__L01_subtitle__" class="sub">白底、深色字、彩色只做点缀——四色小条是这张卡全部的颜料。</div>
+  <div class="cols">
+    <div class="pt" style="border-color:#1A73E8"><div class="n">92%</div><div class="t">留白占比</div></div>
+    <div class="pt" style="border-color:#34A853"><div class="n">4</div><div class="t">点缀色数</div></div>
+    <div class="pt" style="border-color:#FBBC04"><div class="n">0</div><div class="t">装饰图形</div></div>
+  </div>
+  <div class="ft"><span>PPT-ANIMATION · CLEAN-WHITE</span><span>P.01</span></div>
+  <div class="cr">风格指令 · ppt-animation · 简约白色主题</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":640},"stateSchema":{"type":"object","properties":{"title":{"type":"string","description":"主标题"},"subtitle":{"type":"string","description":"副题"},"items":{"type":"array","items":{"type":"object","properties":{"value":{"type":"string","description":"数值或百分比"},"label":{"type":"string","description":"标签说明"}}},"description":"3 列 KPI"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "title": "简约白色",
+  "subtitle": "留白不是空白，是呼吸。",
+  "items": [
+    {
+      "value": "92%",
+      "label": "留白占比"
+    },
+    {
+      "value": 4,
+      "label": "点缀色数"
+    },
+    {
+      "value": 0,
+      "label": "装饰图形"
+    }
+  ],
+  "body": "留白不是空白，是呼吸。"
+}
+</script>
+
+
+
+<script id="__card_render__">
+(function(){
+  function readState(){var d=null;try{var s=document.querySelector('script[data-card-state]');if(s)d=JSON.parse(s.textContent);}catch(e){}return d;
+  }
+  function s(v,d){if(v===undefined||v===null)return d;if(typeof v==="string"){v=v.trim();return v===''?d:v;}return String(v);}
+  function arr(v,n){if(!Array.isArray(v))return [];var o=[];for(var i=0;i<v.length&&o.length<n;i++){var x=v[i];if(x&&typeof x==="object"&&!Array.isArray(x))o.push(x);}return o;}
+  function e(v,d){var x=s(v,d);if(x===d)return d;return String(x).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+  var S=readState(); if(!S)return; try{
+    var DEFAULTS={title:'',body:''};
+    S=Object.assign({},DEFAULTS,S);if(S.body){if(S.title)S.title=S.title+'\n'+S.body;else S.title=S.body;}
+
+if(S.title){var tEl=document.querySelector("[id=__L01_title__]");if(tEl)tEl.textContent=s(S.title,tEl.textContent);}
+if(S.subtitle){var e2=document.querySelector("[id=__L01_subtitle__]");if(e2)e2.textContent=s(S.subtitle,e2.textContent);}
+var it=arr(S.items||S.list||S.rows,3);
+var pts=document.querySelectorAll(".cols > .pt");
+for(var i=0;i<3;i++){var p=pts[i];var x=it[i];if(!p||!x)continue;var n=p.querySelector(".n");var t=p.querySelector(".t");if(n)n.textContent=(typeof x.value==="number")?x.value:String(x.value);if(t)t.textContent=s(x.label||x.name||"");}
+}catch(err){console.error("[card] render error:",err);} })();
+</script>
+</body>
+</html>

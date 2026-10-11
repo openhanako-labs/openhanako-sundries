@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>发布会签名墙样张</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#0a0a0f;color:#fff;font-family:'Archivo','Inter','PingFang SC','Microsoft YaHei','Noto Sans SC',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  .w{max-width:600px;margin:0 auto;padding:48px 16px 24px}
+  .card{position:relative;background:#0a0a12;border:2px solid #2a2a3a;border-radius:6px;padding:20px 20px 18px;overflow:hidden;box-shadow:8px 8px 0 rgba(0,0,0,.5)}
+
+  /* 幕布底：竖褶 */
+  .curtain{position:absolute;inset:0;background:
+    repeating-linear-gradient(90deg,#0d0d18 0 3px,#181828 3px 6px,#0d0d18 6px 10px),
+    linear-gradient(180deg,#050510 0%,#0a0a18 50%,#050510 100%);opacity:.6;z-index:0}
+  /* 顶部射灯光锥 */
+  .light{position:absolute;top:0;left:50%;transform:translateX(-50%);width:520px;height:360px;pointer-events:none;z-index:1;
+    background:
+      radial-gradient(ellipse 60% 70% at 30% 0%,rgba(255,236,190,.55),transparent 60%),
+      radial-gradient(ellipse 60% 70% at 70% 0%,rgba(190,220,255,.5),transparent 60%),
+      radial-gradient(ellipse 100% 40% at 50% -10%,rgba(255,240,210,.7),transparent 70%);
+    filter:blur(4px)}
+
+  .content{position:relative;z-index:2}
+  .hdr{text-align:center;padding:6px 0 14px;border-bottom:1px solid rgba(255,255,255,.15)}
+  .hdr .en{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:6px;color:#e8c87a}
+  .hdr h1{margin:4px 0 2px;font-size:26px;font-weight:900;letter-spacing:3px;text-shadow:0 0 20px rgba(255,236,190,.35)}
+  .hdr .sub{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:3px;color:rgba(255,255,255,.55);margin-top:4px}
+
+  /* 签名墙网格 */
+  .grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:16px}
+  .logo{background:#f8f8f5;color:#0a0a0f;padding:10px 6px;border-radius:3px;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 0 rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.4);height:52px;font-family:'Archivo',sans-serif;font-weight:900;font-size:14px;letter-spacing:1px;position:relative;text-align:center;line-height:1.05}
+  .logo small{display:block;font-family:'IBM Plex Mono',monospace;font-size:7.5px;letter-spacing:1.5px;color:#666;font-weight:600;margin-top:2px}
+  .logo .star{color:#c9553b;font-family:'Playfair Display',Georgia,serif;font-size:16px;font-weight:900;line-height:1}
+  .logo.hi{background:linear-gradient(135deg,#fff,#ffeec8);box-shadow:0 0 18px rgba(255,220,120,.55),0 3px 0 rgba(0,0,0,.4)}
+  .logo.empty{background:transparent;border:1px dashed rgba(255,255,255,.25);color:rgba(255,255,255,.35);font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:400;letter-spacing:1.5px}
+
+  .foot{margin-top:16px;padding-top:12px;border-top:1px solid rgba(255,255,255,.15);display:flex;justify-content:space-between;align-items:center}
+  .foot .st{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.6)}
+  .foot .st b{color:#e8c87a;font-size:14px;font-weight:900;margin-right:3px}
+  .sign-btn{background:linear-gradient(180deg,#e8c87a,#c9a24a);color:#1a1a20;border:1px solid #ffe8b8;padding:8px 20px;border-radius:24px;font-family:inherit;font-size:11px;font-weight:800;letter-spacing:3px;cursor:pointer;box-shadow:0 3px 0 #7a5a20,0 8px 18px rgba(232,200,122,.25)}
+  .sign-btn:hover{filter:brightness(1.1)}
+  .sign-btn:active{transform:translateY(2px);box-shadow:0 1px 0 #7a5a20}
+
+  .cr{margin-top:14px;font-size:10px;letter-spacing:1.5px;color:#5a5a6a;font-family:'IBM Plex Mono',monospace;text-align:left}
+</style>
+</head>
+<body>
+<div class="w">
+  <div class="card">
+    <div class="curtain"></div>
+    <div class="light"></div>
+    <div class="content">
+      <div class="hdr">
+        <div class="en">SIGN · WALL · KEYNOTE 2026</div>
+        <h1>联盟集结 · 签名墙</h1>
+        <div class="sub">3-4 · CO-SIGN · 26 PARTNERS</div>
+      </div>
+      <div class="grid">
+        <div class="logo">NORTHS<small>NORTH · A</small></div>
+        <div class="logo hi"><span class="star">★</span><small>SIGNER · 01</small></div>
+        <div class="logo">ORBIT<small>ORBIT · B</small></div>
+        <div class="logo">FLUX<small>FLUX · C</small></div>
+        <div class="logo">ATLAS<small>ATLAS · D</small></div>
+        <div class="logo">HELIX<small>HELIX · E</small></div>
+        <div class="logo">NOVA<small>NOVA · F</small></div>
+        <div class="logo hi"><span class="star">★</span><small>SIGNER · 02</small></div>
+        <div class="logo">PRISM<small>PRISM · G</small></div>
+        <div class="logo">QUILL<small>QUILL · H</small></div>
+        <div class="logo empty">+ 空位</div>
+        <div class="logo empty">+ 空位</div>
+        <div class="logo empty">+ 空位</div>
+        <div class="logo empty">+ 空位</div>
+        <div class="logo empty">+ 空位</div>
+        <div class="logo empty">+ 空位</div>
+      </div>
+      <div class="foot">
+        <div class="st"><b>11</b>已签 · <b>05</b>待签 · <b>26</b>目标</div>
+        <button class="sign-btn" type="button" data-action="sign">签 上 名 →</button>
+      </div>
+    </div>
+  </div>
+  <div class="cr">风格指令 · video-shot-demos · 发布会签名墙（风格卡 3-4）</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":600},"stateSchema":{"type":"object","properties":{"title":{"type":"string","description":"签名墙标题"},"subtitle":{"type":"string","description":"副题"},"logos":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string","description":"联盟名"},"sub":{"type":"string","description":"副标"},"hi":{"type":"string","description":"true 表示闪光签名"},"empty":{"type":"string","description":"空位占位文字"}}},"description":"签名墙（固定 17 格）"},"stats":{"type":"array","items":{"type":"object","properties":{"value":{"type":"string","description":"数字"},"name":{"type":"string","description":"标签"}}},"description":"页脚统计"},"btn":{"type":"string","description":"按钮"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "title": "联盟集结 · 签名墙",
+  "subtitle": "CO-SIGN · 26 PARTNERS",
+  "logos": [
+    {
+      "name": "NORTHS",
+      "sub": "NORTH · A"
+    },
+    {
+      "hi": true,
+      "sub": "CO-SIGN · 26 PARTNERS"
+    },
+    {
+      "name": "ORBIT",
+      "sub": "ORBIT · B"
+    },
+    {
+      "name": "FLUX",
+      "sub": "FLUX · C"
+    },
+    {
+      "name": "ATLAS",
+      "sub": "ATLAS · D"
+    },
+    {
+      "name": "HELIX",
+      "sub": "HELIX · E"
+    },
+    {
+      "name": "NOVA",
+      "sub": "NOVA · F"
+    },
+    {
+      "hi": true,
+      "sub": "CO-SIGN · 26 PARTNERS"
+    },
+    {
+      "name": "PRISM",
+      "sub": "PRISM · G"
+    },
+    {
+      "name": "QUILL",
+      "sub": "QUILL · H"
+    },
+    {
+      "empty": "+ 空位"
+    },
+    {
+      "empty": "+ 空位"
+    },
+    {
+      "empty": "+ 空位"
+    },
+    {
+      "empty": "+ 空位"
+    },
+    {
+      "empty": "+ 空位"
+    },
+    {
+      "empty": "+ 空位"
+    },
+    {
+      "empty": "+ 空位"
+    }
+  ],
+  "stats": [
+    {
+      "value": "11",
+      "name": "已签"
+    },
+    {
+      "value": "05",
+      "name": "待签"
+    },
+    {
+      "value": "26",
+      "name": "目标"
+    }
+  ],
+  "btn": "签 上 名 →",
+  "body": "CO-SIGN · 26 PARTNERS"
+}
+</script>
+<script id="__card_render__">
+(function(){
+  function readState(){var d=null;try{var s=document.querySelector('script[data-card-state]');if(s)d=JSON.parse(s.textContent);}catch(e){}return d;
+  }
+  function s(v,d){if(v===undefined||v===null)return d;if(typeof v==="string"){v=v.trim();return v===''?d:v;}return String(v);}
+  function arr(v,n){if(!Array.isArray(v))return [];var o=[];for(var i=0;i<v.length&&o.length<n;i++){var x=v[i];if(x&&typeof x==="object"&&!Array.isArray(x))o.push(x);}return o;}
+  function e(v,d){var x=s(v,d);if(x===d)return d;return String(x).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+  var S=readState(); if(!S)return; try{
+    var DEFAULTS={title:'',body:''};
+    S=Object.assign({},DEFAULTS,S);if(S.body){if(S.title)S.title=S.title+'\n'+S.body;else S.title=S.body;}
+
+if(S.title){var e1=document.querySelector(".hdr h1");if(e1)e1.textContent=s(S.title,e1.textContent);}
+if(S.subtitle){var e2=document.querySelector(".hdr .sub");if(e2)e2.textContent=s(S.subtitle,e2.textContent);}
+var logos=arr(S.logos||S.items||[],17);
+var logoEls=document.querySelectorAll(".grid > .logo");
+for(var i=0;i<logoEls.length;i++){var x=logos[i];if(!x)continue;var le=logoEls[i];le.className="logo"+(x.hi?" hi":"")+(x.empty?" empty":"");var innerHTML="";if(x.hi)innerHTML="<span class=\"star\">★</span>";if(x.name)innerHTML+=e(x.name);if(x.sub)innerHTML+="<small>"+e(x.sub)+"</small>";if(x.empty)innerHTML=e(x.empty);le.innerHTML=innerHTML;}
+var st=arr(S.stats||[],3);
+var stEls=document.querySelectorAll(".foot .st b");
+for(var si=0;si<stEls.length;si++){var x=st[si];if(!x)continue;stEls[si].textContent=s(x.value||"");}
+if(S.btn){var e3=document.querySelector(".sign-btn");if(e3)e3.textContent=s(S.btn,e3.textContent);}
+}catch(err){console.error("[card] render error:",err);} })();
+</script>
+</body>
+</html>

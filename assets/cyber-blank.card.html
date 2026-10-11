@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>黑底霓虹样张</title>
+<style>
+body{margin:0;background:#050510;color:#D8D8F0;font-family:Consolas,'Courier New',monospace}
+.c{max-width:600px;margin:0 auto;padding:52px 18px 26px;position:relative;overflow:hidden}
+.grid{position:absolute;left:0;right:0;bottom:0;height:130px;background-image:repeating-linear-gradient(0deg,rgba(0,240,255,.16) 0 1px,transparent 1px 26px),repeating-linear-gradient(90deg,rgba(255,43,214,.12) 0 1px,transparent 1px 34px);transform:perspective(240px) rotateX(48deg);transform-origin:bottom;pointer-events:none}
+.lb{position:relative;font-size:11px;letter-spacing:.34em;color:#00F0FF;text-shadow:0 0 10px rgba(0,240,255,.9)}
+.h{position:relative;font-size:clamp(36px,8vw,52px);font-weight:800;margin:14px 0 6px;color:#fff;text-shadow:0 0 12px #00F0FF,0 0 34px rgba(0,240,255,.6),4px 4px 0 #FF2BD6}
+.sub{position:relative;font-size:13px;color:#FF2BD6;text-shadow:0 0 12px rgba(255,43,214,.85);letter-spacing:.12em}
+.neon{position:relative;display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.n{font-size:11.5px;padding:8px 13px;border:1px solid;border-radius:3px;background:rgba(0,0,0,.4)}
+.n1{color:#00F0FF;border-color:#00F0FF;box-shadow:0 0 10px rgba(0,240,255,.55),inset 0 0 8px rgba(0,240,255,.15)}
+.n2{color:#FF2BD6;border-color:#FF2BD6;box-shadow:0 0 10px rgba(255,43,214,.55),inset 0 0 8px rgba(255,43,214,.15)}
+.n3{color:#B6FF00;border-color:#B6FF00;box-shadow:0 0 10px rgba(182,255,0,.45),inset 0 0 8px rgba(182,255,0,.12)}
+.scan{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.03) 3px 4px)}
+.cr{position:relative;font-size:10px;color:#5A5A8A;text-align:center;margin-top:56px;letter-spacing:.14em}
+</style>
+</head>
+<body>
+<div class="c">
+  <div class="grid"></div><div class="scan"></div>
+  <div class="lb">STYLE // CYBER</div>
+  <div class="h" id="title"></div>
+  <div class="sub" id="subtitle"></div>
+  <div id="cbod" style="position:relative;display:none;font-size:13px;line-height:1.7;color:#D8D8F0;margin-top:12px;text-shadow:0 0 8px rgba(0,240,255,.35)"></div>
+  <div class="neon">
+    <span class="n n1">CYAN #00F0FF</span>
+    <span class="n n2">MAGENTA #FF2BD6</span>
+    <span class="n n3">ACID #B6FF00</span>
+  </div>
+  <div class="cr">风格指令 · design-media · SVG 风格表 cyber</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":600},"stateSchema":{"type":"object","properties":{"title":{"type":"string","description":"色卡主标题"},"subtitle":{"type":"string","description":"一句话风格说明"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "title": "黑底霓虹",
+  "subtitle": "NEON PROTOCOL · LAYER 03",
+  "body": "NEON PROTOCOL · LAYER 03"
+}
+</script>
+<script>
+(function(){
+var D={title:'Sample Title',subtitle:'Sample subtitle'};
+function str(v){if(v==null)return'';if(typeof v==='string')return v;if(typeof v==='number'||typeof v==='boolean')return String(v);if(Array.isArray(v))return v.map(str).filter(Boolean).join(' ');return'';}
+function pick(o){if(!o||typeof o!=='object'||Array.isArray(o))return null;var a=arguments;for(var i=1;i<a.length;i++){var k=a[i];if(Object.prototype.hasOwnProperty.call(o,k)&&str(o[k])!=='')return o[k];}return null;}
+function put(id,v){var el=document.getElementById(id);if(el)el.textContent=str(v);}
+function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+var sEl=document.querySelector('script[data-card-state]');
+var S=Object.assign({},D);
+if(sEl){try{var u=JSON.parse(sEl.textContent);if(u&&typeof u==='object'&&!Array.isArray(u))for(var k in u)S[k]=u[k];}catch(e){}}
+put('title',pick(S,'title','heading'));
+put('subtitle',pick(S,'subtitle','desc'));
+var paras=(function(b){if(Array.isArray(b))return b.map(String).filter(Boolean);if(typeof b==='string')return b.split(/\n\s*\n/).map(function(t){return t.trim();}).filter(Boolean);return [];})(S.body);
+var bb=document.getElementById('cbod');
+if(bb){if(paras.length){bb.innerHTML=paras.map(function(t){return '<p style="margin:0 0 .4em">'+esc(t)+'</p>';}).join('');bb.style.display='';}else{bb.style.display='none';bb.innerHTML='';}}
+})();
+</script>
+</body>
+</html>

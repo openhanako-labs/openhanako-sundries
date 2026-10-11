@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>手账拼贴日历样张</title>
+<style>
+body{margin:0;background:#f2ead4;color:#3a2a1c;font-family:'ZCOOL KuaiLe','Yuanti SC','YouYuan','Microsoft YaHei',cursive}
+.w{max-width:580px;margin:0 auto;padding:52px 18px 28px}
+.head{position:relative;margin-bottom:16px}
+.title{font-family:'ZCOOL KuaiLe','Yuanti SC',cursive;font-size:42px;color:#3a2a1c;line-height:1;letter-spacing:.04em;position:relative;z-index:2;display:inline-block;transform:rotate(-1.5deg)}
+.title .accent{color:#d8613a}
+.en{font-family:'Courier New',monospace;font-size:11px;letter-spacing:.24em;color:#7a6650;margin-top:6px}
+.tape{position:absolute;background:rgba(255,214,140,.6);border:1px solid rgba(120,80,20,.14);height:26px;box-shadow:0 2px 6px rgba(0,0,0,.08);z-index:3}
+.tape.t1{top:-14px;left:-20px;width:120px;transform:rotate(-8deg);background:repeating-linear-gradient(45deg,#ffd2a0 0 8px,#ffb980 8px 16px)}
+.tape.t2{top:8px;right:60px;width:96px;transform:rotate(4deg);background:repeating-linear-gradient(90deg,#c7e4b8 0 6px,#a8d49a 6px 12px)}
+.tape.t3{bottom:2px;left:180px;width:100px;transform:rotate(-3deg);background:repeating-linear-gradient(45deg,#a8c4e8 0 6px,#8ab0de 6px 12px)}
+.cal{background:#fffaeb;border:2px dashed #d6c6a3;border-radius:8px;padding:16px 18px 20px;box-shadow:6px 6px 0 rgba(58,42,28,.1)}
+.row{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:10px}
+.row:last-child{margin-bottom:0}
+.cell{position:relative;background:#fff;border-radius:6px;padding:12px 10px 10px;min-height:74px;box-shadow:0 3px 0 rgba(58,42,28,.08);text-align:center}
+.cell b{display:block;font-family:'ZCOOL KuaiLe',cursive;font-size:22px;color:#3a2a1c;line-height:1}
+.cell .lb{display:block;font-size:11px;margin-top:4px;line-height:1.35;color:#5a4632}
+.cell.hl{background:#fff4d8;transform:rotate(-2deg)}
+.cell.hl b{color:#d8613a}
+.cell.tape{overflow:hidden}
+.cell.tape::before{content:"";position:absolute;top:0;left:-8px;right:-8px;height:12px;background:repeating-linear-gradient(45deg,rgba(200,140,90,.35),rgba(200,140,90,.35) 4px,rgba(220,180,140,.35) 4px,rgba(220,180,140,.35) 8px);transform:rotate(-3deg)}
+.foot{margin-top:14px;font-size:11px;color:#7a6650;text-align:center;letter-spacing:.06em}
+.foot svg{vertical-align:-3px;margin-right:6px}
+.cr{text-align:center;font-size:10px;color:#8a7760;margin-top:12px;letter-spacing:.1em}
+</style>
+</head>
+<body>
+<div class="w">
+<div class="head">
+<span class="tape t1"></span>
+<span class="tape t2"></span>
+<span class="title"><span id="titleMain"></span><span class="accent" id="titleAccent"></span></span>
+<div class="en" id="dateRange"></div>
+<span class="tape t3"></span>
+</div>
+<div class="cal" id="cal"></div>
+<div class="foot"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#d8613a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg><span id="foot"></span></div>
+<div class="cr">风格指令 · video-shot-demos · 手账拼贴日历（风格卡 0-3）</div>
+</div>
+<script type="application/json" data-card-manifest>{"spec":"1.0","display":{"preferredWidthPx":580},"stateSchema":{"type":"object","properties":{"title":{"type":"string","description":"标题左段"},"accent":{"type":"string","description":"标题右侧高亮段"},"dateRange":{"type":"string"},"cells":{"type":"array","items":{"type":"object","properties":{"day":{"type":"string","description":"粗体日标，如「一」/「＋1」"},"label":{"type":"string","description":"标签"},"flag":{"type":"string","description":"视觉修饰 hl/tape"}}},"description":"日历格，10 格（2 行 × 5）"},"note":{"type":"string"},"body":{"description":"正文（必填）。字符串用 \\n\\n 分段，或传字符串数组","oneOf":[{"type":"string"},{"type":"array","items":{"type":"string"}}]}},"required":["title","body"]}}</script>
+<script type="application/json" data-card-state>
+{
+  "title": "本周",
+  "accent": "要事",
+  "dateRange": "OCTOBER 2026",
+  "cells": [
+    {
+      "day": "一",
+      "label": "开工",
+      "flag": "tape"
+    },
+    {
+      "day": "二",
+      "label": "审稿"
+    },
+    {
+      "day": "三",
+      "label": "交稿!",
+      "flag": "hl"
+    },
+    {
+      "day": "四",
+      "label": "复盘"
+    },
+    {
+      "day": "五",
+      "label": "收尾",
+      "flag": "tape"
+    },
+    {
+      "day": "六",
+      "label": "休息"
+    },
+    {
+      "day": "日",
+      "label": "陪跑",
+      "flag": "tape"
+    },
+    {
+      "day": "＋1",
+      "label": "缓冲"
+    },
+    {
+      "day": "＋2",
+      "label": "备份",
+      "flag": "hl"
+    },
+    {
+      "day": "＋3",
+      "label": "空白"
+    }
+  ],
+  "note": "周末别忘了交作业",
+  "body": "周末别忘了交作业"
+}
+</script>
+<script>
+(function(){
+  var DEFAULTS={title:'本周',accent:'要事',dateRange:'WEEKLY',cells:[{day:'一',label:'开工'}],note:'提示'};
+  function str(v){
+    if(v==null) return '';
+    if(typeof v==='string') return v;
+    if(typeof v==='number'||typeof v==='boolean') return String(v);
+    if(Array.isArray(v)) return v.map(str).filter(Boolean).join(' ');
+    return '';
+  }
+  function put(id, v, allowHtml){
+    var el=document.getElementById(id);
+    if(!el) return;
+    var s=str(v);
+    if(!allowHtml || !/<[a-z]/i.test(s)) el.textContent=s;
+    else el.innerHTML=s;
+  }
+  function items(v, max){
+    if(!Array.isArray(v)) return [];
+    var a=[];
+    var cap=max||6;
+    for(var i=0;i<v.length && i<cap;i++){
+      var x=v[i];
+      if(x==null) continue;
+      var o={};
+      if(typeof x==='object' && !Array.isArray(x)){
+        o.day=str(x.day!=null?x.day:(x.label!=null?x.label:(x.text!=null?x.text:'')));
+        o.label=str(x.label!=null?x.label:(x.caption!=null?x.caption:(x.note!=null?x.note:'')));
+        o.flag=str(x.flag||'');
+      } else continue;
+      if(o.day!=='') a.push(o);
+    }
+    return a;
+  }
+  var sEl=document.querySelector('script[data-card-state]');
+  var S=Object.assign({}, DEFAULTS);
+  if(sEl){
+    try{
+      var u=JSON.parse(sEl.textContent);
+      if(u && typeof u==='object' && !Array.isArray(u)){
+        for(var k in u) S[k]=u[k];
+      }
+    }catch(e){}
+  }
+  put('titleMain', S.title);
+  put('titleAccent', S.accent);
+  put('dateRange', S.dateRange);
+  var calEl=document.getElementById('cal');
+  if(calEl){
+    var cells=items(S.cells, 10);
+    var html='';
+    // 5 per row, up to 2 rows
+    for(var r=0;r<2;r++){
+      var rowItems=cells.slice(r*5, r*5+5);
+      if(rowItems.length===0) break;
+      html+='<div class="row">';
+      for(var i=0;i<rowItems.length;i++){
+        var c=rowItems[i];
+        var cls='cell';
+        if(c.flag==='hl') cls+=' hl';
+        else if(c.flag==='tape') cls+=' tape';
+        html+='<div class="'+cls+'"><b>'+c.day+'</b><span class="lb">'+(c.label||'')+'</span></div>';
+      }
+      html+='</div>';
+    }
+    calEl.innerHTML=html;
+  }
+  put('foot', S.body||S.note);
+})();
+</script>
+</body>
+</html>
